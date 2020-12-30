@@ -1,8 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Deployment
+## Develop
 
-``` sh
+```sh
+npm start
+```
+
+Live reload on save is enabled: http://localhost:3000/music
+
+## Deploy
+
+```sh
 npm run deploy
 ```
 
