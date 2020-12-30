@@ -8,6 +8,12 @@ npm start
 
 Live reload on save is enabled: http://localhost:3000/music
 
+## Test
+
+```sh
+npm test
+```
+
 ## Deploy
 
 ```sh
