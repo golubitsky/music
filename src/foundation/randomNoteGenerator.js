@@ -5,7 +5,9 @@
 // [Key]
 
 const WHITE_KEYS = ["A", "B", "C", "D", "E", "F", "G"];
-const BLACK_KEYS = ["C#", "Db", "D#", "Eb", "F#", "G#", "Ab", "A#", "Bb"];
+const FLATS = ["Bb", "Eb", "Ab", "Db", "Gb"];
+const SHARPS = ["C#", "D#", "F#", "G#", "A#"];
+const BLACK_KEYS = FLATS.concat(SHARPS);
 
 function shuffle(array) {
   // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array?rq=1

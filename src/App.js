@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className="grid">
         {randomNotes().map((note, index) => (
-          <div class="cell" key={index}>
+          <div className="cell" key={index}>
             <p>{note}</p>
           </div>
         ))}
