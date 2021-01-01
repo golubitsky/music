@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-import { cards } from "./flashCards.js";
+import { cards, randomCard } from "./flashCards.js";
 
 describe("cards", () => {
   test("cards have a front and back sides", () => {
@@ -27,5 +27,16 @@ describe("cards", () => {
       },
     ];
     expect(allCards).toEqual(expect.arrayContaining(expectedMatchingCard));
+  });
+});
+
+describe("randomCard", () => {
+  test("returns a random card", () => {
+    expect(randomCard()).toEqual(
+      expect.objectContaining({
+        front: expect.any(String),
+        back: expect.any(String),
+      })
+    );
   });
 });

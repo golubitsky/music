@@ -28,6 +28,7 @@ App is live at https://golubitsky.github.io/music/
 
 - [ ] Flashcards for polychord fractions.
 - [ ] Flashcards for chord -> mode.
+- [ ] Notes: either flats or sharps. 12 notes altogether.
 
 ### Technical
 

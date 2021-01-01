@@ -1,6 +1,5 @@
-const _ = require("lodash");
-
 import flashCards from "./flashCards/polychordFractions.json";
+const _ = require("lodash");
 
 function cards() {
   return _.entries(flashCards).flatMap(function (cardValues) {
@@ -17,4 +16,8 @@ function cards() {
   });
 }
 
-export { cards };
+function randomCard() {
+  return _.sample(cards())
+}
+
+export { cards, randomCard };

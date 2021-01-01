@@ -25,7 +25,7 @@ export class NotesInRandomOrder extends React.Component {
         >
           {this.state.notes.map((note, index) => (
             <div className="cell" key={index}>
-              <p>{note}</p>
+              {note}
             </div>
           ))}
         </div>

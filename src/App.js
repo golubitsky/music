@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 
 import "./App.css";
 import { NotesInRandomOrder } from "./screens/NotesInRandomOrder.js";
+import { FlashCards } from "./screens/FlashCards.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,22 +16,29 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.currentScreen);
     return (
-      <div className="App">
-        <NotesInRandomOrder isHidden={this.state.currentScreen !== "Notes"} />
-        <div className="Footer">
-          {this.state.screenNames.map((nameOfScreen, index) => (
-            <Button
-              variant="dark"
-              onClick={() => {
-                this.setState({ currentScreen: nameOfScreen });
-              }}
-              key={index}
-            >
-              {nameOfScreen}
-            </Button>
-          ))}
-        </div>
+      <div className="wrapper">
+        <header className="page-header">Music</header>
+        <main className="page-main">
+          <NotesInRandomOrder isHidden={this.state.currentScreen !== "Notes"} />
+          <FlashCards isHidden={this.state.currentScreen !== "Flash Cards"} />
+        </main>
+        <footer className="page-footer">
+          <div className="Footer">
+            {this.state.screenNames.map((nameOfScreen, index) => (
+              <Button
+                variant="dark"
+                onClick={() => {
+                  this.setState({ currentScreen: nameOfScreen });
+                }}
+                key={index}
+              >
+                {nameOfScreen}
+              </Button>
+            ))}
+          </div>
+        </footer>
       </div>
     );
   }
