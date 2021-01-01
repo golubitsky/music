@@ -26,6 +26,9 @@ App is live at https://golubitsky.github.io/music/
 
 ### Features
 
+- [] Flashcards for polychord fractions.
+- [] Flashcards for chord -> mode.
+
 ### Technical
 
 - [x] I wouldn’t write anything serious in JavaScript without https://lodash.com/, which includes such niceties as _.shuffle, _.sum, and \_.cloneDeep. Alternative libraries such as https://ramdajs.com/ can serve this purpose too.
