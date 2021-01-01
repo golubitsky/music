@@ -26,8 +26,8 @@ App is live at https://golubitsky.github.io/music/
 
 ### Features
 
-- [] Flashcards for polychord fractions.
-- [] Flashcards for chord -> mode.
+- [ ] Flashcards for polychord fractions.
+- [ ] Flashcards for chord -> mode.
 
 ### Technical
 
