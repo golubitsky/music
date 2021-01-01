@@ -5,10 +5,16 @@ import { randomNotes } from "../foundation/randomNoteGenerator.js";
 export class NotesInRandomOrder extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { notes: randomNotes() };
+    this.state = {
+      notes: randomNotes(),
+    };
   }
 
   render() {
+    if (this.props.isHidden) {
+      return null;
+    }
+
     return (
       <div className="NotesInRandomOrder">
         <div
