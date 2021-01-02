@@ -38,3 +38,4 @@ App is live at https://golubitsky.github.io/music/
 - [ ] CSS: how to use CSS Grid (like 4 columns by 3 rows) to fill parent container horizontally and vertically?
 - [ ] CSS: how to set font-size based on parent container size?
 - [ ] Move shuffle logic out of UI
+- [ ] Unskip interval tests.
