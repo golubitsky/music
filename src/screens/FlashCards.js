@@ -3,7 +3,9 @@ import Button from "react-bootstrap/Button";
 import { randomCard } from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
-const CARD_COLORS = {
+const _ = require("lodash");
+
+const CARD_COLORS_BY_SIDE = {
   front: "blue",
   back: "green",
 };
@@ -11,19 +13,23 @@ const CARD_COLORS = {
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.randomCardForDisplay("front");
-  }
-
-  randomCardForDisplay(side) {
-    let card = randomCard();
-    return {
-      card: card,
-      side: side,
+    this.state = {
+      card: randomCard(),
+      side: "front",
     };
   }
 
-  cardColor() {
-    return CARD_COLORS[this.state.side];
+  randomCardForDisplay(side) {
+    while (true) {
+      let card = randomCard();
+
+      if (!_.isEqual(card, this.state.card)) {
+        return {
+          card: card,
+          side: side,
+        };
+      }
+    }
   }
 
   flipCard() {
@@ -40,7 +46,7 @@ export class FlashCards extends React.Component {
     return (
       <div>
         <div className="buttons">
-          {["front", "back"].map((side, index) => (
+          {Object.keys(CARD_COLORS_BY_SIDE).map((side, index) => (
             <Button
               variant="dark"
               onClick={() => {
@@ -56,7 +62,7 @@ export class FlashCards extends React.Component {
           className="card"
           onClick={() => this.flipCard()}
           style={{
-            backgroundColor: this.cardColor(),
+            backgroundColor: CARD_COLORS_BY_SIDE[this.state.side],
           }}
         >
           {this.state.card[this.state.side]}
