@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { randomCard } from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
-const _ = require("lodash");
 
 const CARD_COLORS_BY_SIDE = {
   front: "blue",
