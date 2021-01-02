@@ -1,7 +1,6 @@
 import React from "react";
 import "./NotesInRandomOrder.css";
 import { randomNotes } from "../foundation/randomNoteGenerator.js";
-const _ = require("lodash");
 
 export class NotesInRandomOrder extends React.Component {
   constructor(props) {
