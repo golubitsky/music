@@ -3,35 +3,32 @@ import Button from "react-bootstrap/Button";
 import { randomCard } from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
-const CARD_COLORS = ["blue", "green"];
+const CARD_COLORS = {
+  front: "blue",
+  back: "green",
+};
 
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.randomCardForDisplay();
+    this.state = this.randomCardForDisplay("front");
   }
 
-  randomCardForDisplay() {
+  randomCardForDisplay(side) {
     let card = randomCard();
     return {
       card: card,
-      displayedSide: card.front,
-      cardColor: CARD_COLORS[0],
+      side: side,
     };
   }
 
   cardColor() {
-    return CARD_COLORS.find((color) => color !== this.state.cardColor);
+    return CARD_COLORS[this.state.side];
   }
+
   flipCard() {
-    const c = this.state.card;
-    const d = this.state.displayedSide;
-
-    const sideToDisplay = d === c.front ? c.back : c.front;
-
     this.setState({
-      displayedSide: sideToDisplay,
-      cardColor: this.cardColor(),
+      side: this.state.side === "front" ? "back" : "front",
     });
   }
 
@@ -42,22 +39,27 @@ export class FlashCards extends React.Component {
 
     return (
       <div>
-        <Button
-          variant="dark"
-          onClick={() => {
-            this.setState(this.randomCardForDisplay());
-          }}
-        >
-          Next Card
-        </Button>
+        <div className="buttons">
+          {["front", "back"].map((side, index) => (
+            <Button
+              variant="dark"
+              onClick={() => {
+                this.setState(this.randomCardForDisplay(side));
+              }}
+              key={index}
+            >
+              {side.toUpperCase()}
+            </Button>
+          ))}
+        </div>
         <div
           className="card"
           onClick={() => this.flipCard()}
           style={{
-            backgroundColor: this.state.cardColor,
+            backgroundColor: this.cardColor(),
           }}
         >
-          {this.state.displayedSide}
+          {this.state.card[this.state.side]}
         </div>
       </div>
     );

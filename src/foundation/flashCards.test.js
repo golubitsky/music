@@ -13,21 +13,6 @@ describe("cards", () => {
       })
     );
   });
-
-  test("all front/back duplicated as back/front, for simpler UI code", () => {
-    // Might re-think this later. Might make more sense to:
-    // Another function to have the notion of 'flipping' cards.
-    let allCards = cards();
-    let card = _.sample(allCards);
-
-    let expectedMatchingCard = [
-      {
-        front: card.back,
-        back: card.front,
-      },
-    ];
-    expect(allCards).toEqual(expect.arrayContaining(expectedMatchingCard));
-  });
 });
 
 describe("randomCard", () => {
