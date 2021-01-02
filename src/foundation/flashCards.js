@@ -10,8 +10,16 @@ function cards() {
   });
 }
 
-function randomCard() {
-  return _.sample(cards());
+function randomCard(previousCard) {
+  let allCards = cards();
+
+  while (true) {
+    let card = _.sample(allCards);
+
+    if (!_.isEqual(card, previousCard)) {
+      return card;
+    }
+  }
 }
 
 export { cards, randomCard };

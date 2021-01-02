@@ -37,5 +37,5 @@ App is live at https://golubitsky.github.io/music/
 - [x] For your prototype, CSS Grid looks more appropriate than Flexbox. It has been safe to use in production for at least a year: https://caniuse.com/css-grid It has more properties to keep track of than Flexbox, but https://grid.layoutit.com/ makes them trivial to keep straight. After you learn what terms like “gap” and fr mean, I think there’s no need to hand-write the CSS for your grids; that tool can do it more easily.
 - [ ] CSS: how to use CSS Grid (like 4 columns by 3 rows) to fill parent container horizontally and vertically?
 - [ ] CSS: how to set font-size based on parent container size?
-- [ ] Move shuffle logic out of UI
+- [x] Move shuffle logic out of UI
 - [ ] Unskip interval tests.

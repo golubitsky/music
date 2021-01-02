@@ -24,4 +24,12 @@ describe("randomCard", () => {
       })
     );
   });
+
+  test("ensure card is different", () => {
+    [1, 2, 3].forEach(function (i) {
+      let firstCard = randomCard();
+      let secondCard = randomCard(firstCard);
+      expect(firstCard).not.toEqual(secondCard);
+    });
+  });
 });

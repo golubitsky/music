@@ -14,22 +14,16 @@ export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      card: randomCard(),
-      side: "front",
+      card: null,
     };
+    this.state = this.randomCardForDisplay("front");
   }
 
   randomCardForDisplay(side) {
-    while (true) {
-      let card = randomCard();
-
-      if (!_.isEqual(card, this.state.card)) {
-        return {
-          card: card,
-          side: side,
-        };
-      }
-    }
+    return {
+      card: randomCard(this.state.card),
+      side: side,
+    };
   }
 
   flipCard() {
