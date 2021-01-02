@@ -30,9 +30,6 @@ export class FlashCards extends React.Component {
 
     return (
       <div>
-        <div className="card" onClick={() => this.flipCard()}>
-          {this.state.displayedSide}
-        </div>
         <Button
           variant="dark"
           onClick={() => {
@@ -41,6 +38,9 @@ export class FlashCards extends React.Component {
         >
           Next Card
         </Button>
+        <div className="card" onClick={() => this.flipCard()}>
+          {this.state.displayedSide}
+        </div>
       </div>
     );
   }
