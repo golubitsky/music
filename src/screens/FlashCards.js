@@ -1,13 +1,26 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 import { randomCard } from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      card: randomCard(),
-    };
+    this.state = this.randomCardForDisplay();
+  }
+
+  randomCardForDisplay() {
+    let card = randomCard();
+    return { card: card, displayedSide: card.front };
+  }
+
+  flipCard() {
+    let c = this.state.card;
+    let d = this.state.displayedSide;
+
+    const sideToDisplay = d === c.front ? c.back : c.front;
+
+    this.setState({ displayedSide: sideToDisplay });
   }
 
   render() {
@@ -16,14 +29,18 @@ export class FlashCards extends React.Component {
     }
 
     return (
-      <div className="card">
-        <div
+      <div>
+        <div className="card" onClick={() => this.flipCard()}>
+          {this.state.displayedSide}
+        </div>
+        <Button
+          variant="dark"
           onClick={() => {
-            console.log("hi");
+            this.setState(this.randomCardForDisplay());
           }}
         >
-          {this.state.card.front}
-        </div>
+          Next Card
+        </Button>
       </div>
     );
   }
