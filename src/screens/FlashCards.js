@@ -36,7 +36,7 @@ export class FlashCards extends React.Component {
     }
 
     return (
-      <div className={this.constructor.name}>
+      <div className="FlashCards">
         <div className="buttons">
           {Object.keys(CARD_COLORS_BY_SIDE).map((side, index) => (
             <Button

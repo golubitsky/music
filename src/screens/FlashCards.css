@@ -1,10 +1,15 @@
 .FlashCards {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   /* Fill parent */
   flex: 1;
+}
+
+.FlashCards > * {
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
 }
 
 .card {
