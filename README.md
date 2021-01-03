@@ -1,3 +1,5 @@
+![Build and Deploy](https://github.com/golubitsky/music/workflows/Build%20and%20Deploy/badge.svg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Develop
@@ -15,6 +17,8 @@ npm test
 ```
 
 ## Deploy
+
+This occurs automatically on push to `master`: https://github.com/golubitsky/music/actions
 
 ```sh
 npm run deploy

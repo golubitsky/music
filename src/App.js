@@ -19,7 +19,7 @@ class App extends React.Component {
     console.log(this.state.currentScreen);
     return (
       <div className="wrapper">
-        <header className="page-header">Music (test ci pipeline)</header>
+        <header className="page-header">Music</header>
         <main className="page-main">
           <NotesInRandomOrder isHidden={this.state.currentScreen !== "Notes"} />
           <FlashCards isHidden={this.state.currentScreen !== "Flash Cards"} />
