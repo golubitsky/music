@@ -1,4 +1,5 @@
 import React from "react";
+import { Textfit } from "react-textfit";
 import "./NotesInRandomOrder.css";
 import { randomNotes } from "../foundation/randomNoteGenerator.js";
 
@@ -24,9 +25,9 @@ export class NotesInRandomOrder extends React.Component {
           }}
         >
           {this.state.notes.map((note, index) => (
-            <div className="cell" key={index}>
+            <Textfit mode="single" className="cell" key={index}>
               {note}
-            </div>
+            </Textfit>
           ))}
         </div>
       </div>

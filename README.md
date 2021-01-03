@@ -39,3 +39,5 @@ App is live at https://golubitsky.github.io/music/
 - [ ] CSS: how to set font-size based on parent container size?
 - [x] Move shuffle logic out of UI
 - [ ] Unskip interval tests.
+- [ ] Autofit text on flashcards screen.
+- [x] Autofit text on random notes screen.
