@@ -15,9 +15,16 @@
 
 .page-header,
 .page-footer {
-  height: 5vh;
   justify-content: center;
   align-items: center;
+}
+
+.page-header {
+  height: 5vh;
+}
+
+.page-footer {
+  height: 10vh;
 }
 
 .page-main {
