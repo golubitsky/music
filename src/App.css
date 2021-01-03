@@ -4,26 +4,22 @@
   min-height: 100vh;
 }
 
-.page-header {
-  height: 5vh;
+.wrapper > * {
   display: flex;
+}
+
+.wrapper * {
+  color: rgb(236, 236, 245);
+  background-color: black;
+}
+
+.page-header,
+.page-footer {
+  height: 5vh;
   justify-content: center;
   align-items: center;
 }
 
 .page-main {
   flex-grow: 1;
-  display: flex;
-}
-
-.page-footer {
-  height: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.wrapper * {
-  color: rgb(236, 236, 245);
-  background-color: black;
 }
