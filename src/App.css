@@ -6,6 +6,9 @@
 
 .page-header {
   height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-main {
@@ -14,12 +17,13 @@
 }
 
 .page-footer {
-  height: 10vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper * {
-  padding: 10px;
-  text-align: center;
   color: rgb(236, 236, 245);
   background-color: black;
 }
