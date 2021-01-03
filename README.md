@@ -28,6 +28,8 @@ App is live at https://golubitsky.github.io/music/
 
 - [x] Flashcards for polychord fractions.
 - [ ] Flashcards for chord -> mode.
+- [ ] Flashcards for ascending intervals.
+- [ ] Flashcards for descending intervals.
 - [x] Notes: either flats or sharps. 12 notes altogether.
 - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
 - [ ] Random rhythms.
