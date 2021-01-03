@@ -1,4 +1,12 @@
-.card {
+.FlashCards {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Fill parent */
+  flex: 1;
+}
+
+.card {
   font-size: 10vw;
 }

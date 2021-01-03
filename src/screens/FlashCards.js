@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { randomCard } from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
-
 const CARD_COLORS_BY_SIDE = {
   front: "blue",
   back: "green",
@@ -37,7 +36,7 @@ export class FlashCards extends React.Component {
     }
 
     return (
-      <div>
+      <div className={this.constructor.name}>
         <div className="buttons">
           {Object.keys(CARD_COLORS_BY_SIDE).map((side, index) => (
             <Button
