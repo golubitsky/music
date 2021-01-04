@@ -1,9 +1,5 @@
-import {
-  randomNotes,
-  WHITE_KEYS,
-  SHARPS,
-  FLATS,
-} from "./randomNoteGenerator.js";
+import { randomNotes } from "./randomNoteGenerator.js";
+import { WHITE_KEYS, SHARPS, FLATS } from "./constants.js";
 
 describe("randomNotes", () => {
   test("12 notes are returned with sharps", () => {
@@ -19,7 +15,7 @@ describe("randomNotes", () => {
   });
 
   test("notes are shuffled", () => {
-    let actual = randomNotes('#');
+    let actual = randomNotes("#");
     let expected = WHITE_KEYS.concat(SHARPS).sort();
     expect(actual).not.toEqual(expected);
   });

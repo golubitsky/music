@@ -1,17 +1,12 @@
-import flashCards from "./flashCards/polychordFractions.json";
+import { cards as pcCards } from "./flashCards/polychordFractions.js";
 const _ = require("lodash");
 
 function cards() {
-  return _.entries(flashCards).map(function (cardValues) {
-    return {
-      front: cardValues[0],
-      back: cardValues[1],
-    };
-  });
+  return pcCards();
 }
 
 function randomCard(previousCard) {
-  let allCards = cards();
+  let allCards = pcCards();
 
   while (true) {
     let card = _.sample(allCards);

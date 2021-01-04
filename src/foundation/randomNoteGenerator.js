@@ -4,11 +4,9 @@
 // Number of chords suggested by 1, 2, 3 (...) notes within the system.
 // [Key]
 
-const _ = require("lodash");
+import { WHITE_KEYS, FLATS, SHARPS } from "./constants.js";
 
-const WHITE_KEYS = ["A", "B", "C", "D", "E", "F", "G"];
-const FLATS = ["Bb", "Eb", "Ab", "Db", "Gb"];
-const SHARPS = ["C#", "D#", "F#", "G#", "A#"];
+const _ = require("lodash");
 
 function randomNotes(accidental) {
   let black_keys;
@@ -22,4 +20,4 @@ function randomNotes(accidental) {
   return _.shuffle(WHITE_KEYS.concat(black_keys));
 }
 
-export { WHITE_KEYS, FLATS, SHARPS, randomNotes };
+export { randomNotes };
