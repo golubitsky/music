@@ -120,15 +120,15 @@ const NOTES_MAJOR_SEVENTH_ABOVE = {
 };
 
 function noteAbove(note, interval) {
-  if (interval == "P5") {
+  if (interval === "P5") {
     return NOTES_FIFTH_ABOVE[note];
-  } else if (interval == "M3") {
+  } else if (interval === "M3") {
     return NOTES_MAJOR_THIRD_ABOVE[note];
-  } else if (interval == "m3") {
+  } else if (interval === "m3") {
     return NOTES_MINOR_THIRD_ABOVE[note];
-  } else if (interval == "m7") {
+  } else if (interval === "m7") {
     return NOTES_MINOR_SEVENTH_ABOVE[note];
-  } else if (interval == "M7") {
+  } else if (interval === "M7") {
     return NOTES_MAJOR_SEVENTH_ABOVE[note];
   }
 }

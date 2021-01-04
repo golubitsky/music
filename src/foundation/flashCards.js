@@ -9,7 +9,7 @@ function cards(deck) {
     case "seventhsAndThirds":
       return thirdSeventhCards(deck[1]);
     default:
-      throw `not implemented for deck=${deck}`;
+      throw new Error(`not implemented for deck=${deck}`);
   }
 }
 

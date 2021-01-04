@@ -1,8 +1,6 @@
 import { noteAbove } from "../intervals.js";
 import { WHITE_KEYS, SHARPS, FLATS } from "../constants.js";
 
-const _ = require("lodash");
-
 function thirdsAndSevenths(intervals) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
@@ -30,7 +28,7 @@ function cards(typeOfChord) {
       intervals = ["m3", "m7"];
       break;
     default:
-      throw `not implemented for typeOfChord=${typeOfChord}`;
+      throw new Error(`not implemented for typeOfChord=${typeOfChord}`);
   }
 
   return thirdsAndSevenths(intervals);
