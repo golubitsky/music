@@ -34,6 +34,8 @@ App is live at https://golubitsky.github.io/music/
   - [x] Sometimes with flats.
   - [x] Sometimes with sharps.
 - [x] Flashcards for polychord fractions.
+  - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
+  - [ ] Flashcards: make Front/Back a toggle (relevant after multiple types of flashcards).
 - [ ] Flashcards for chord -> mode
   - [ ] Major
   - [ ] Melodic minor
@@ -43,9 +45,6 @@ App is live at https://golubitsky.github.io/music/
   - [ ] Ascending
   - [ ] Descending
   - [x] 3 7 (M, m, Dom)
-- [ ] Flashcards: make Front/Back a toggle (relevant after multiple types of flashcards).
-- [x] Notes: either flats or sharps. 12 notes altogether.
-- [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
 - [ ] Random rhythms.
 
 ### Technical
