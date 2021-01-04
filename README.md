@@ -35,7 +35,6 @@ App is live at https://golubitsky.github.io/music/
   - [x] Sometimes with sharps.
 - [x] Flashcards for polychord fractions.
   - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
-  - [ ] Flashcards: make Front/Back a toggle (relevant after multiple types of flashcards).
 - [ ] Flashcards for chord -> mode
   - [ ] Major
   - [ ] Melodic minor
@@ -45,6 +44,11 @@ App is live at https://golubitsky.github.io/music/
   - [ ] Ascending
   - [ ] Descending
   - [x] 3 7 (M, m, Dom)
+- [ ] Flashcards UI enhancements.
+  - [ ] Indicate current deck (perhaps on card).
+  - [ ] Front/Back is a toggle (relevant after multiple types of flashcards).
+  - [ ] Optimize button placement for mobile.
+  - [ ] Change behavior of "tap on card" to: 1st tap: flip card; 2nd tap: show random card.
 - [ ] Random rhythms.
 
 ### Technical
@@ -55,5 +59,5 @@ App is live at https://golubitsky.github.io/music/
 - [ ] CSS: how to set font-size based on parent container size?
 - [x] Move shuffle logic out of UI
 - [x] Unskip interval tests.
-- [ ] Flashcards -- export constants, not functions.
-- [ ] Flashcards -- button highlighting should indicate current deck.
+- [ ] Flashcards: export constants, not functions.
+- [ ] Flashcards: move deck definitions out of UI.
