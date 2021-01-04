@@ -30,6 +30,9 @@ App is live at https://golubitsky.github.io/music/
 
 ### Features
 
+- [x] Display all 12 notes in random order.
+  - [x] Sometimes with flats.
+  - [x] Sometimes with sharps.
 - [x] Flashcards for polychord fractions.
 - [ ] Flashcards for chord -> mode
   - [ ] Major
