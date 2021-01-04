@@ -20,26 +20,26 @@ const decks = [
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
+    let deck = _.sample(decks);
     this.state = {
-      card: null,
-      deck: _.sample(decks),
-    };
-    this.state = {
-      ...this.state,
-      ...this.randomCardForDisplay("front"),
-    };
-  }
-
-  randomCardForDisplay(side) {
-    return {
-      card: randomCard(this.state.deck, this.state.card),
-      side: side,
+      nextCardSide: "front",
+      card: randomCard(deck),
+      // Only need this to highlight button for current deck.
+      deck: deck,
+      side: "front",
     };
   }
 
   flipCard() {
     this.setState({
       side: this.state.side === "front" ? "back" : "front",
+    });
+  }
+
+  showRandomCard(deck) {
+    this.setState({
+      card: randomCard(deck, this.state.card),
+      side: this.state.nextCardSide,
     });
   }
 
@@ -55,11 +55,22 @@ export class FlashCards extends React.Component {
             <Button
               variant="dark"
               onClick={() => {
-                this.setState(this.randomCardForDisplay(side));
+                this.setState({ nextCardSide: side });
               }}
               key={index}
             >
-              {side.toUpperCase()}
+              Next: {side}
+            </Button>
+          ))}
+          {decks.map((deck, index) => (
+            <Button
+              variant={_.isEqual(this.state.deck, deck) ? "success" : "dark"}
+              onClick={() => {
+                this.showRandomCard(deck);
+              }}
+              key={index}
+            >
+              {_.last(deck)}
             </Button>
           ))}
         </div>
