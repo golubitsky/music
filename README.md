@@ -39,6 +39,7 @@ App is live at https://golubitsky.github.io/music/
 - [ ] Flashcards for intervals
   - [ ] Ascending
   - [ ] Descending
+  - [ ] 3 7 (M, m, Dom)
 - [ ] Flashcards: make Front/Back a toggle (relevant after multiple types of flashcards).
 - [x] Notes: either flats or sharps. 12 notes altogether.
 - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
