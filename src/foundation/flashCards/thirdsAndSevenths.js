@@ -30,7 +30,7 @@ function cards(typeOfChord) {
       intervals = ["m3", "m7"];
       break;
     default:
-      throw new NotImplementedException();
+      throw `not implemented for typeOfChord=${typeOfChord}`;
   }
 
   return thirdsAndSevenths(intervals);

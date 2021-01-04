@@ -19,7 +19,7 @@ export class FlashCards extends React.Component {
 
   randomCardForDisplay(side) {
     return {
-      card: randomCard(this.state.card),
+      card: randomCard('polychordFractions', this.state.card),
       side: side,
     };
   }

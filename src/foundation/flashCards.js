@@ -1,12 +1,18 @@
 import { cards as pcCards } from "./flashCards/polychordFractions.js";
+// import { cards as thirdSeventhCards } from "./flashCards/thirdsAndSevenths.js";
 const _ = require("lodash");
 
-function cards() {
-  return pcCards();
+function cards(deck) {
+  switch (deck) {
+    case "polychordFractions":
+      return pcCards();
+    default:
+      throw `not implemented for deck=${deck}`;
+  }
 }
 
-function randomCard(previousCard) {
-  let allCards = pcCards();
+function randomCard(deck, previousCard) {
+  let allCards = cards(deck);
 
   while (true) {
     let card = _.sample(allCards);
