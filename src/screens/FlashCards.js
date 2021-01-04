@@ -3,17 +3,26 @@ import Button from "react-bootstrap/Button";
 import { randomCard } from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
+const _ = require("lodash");
+
 const CARD_COLORS_BY_SIDE = {
   front: "blue",
   back: "green",
 };
+
+const decks = [
+  ["polychordFractions"],
+  ["seventhsAndThirds", "△"],
+  ["seventhsAndThirds", "7"],
+  ["seventhsAndThirds", "m7"],
+];
 
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       card: null,
-      deck: ["polychordFractions"],
+      deck: _.sample(decks),
     };
     this.state = {
       ...this.state,
