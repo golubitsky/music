@@ -13,13 +13,17 @@ export class FlashCards extends React.Component {
     super(props);
     this.state = {
       card: null,
+      deck: ["polychordFractions"],
     };
-    this.state = this.randomCardForDisplay("front");
+    this.state = {
+      ...this.state,
+      ...this.randomCardForDisplay("front"),
+    };
   }
 
   randomCardForDisplay(side) {
     return {
-      card: randomCard('polychordFractions', this.state.card),
+      card: randomCard(this.state.deck, this.state.card),
       side: side,
     };
   }
