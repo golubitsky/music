@@ -56,3 +56,4 @@ App is live at https://golubitsky.github.io/music/
 - [x] Move shuffle logic out of UI
 - [x] Unskip interval tests.
 - [ ] Flashcards -- export constants, not functions.
+- [ ] Flashcards -- button highlighting should indicate current deck.
