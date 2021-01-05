@@ -23,3 +23,13 @@
 .card-deck {
   font-size: 2vw;
 }
+
+.card-options {
+  display: flex;
+  margin: 5px;
+  justify-content: center;
+}
+
+input[name="card-reverse"] {
+  margin: 5px;
+}
