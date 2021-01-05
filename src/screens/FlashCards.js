@@ -36,6 +36,14 @@ export class FlashCards extends React.Component {
     });
   }
 
+  handleCardClick() {
+    if (this.state.side === this.state.nextCardSide) {
+      this.flipCard();
+    } else {
+      this.showRandomCard(this.state.deck);
+    }
+  }
+
   showRandomCard(deck) {
     this.setState({
       deck: deck,
@@ -80,7 +88,7 @@ export class FlashCards extends React.Component {
         </div>
         <div
           className="card"
-          onClick={() => this.flipCard()}
+          onClick={() => this.handleCardClick()}
           style={{
             backgroundColor: CARD_COLORS_BY_SIDE[this.state.side],
           }}
