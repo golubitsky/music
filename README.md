@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm start
 ```
 
-Live reload on save is enabled: http://localhost:3000/music
+App is [live](http://localhost:3000/music) and reload on save is enabled.
 
 ## Test
 
@@ -18,13 +18,13 @@ npm test
 
 ## Deploy
 
-This occurs automatically on push to `master`: https://github.com/golubitsky/music/actions
+This occurs [automatically](https://github.com/golubitsky/music/actions) on push to `master`.
 
 ```sh
 npm run deploy
 ```
 
-App is live at https://golubitsky.github.io/music/
+App is [live](https://golubitsky.github.io/music/).
 
 ## TODO
 
