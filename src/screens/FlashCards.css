@@ -12,6 +12,14 @@
   display: flex;
 }
 
-.card {
+.card > * {
+  background-color: inherit;
+}
+
+.card-content {
   font-size: 15vw;
+}
+
+.card-deck {
+  font-size: 2vw;
 }

@@ -48,7 +48,7 @@ App is live at https://golubitsky.github.io/music/
     - [ ] o
     - [ ] ø — might not be necessary, 3 and 7 are same as for m7.
 - [ ] Flashcards UI enhancements.
-  - [ ] Indicate current deck (perhaps on card).
+  - [x] Indicate current deck (perhaps on card).
   - [ ] Front/Back is a toggle (relevant after multiple types of flashcards).
   - [ ] Optimize button placement for mobile.
   - [ ] Change behavior of "tap on card" to: 1st tap: flip card; 2nd tap: show random card.

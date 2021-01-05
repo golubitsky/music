@@ -38,11 +38,15 @@ export class FlashCards extends React.Component {
 
   showRandomCard(deck) {
     this.setState({
+      deck: deck,
       card: randomCard(deck, this.state.card),
       side: this.state.nextCardSide,
     });
   }
 
+  nameOfDeck(deck) {
+    return _.last(deck);
+  }
   render() {
     if (this.props.isHidden) {
       return null;
@@ -64,13 +68,13 @@ export class FlashCards extends React.Component {
           ))}
           {decks.map((deck, index) => (
             <Button
-              variant={_.isEqual(this.state.deck, deck) ? "success" : "dark"}
+              variant="dark"
               onClick={() => {
                 this.showRandomCard(deck);
               }}
               key={index}
             >
-              {_.last(deck)}
+              {this.nameOfDeck(deck)}
             </Button>
           ))}
         </div>
@@ -81,7 +85,10 @@ export class FlashCards extends React.Component {
             backgroundColor: CARD_COLORS_BY_SIDE[this.state.side],
           }}
         >
-          {this.state.card[this.state.side]}
+          <span className="card-content">
+            {this.state.card[this.state.side]}
+          </span>
+          <span className="card-deck">{this.nameOfDeck(this.state.deck)}</span>
         </div>
       </div>
     );
