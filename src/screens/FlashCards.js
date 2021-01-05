@@ -95,10 +95,10 @@ export class FlashCards extends React.Component {
             backgroundColor: CARD_COLORS_BY_SIDE[this.state.side],
           }}
         >
+          <span className="card-deck">{this.nameOfDeck(this.state.deck)}</span>
           <span className="card-content">
             {this.state.card[this.state.side]}
           </span>
-          <span className="card-deck">{this.nameOfDeck(this.state.deck)}</span>
         </div>
         <div className="card-options">
           <label>
