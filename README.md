@@ -43,7 +43,10 @@ App is live at https://golubitsky.github.io/music/
 - [ ] Flashcards for intervals
   - [ ] Ascending
   - [ ] Descending
-  - [x] 3 7 (M, m, Dom)
+  - [ ] Thirds and Sevenths
+    - [x] △, m7, 7
+    - [ ] o
+    - [ ] ø — might not be necessary, 3 and 7 are same as for m7.
 - [ ] Flashcards UI enhancements.
   - [ ] Indicate current deck (perhaps on card).
   - [ ] Front/Back is a toggle (relevant after multiple types of flashcards).
