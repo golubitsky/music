@@ -8,8 +8,20 @@
   align-items: center;
 }
 
-.buttons {
+.deck-selection {
   display: flex;
+  flex-direction: column;
+}
+
+.deck-selection-row {
+  display: flex;
+}
+
+.deck-selection-row-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
 }
 
 .card > * {

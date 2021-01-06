@@ -1,6 +1,10 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { randomCard } from "../foundation/flashCards.js";
+import {
+  randomCard,
+  DECKS,
+  AVAILABLE_DECKS,
+} from "../foundation/flashCards.js";
 import "./FlashCards.css";
 
 const _ = require("lodash");
@@ -10,17 +14,10 @@ const CARD_COLORS_BY_SIDE = {
   back: "green",
 };
 
-const decks = [
-  ["polychordFractions"],
-  ["seventhsAndThirds", "△"],
-  ["seventhsAndThirds", "7"],
-  ["seventhsAndThirds", "m7"],
-];
-
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
-    let deck = _.sample(decks);
+    let deck = _.sample(DECKS);
     this.state = {
       nextCardSide: "front",
       card: randomCard(deck),
@@ -75,19 +72,36 @@ export class FlashCards extends React.Component {
 
     return (
       <div className="FlashCards">
-        <div className="buttons">
-          {decks.map((deck, index) => (
-            <Button
-              variant="dark"
-              onClick={() => {
-                this.showRandomCard(deck);
-              }}
-              key={index}
-            >
-              {this.nameOfDeck(deck)}
-            </Button>
-          ))}
+        <div className="deck-selection">
+          {_.uniq(AVAILABLE_DECKS.map((deck) => deck.type)).map(
+            (deckType, outerIndex) => (
+              <div className="deck-selection-row" key={outerIndex}>
+                <span
+                  className="deck-selection-row-header"
+                  key={outerIndex + 10}
+                >
+                  {deckType}
+                </span>
+                <div className="buttons" key={outerIndex + 20}>
+                  {AVAILABLE_DECKS.filter((deck) => deck.type === deckType).map(
+                    (deck, innerIndex) => (
+                      <Button
+                        variant="dark"
+                        onClick={() => {
+                          this.showRandomCard([deck.type, deck.subType]);
+                        }}
+                        key={innerIndex}
+                      >
+                        {deck.displayName}
+                      </Button>
+                    )
+                  )}
+                </div>
+              </div>
+            )
+          )}
         </div>
+
         <div
           className="card"
           onClick={() => this.handleCardClick()}

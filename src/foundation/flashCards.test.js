@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-import { cards, randomCard } from "./flashCards.js";
+import { cards, randomCard, AVAILABLE_DECKS } from "./flashCards.js";
 
 describe("cards", () => {
   test("cards have front and back sides", () => {
@@ -40,5 +40,19 @@ describe("randomCard", () => {
       let secondCard = randomCard(["polychordFractions"], firstCard);
       expect(firstCard).not.toEqual(secondCard);
     });
+  });
+});
+
+describe("AVAILABLE_DECKS", () => {
+  test("cards have front and back sides", () => {
+    expect(AVAILABLE_DECKS).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: expect.any(String),
+          subType: expect.any(String),
+          displayName: expect.any(String),
+        }),
+      ])
+    );
   });
 });

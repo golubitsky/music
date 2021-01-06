@@ -43,7 +43,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] Flashcards for intervals
   - [ ] Ascending
   - [ ] Descending
-  - [ ] Ear training. Tones.
+  - [ ] Ear training. Tones. Use [this](https://github.com/nbrosowsky/tonejs-instruments)?
   - [ ] Thirds and Sevenths
     - [x] △, m7, 7
     - [ ] o
@@ -53,6 +53,8 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] Front/Back is a toggle (relevant after multiple types of flashcards).
   - [ ] Optimize button placement for mobile.
   - [x] Change behavior of "tap on card" to: 1st tap: flip card; 2nd tap: show random card.
+  - [x] Rows of buttons.
+  - [ ] Implement DisplayNames.
 - [ ] Random rhythms.
 
 ### Technical
@@ -63,5 +65,9 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] CSS: how to set font-size based on parent container size?
 - [x] Move shuffle logic out of UI
 - [x] Unskip interval tests.
-- [ ] Flashcards: export constants, not functions.
-- [ ] Flashcards: move deck definitions out of UI.
+- [ ] Flashcards
+  - [ ] Extract DeckSelection React Component. Does this require state management?
+  - [ ] Export constants, not functions.
+  - [x] Move deck definitions out of UI.
+  - [ ] Do not export DECKS.
+  - [ ] Clean up deck selection logic in the UI (abstract more).
