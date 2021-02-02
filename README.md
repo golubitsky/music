@@ -48,6 +48,9 @@ App is [live](https://golubitsky.github.io/music/).
     - [x] △, m7, 7
     - [ ] o
     - [ ] ø —— might not be necessary, 3 and 7 are same as for m7.
+  - [ ] 7th chords: all 4 notes.
+    - Per quality.
+    - All qualities.
 - [ ] Flashcards UI enhancements.
   - [x] Indicate current deck (perhaps on card).
   - [x] Front/Back is a toggle (relevant after multiple types of flashcards).
