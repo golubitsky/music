@@ -10,7 +10,17 @@ function notesInOneChord(note, intervals, isRandomOrderBack) {
     noteAbove(note, intervals[2]),
   ];
 
-  return isRandomOrderBack ? _.shuffle(notes) : notes;
+  if (isRandomOrderBack) {
+    while (true) {
+      let shuffledNotes = _.shuffle(notes);
+
+      if (!_.isEqual(notes, shuffledNotes)) {
+        return shuffledNotes;
+      }
+    }
+  } else {
+    return notes;
+  }
 }
 
 function chordName(note, chordQuality) {
