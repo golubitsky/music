@@ -49,13 +49,13 @@ App is [live](https://golubitsky.github.io/music/).
     - [ ] o
     - [ ] ø —— might not be necessary, 3 and 7 are same as for m7.
   - [ ] 7th chords: all 4 notes.
-    - Per quality.
-    - All qualities.
-    - Shuffled notes.
+    - [x] Per quality.
+    - [ ] All qualities.
+    - [ ] Shuffled notes.
   - [ ] Triads (having realized that there are 24 permutations of each 7th chord!)
-    - Per quality.
-    - All qualities.
-    - Shuffled notes.
+    - [ ] Per quality.
+    - [ ] All qualities.
+    - [ ] Shuffled notes.
 - [ ] Flashcards UI enhancements.
   - [x] Indicate current deck (perhaps on card).
   - [x] Front/Back is a toggle (relevant after multiple types of flashcards).

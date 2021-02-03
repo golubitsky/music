@@ -1,5 +1,6 @@
 import { cards as pcCards } from "./flashCards/polychordFractions.js";
 import { cards as thirdSeventhCards } from "./flashCards/thirdsAndSevenths.js";
+import { cards as seventhChordCards } from "./flashCards/seventhChords.js";
 const _ = require("lodash");
 
 const DECKS = [
@@ -7,6 +8,10 @@ const DECKS = [
   ["seventhsAndThirds", "△"],
   ["seventhsAndThirds", "7"],
   ["seventhsAndThirds", "m7"],
+  ["seventhChords", "△"],
+  ["seventhChords", "7"],
+  ["seventhChords", "m7"],
+  ["seventhChords", "ø7"],
 ];
 
 function cards(deck) {
@@ -15,6 +20,8 @@ function cards(deck) {
       return pcCards();
     case "seventhsAndThirds":
       return thirdSeventhCards(deck[1]);
+    case "seventhChords":
+      return seventhChordCards({ chordQuality: deck[1] });
     default:
       throw new Error(`not implemented for deck=${deck}`);
   }
