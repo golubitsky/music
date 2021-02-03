@@ -1,5 +1,6 @@
 import { noteAbove } from "../intervals.js";
 import { WHITE_KEYS, SHARPS, FLATS } from "../constants.js";
+import { map } from "lodash";
 const _ = require("lodash");
 
 function notesInOneChord(note, intervals, isRandomOrderBack) {
@@ -41,7 +42,11 @@ function cards({ chordQuality, isRandomOrderBack }) {
     case "ø7":
       intervals = ["m3", "o5", "m7"];
       break;
-
+    case "all":
+      const paramsForAllQualities = ["△", "7", "m7", "ø7"].map((quality) => {
+        return { chordQuality: quality, isRandomOrderBack: isRandomOrderBack };
+      });
+      return _.flatMap(paramsForAllQualities, cards);
     default:
       throw new Error(`not implemented for chordQuality=${chordQuality}`);
   }

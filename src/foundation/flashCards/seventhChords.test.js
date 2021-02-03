@@ -46,6 +46,29 @@ describe("cards", () => {
     );
   });
 
+  test("returns all 7ths", () => {
+    expect(cards({ chordQuality: "all" })).toEqual(
+      expect.arrayContaining([
+        {
+          front: "C",
+          back: "C E G B",
+        },
+        {
+          front: "F",
+          back: "F A C Eb",
+        },
+        {
+          front: "A",
+          back: "A C E G",
+        },
+        {
+          front: "B",
+          back: "B D F A",
+        },
+      ])
+    );
+  });
+
   const permutationsBHalfDiminished = [
     // isRandomOrderBack will not return the root position chord
     // "B D F A",
