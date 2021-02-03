@@ -1,9 +1,7 @@
 import { cards } from "./thirdsAndSevenths.js";
 
-// △
-
 describe("cards", () => {
-  test("returns dominant 7th", () => {
+  test("returns dominant 7ths", () => {
     expect(cards("7")).toEqual(
       expect.arrayContaining([
         {
@@ -14,7 +12,7 @@ describe("cards", () => {
     );
   });
 
-  test("return major 7ths", () => {
+  test("returns major 7ths", () => {
     expect(cards("△")).toEqual(
       expect.arrayContaining([
         {
@@ -25,7 +23,7 @@ describe("cards", () => {
     );
   });
 
-  test("return minor 7ths", () => {
+  test("returns minor 7ths", () => {
     expect(cards("m7")).toEqual(
       expect.arrayContaining([
         {
