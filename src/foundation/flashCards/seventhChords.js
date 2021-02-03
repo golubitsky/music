@@ -14,12 +14,27 @@ function notesInOneChord(note, intervals, isRandomOrderBack) {
   return isRandomOrderBack ? _.shuffle(notes) : notes;
 }
 
-function thirdsAndSevenths(intervals, isRandomOrderBack) {
+function chordName(note, chordQuality) {
+  switch (chordQuality) {
+    case "△":
+      return `${note}△`;
+    case "7":
+      return `${note}7`;
+    case "m7":
+      return `${note}m7`;
+    case "ø7":
+      return `${note}ø`;
+    default:
+      throw new Error(`not implemented for chordQuality=${chordQuality}`);
+  }
+}
+
+function seventhChords(chordQuality, intervals, isRandomOrderBack) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
     .map(function (note) {
       return {
-        front: note,
+        front: chordName(note, chordQuality),
         back: `${notesInOneChord(note, intervals, isRandomOrderBack).join(
           " "
         )}`,
@@ -51,6 +66,6 @@ function cards({ chordQuality, isRandomOrderBack }) {
       throw new Error(`not implemented for chordQuality=${chordQuality}`);
   }
 
-  return thirdsAndSevenths(intervals, isRandomOrderBack);
+  return seventhChords(chordQuality, intervals, isRandomOrderBack);
 }
 export { cards };

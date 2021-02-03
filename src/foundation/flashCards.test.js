@@ -34,6 +34,15 @@ describe("randomCard", () => {
     );
   });
 
+  test.each(["△", "7", "m7", "ø7", "all"])(".randomCard(%s)", (chordType) => {
+    expect(randomCard(["seventhChords", chordType])).toEqual(
+      expect.objectContaining({
+        front: expect.any(String),
+        back: expect.any(String),
+      })
+    );
+  });
+
   test("ensure card is different", () => {
     [1, 2, 3].forEach(function (i) {
       let firstCard = randomCard(["polychordFractions"]);

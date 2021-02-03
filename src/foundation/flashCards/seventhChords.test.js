@@ -6,7 +6,7 @@ describe("cards", () => {
     expect(cards({ chordQuality: "7" })).toEqual(
       expect.arrayContaining([
         {
-          front: "A",
+          front: "A7",
           back: "A C# E G",
         },
       ])
@@ -17,7 +17,7 @@ describe("cards", () => {
     expect(cards({ chordQuality: "△" })).toEqual(
       expect.arrayContaining([
         {
-          front: "A",
+          front: "A△",
           back: "A C# E G#",
         },
       ])
@@ -28,7 +28,7 @@ describe("cards", () => {
     expect(cards({ chordQuality: "m7" })).toEqual(
       expect.arrayContaining([
         {
-          front: "A",
+          front: "Am7",
           back: "A C E G",
         },
       ])
@@ -39,7 +39,7 @@ describe("cards", () => {
     expect(cards({ chordQuality: "ø7" })).toEqual(
       expect.arrayContaining([
         {
-          front: "B",
+          front: "Bø",
           back: "B D F A",
         },
       ])
@@ -50,19 +50,19 @@ describe("cards", () => {
     expect(cards({ chordQuality: "all" })).toEqual(
       expect.arrayContaining([
         {
-          front: "C",
+          front: "C△",
           back: "C E G B",
         },
         {
-          front: "F",
+          front: "F7",
           back: "F A C Eb",
         },
         {
-          front: "A",
+          front: "Am7",
           back: "A C E G",
         },
         {
-          front: "B",
+          front: "Bø",
           back: "B D F A",
         },
       ])
@@ -99,7 +99,7 @@ describe("cards", () => {
   test("back can be shuffled", () => {
     const results = cards({ chordQuality: "ø7", isRandomOrderBack: true });
 
-    const bHalfDiminished = _.find(results, (result) => result.front === "B");
+    const bHalfDiminished = _.find(results, (result) => result.front === "Bø");
 
     expect(permutationsBHalfDiminished).toContain(bHalfDiminished.back);
   });

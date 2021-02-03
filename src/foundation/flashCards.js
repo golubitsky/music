@@ -12,6 +12,7 @@ const DECKS = [
   ["seventhChords", "7"],
   ["seventhChords", "m7"],
   ["seventhChords", "ø7"],
+  ["seventhChords", "all"],
 ];
 
 function cards(deck) {
