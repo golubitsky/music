@@ -119,6 +119,52 @@ const NOTES_MAJOR_SEVENTH_ABOVE = {
   Gb: "F",
 };
 
+const NOTES_AUGMENTED_FOURTH_ABOVE = {
+  // White keys
+  A: "D#",
+  B: "E#",
+  C: "F#",
+  D: "G#",
+  E: "A#",
+  F: "B",
+  G: "C#",
+  // Sharps
+  "A#": "D##",
+  "C#": "F##",
+  "D#": "G##",
+  "F#": "B#",
+  "G#": "C##",
+  // Flats
+  Bb: "E",
+  Eb: "A",
+  Ab: "D",
+  Db: "G",
+  Gb: "C",
+};
+
+const NOTES_DIMINISHED_FIFTH_ABOVE = {
+  // White keys
+  A: "Eb",
+  B: "F",
+  C: "Gb",
+  D: "Ab",
+  E: "Bb",
+  F: "Cb",
+  G: "Db",
+  // Sharps
+  "A#": "E",
+  "C#": "G",
+  "D#": "A",
+  "F#": "C",
+  "G#": "D",
+  // Flats
+  Bb: "Fb",
+  Eb: "Bbb",
+  Ab: "Ebb",
+  Db: "Abb",
+  Gb: "Dbb",
+};
+
 function noteAbove(note, interval) {
   if (interval === "P5") {
     return NOTES_FIFTH_ABOVE[note];
@@ -126,10 +172,16 @@ function noteAbove(note, interval) {
     return NOTES_MAJOR_THIRD_ABOVE[note];
   } else if (interval === "m3") {
     return NOTES_MINOR_THIRD_ABOVE[note];
+  } else if (interval === "+4") {
+    return NOTES_AUGMENTED_FOURTH_ABOVE[note];
+  } else if (interval === "o5") {
+    return NOTES_DIMINISHED_FIFTH_ABOVE[note];
   } else if (interval === "m7") {
     return NOTES_MINOR_SEVENTH_ABOVE[note];
   } else if (interval === "M7") {
     return NOTES_MAJOR_SEVENTH_ABOVE[note];
   }
+
+  
 }
 export { noteAbove };

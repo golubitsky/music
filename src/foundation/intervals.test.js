@@ -44,3 +44,21 @@ describe("major sevenths", () => {
     expect(noteAbove(startingNote, "M7")).toBe(expected);
   });
 });
+
+describe("augmented fourths", () => {
+  test.each([
+    ["A", "D#"],
+    ["Bb", "E"],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "+4")).toBe(expected);
+  });
+});
+
+describe("diminished fifths", () => {
+  test.each([
+    ["A", "Eb"],
+    ["Bb", "Fb"],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "o5")).toBe(expected);
+  });
+});
