@@ -1,6 +1,5 @@
 import { noteAbove } from "../intervals.js";
 import { WHITE_KEYS, SHARPS, FLATS } from "../constants.js";
-import { map } from "lodash";
 const _ = require("lodash");
 
 function notesInOneChord(note, intervals, isRandomOrderBack) {
