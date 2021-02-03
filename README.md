@@ -79,3 +79,4 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] Move deck definitions out of UI.
   - [ ] Do not export DECKS.
   - [ ] Clean up deck selection logic in the UI (abstract more).
+- [ ] Seems like layers is the way to go: foundation, services (TODO), screens.
