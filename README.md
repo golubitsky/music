@@ -40,6 +40,8 @@ App is [live](https://golubitsky.github.io/music/).
   - [ ] Melodic minor
   - [ ] Harmonic minor
   - [ ] Natural minor
+- [ ] Flashcards for scale degree -> mode.
+- [ ] Flashcards for [flatted scale degrees](https://spinditty.com/learning/Memorizing-the-Musical-Modes) -> mode.
 - [ ] Flashcards for intervals
   - [ ] Ascending
   - [ ] Descending
