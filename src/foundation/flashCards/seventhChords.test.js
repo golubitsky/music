@@ -1,5 +1,6 @@
 import { cards } from "./seventhChords.js";
 const _ = require("lodash");
+import { SHARP, FLAT, HALF_DIMINISHED, MAJOR_SEVEN } from "../constants.js";
 
 describe("cards", () => {
   test("returns dominant 7ths", () => {
@@ -7,7 +8,7 @@ describe("cards", () => {
       expect.arrayContaining([
         {
           front: "A7",
-          back: "A C# E G",
+          back: `A C${SHARP} E G`,
         },
       ])
     );
@@ -18,7 +19,7 @@ describe("cards", () => {
       expect.arrayContaining([
         {
           front: "A△",
-          back: "A C# E G#",
+          back: `A C${SHARP} E G${SHARP}`,
         },
       ])
     );
@@ -39,7 +40,7 @@ describe("cards", () => {
     expect(cards({ chordQuality: "ø7" })).toEqual(
       expect.arrayContaining([
         {
-          front: "Bø",
+          front: `B${HALF_DIMINISHED}`,
           back: "B D F A",
         },
       ])
@@ -50,19 +51,19 @@ describe("cards", () => {
     expect(cards({ chordQuality: "all" })).toEqual(
       expect.arrayContaining([
         {
-          front: "C△",
+          front: `C${MAJOR_SEVEN}`,
           back: "C E G B",
         },
         {
           front: "F7",
-          back: "F A C Eb",
+          back: `F A C E${FLAT}`,
         },
         {
           front: "Am7",
           back: "A C E G",
         },
         {
-          front: "Bø",
+          front: `B${HALF_DIMINISHED}`,
           back: "B D F A",
         },
       ])

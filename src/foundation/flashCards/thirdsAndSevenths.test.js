@@ -1,4 +1,5 @@
 import { cards } from "./thirdsAndSevenths.js";
+import { SHARP, FLAT, DIMINISHED } from "../constants.js";
 
 describe("cards", () => {
   test("returns dominant 7ths", () => {
@@ -6,7 +7,7 @@ describe("cards", () => {
       expect.arrayContaining([
         {
           front: "A",
-          back: "C#,G",
+          back: `C${SHARP} G`,
         },
       ])
     );
@@ -17,7 +18,7 @@ describe("cards", () => {
       expect.arrayContaining([
         {
           front: "A",
-          back: "C#,G#",
+          back: `C${SHARP} G${SHARP}`,
         },
       ])
     );
@@ -28,7 +29,7 @@ describe("cards", () => {
       expect.arrayContaining([
         {
           front: "A",
-          back: "C,G",
+          back: "C G",
         },
       ])
     );

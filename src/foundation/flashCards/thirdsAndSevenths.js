@@ -7,7 +7,7 @@ function thirdsAndSevenths(intervals) {
     .map(function (note) {
       return {
         front: note,
-        back: `${noteAbove(note, intervals[0])},${noteAbove(
+        back: `${noteAbove(note, intervals[0])} ${noteAbove(
           note,
           intervals[1]
         )}`,

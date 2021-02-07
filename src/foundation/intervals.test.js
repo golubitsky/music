@@ -1,9 +1,10 @@
 import { noteAbove } from "./intervals.js";
+import { SHARP, FLAT, DIMINISHED } from "./constants.js";
 
 describe("perfect fifths", () => {
   test.each([
     ["A", "E"],
-    ["B", "F#"],
+    ["B", `F${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
     expect(noteAbove(startingNote, "P5")).toBe(expected);
   });
@@ -11,8 +12,8 @@ describe("perfect fifths", () => {
 
 describe("major thirds", () => {
   test.each([
-    ["A", "C#"],
-    ["B", "D#"],
+    ["A", `C${SHARP}`],
+    ["B", `D${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
     expect(noteAbove(startingNote, "M3")).toBe(expected);
   });
@@ -38,8 +39,8 @@ describe("minor sevenths", () => {
 
 describe("major sevenths", () => {
   test.each([
-    ["A", "G#"],
-    ["B", "A#"],
+    ["A", `G${SHARP}`],
+    ["B", `A${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
     expect(noteAbove(startingNote, "M7")).toBe(expected);
   });
@@ -47,8 +48,8 @@ describe("major sevenths", () => {
 
 describe("augmented fourths", () => {
   test.each([
-    ["A", "D#"],
-    ["Bb", "E"],
+    ["A", `D${SHARP}`],
+    [`B${FLAT}`, "E"],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
     expect(noteAbove(startingNote, "+4")).toBe(expected);
   });
@@ -56,9 +57,9 @@ describe("augmented fourths", () => {
 
 describe("diminished fifths", () => {
   test.each([
-    ["A", "Eb"],
-    ["Bb", "Fb"],
+    ["A", `E${FLAT}`],
+    [`B${FLAT}`, `F${FLAT}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "o5")).toBe(expected);
+    expect(noteAbove(startingNote, `${DIMINISHED}5`)).toBe(expected);
   });
 });
