@@ -7,6 +7,7 @@ import {
   MINOR_SEVEN,
   MAJOR_SEVEN,
   HALF_DIMINISHED_SEVEN,
+  DIMINISHED_SEVEN,
 } from "../constants.js";
 
 describe("cards", () => {
@@ -49,6 +50,17 @@ describe("cards", () => {
         {
           front: `B${HALF_DIMINISHED_SEVEN}`,
           back: "B D F A",
+        },
+      ])
+    );
+  });
+
+  test("returns diminished 7ths", () => {
+    expect(cards({ chordQuality: `${DIMINISHED_SEVEN}` })).toEqual(
+      expect.arrayContaining([
+        {
+          front: `B${DIMINISHED_SEVEN}`,
+          back: `B D F A${FLAT}`,
         },
       ])
     );

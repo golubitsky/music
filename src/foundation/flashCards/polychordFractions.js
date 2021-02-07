@@ -1,5 +1,4 @@
 import { SHARP, FLAT, SEVEN } from "../constants.js";
-const _ = require("lodash");
 
 const CARDS = [
   [`13${SHARP}11`, `II/I${SEVEN}`],

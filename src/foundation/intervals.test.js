@@ -60,6 +60,17 @@ describe("diminished fifths", () => {
     ["A", `E${FLAT}`],
     [`B${FLAT}`, `F${FLAT}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, `${DIMINISHED}5`)).toBe(expected);
+    expect(noteAbove(startingNote, `o5`)).toBe(expected);
+  });
+});
+
+
+describe("diminished sevenths", () => {
+  test.each([
+    ["A", `G${FLAT}`],
+    [`C${SHARP}`, `B${FLAT}`],
+    [`B${FLAT}`, `A${FLAT}${FLAT}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, `o7`)).toBe(expected);
   });
 });

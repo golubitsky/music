@@ -165,6 +165,28 @@ const NOTES_DIMINISHED_FIFTH_ABOVE = {
   "G♭": "D♭♭",
 };
 
+const NOTES_DIMINISHED_SEVENTH_ABOVE = {
+  // White keys
+  A: "G♭",
+  B: "A♭",
+  C: "B♭♭",
+  D: "C♭",
+  E: "D♭",
+  F: "E♭♭",
+  G: "F♭",
+  // Sharps
+  "A♯": "G",
+  "C♯": "B♭",
+  "D♯": "C",
+  "F♯": "E♭",
+  "G♯": "F",
+  // Flats
+  "B♭": "A♭♭",
+  "E♭": "D♭♭",
+  "A♭": "G♭♭",
+  "D♭": "C♭♭",
+  "G♭": "F♭♭",
+};
 function noteAbove(note, interval) {
   if (interval === "P5") {
     return NOTES_FIFTH_ABOVE[note];
@@ -176,6 +198,8 @@ function noteAbove(note, interval) {
     return NOTES_AUGMENTED_FOURTH_ABOVE[note];
   } else if (interval === "o5") {
     return NOTES_DIMINISHED_FIFTH_ABOVE[note];
+  } else if (interval === "o7") {
+    return NOTES_DIMINISHED_SEVENTH_ABOVE[note];
   } else if (interval === "m7") {
     return NOTES_MINOR_SEVENTH_ABOVE[note];
   } else if (interval === "M7") {

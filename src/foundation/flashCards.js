@@ -1,7 +1,13 @@
 import { cards as pcCards } from "./flashCards/polychordFractions.js";
 import { cards as thirdSeventhCards } from "./flashCards/thirdsAndSevenths.js";
 import { cards as seventhChordCards } from "./flashCards/seventhChords.js";
-import { MINOR_SEVEN, SEVEN, HALF_DIMINISHED_SEVEN, MAJOR_SEVEN } from "./constants.js";
+import {
+  MAJOR_SEVEN,
+  SEVEN,
+  MINOR_SEVEN,
+  HALF_DIMINISHED_SEVEN,
+  DIMINISHED_SEVEN,
+} from "./constants.js";
 
 const _ = require("lodash");
 
@@ -14,6 +20,7 @@ const DECKS = [
   ["seventhChords", SEVEN],
   ["seventhChords", MINOR_SEVEN],
   ["seventhChords", HALF_DIMINISHED_SEVEN],
+  ["seventhChords", DIMINISHED_SEVEN],
   ["seventhChords", "all"],
 ];
 
