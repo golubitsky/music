@@ -1,8 +1,8 @@
 export const FLAT = "♭";
 export const SHARP = "♯";
 
-export const MINOR = "-";
-export const DIMINISHED = "ᵒ";
+export const MINOR = "m";
+export const DIMINISHED = "o";
 export const SEVEN = "⁷";
 export const MINOR_SEVEN = `${MINOR}${SEVEN}`;
 export const MAJOR_SEVEN = "△";
