@@ -11,6 +11,14 @@ import {
 } from "../constants.js";
 const _ = require("lodash");
 
+const INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY = {
+  [MAJOR_SEVEN]: ["M3", "P5", "M7"],
+  [SEVEN]: ["M3", "P5", "m7"],
+  [MINOR_SEVEN]: ["m3", "P5", "m7"],
+  [HALF_DIMINISHED_SEVEN]: ["m3", "o5", "m7"],
+  [DIMINISHED_SEVEN]: ["m3", "o5", "o7"],
+};
+
 function notesInOneChord(note, intervals, isRandomOrderBack) {
   const notes = [
     note,
@@ -32,69 +40,40 @@ function notesInOneChord(note, intervals, isRandomOrderBack) {
   }
 }
 
-function chordName(note, chordQuality) {
-  // TODO simplify/remove me.
-  switch (chordQuality) {
-    case MAJOR_SEVEN:
-      return `${note}${MAJOR_SEVEN}`;
-    case SEVEN:
-      return `${note}${SEVEN}`;
-    case MINOR_SEVEN:
-      return `${note}${MINOR_SEVEN}`;
-    case HALF_DIMINISHED_SEVEN:
-      return `${note}${HALF_DIMINISHED_SEVEN}`;
-    case DIMINISHED_SEVEN:
-      return `${note}${DIMINISHED_SEVEN}`;
-    default:
-      throw new Error(`not implemented for chordQuality=${chordQuality}`);
-  }
-}
-
-function seventhChords(chordQuality, intervals, isRandomOrderBack) {
+function seventhChords(chordQuality, isRandomOrderBack) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
     .map(function (note) {
+      const notesInChord = notesInOneChord(
+        note,
+        INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality],
+        isRandomOrderBack
+      );
+
       return {
-        front: chordName(note, chordQuality),
-        back: `${notesInOneChord(note, intervals, isRandomOrderBack).join(
-          " "
-        )}`,
+        front: `${note}${chordQuality}`,
+        back: `${notesInChord.join(" ")}`,
       };
     });
 }
 
 function cards({ chordQuality, isRandomOrderBack }) {
-  let intervals;
-  switch (chordQuality) {
-    case MAJOR_SEVEN:
-      intervals = ["M3", "P5", "M7"];
-      break;
-    case SEVEN:
-      intervals = ["M3", "P5", "m7"];
-      break;
-    case MINOR_SEVEN:
-      intervals = ["m3", "P5", "m7"];
-      break;
-    case HALF_DIMINISHED_SEVEN:
-      intervals = ["m3", "o5", "m7"];
-      break;
-    case DIMINISHED_SEVEN:
-      intervals = ["m3", "o5", "o7"];
-      break;
-    case "all":
-      const paramsForAllQualities = [
-        MAJOR_SEVEN,
-        SEVEN,
-        MINOR_SEVEN,
-        HALF_DIMINISHED_SEVEN,
-      ].map((quality) => {
-        return { chordQuality: quality, isRandomOrderBack: isRandomOrderBack };
-      });
-      return _.flatMap(paramsForAllQualities, cards);
-    default:
-      throw new Error(`not implemented for chordQuality=${chordQuality}`);
+  if (chordQuality in INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY) {
+    return seventhChords(chordQuality, isRandomOrderBack);
   }
 
-  return seventhChords(chordQuality, intervals, isRandomOrderBack);
+  if (chordQuality === "all") {
+    const paramsForAllQualities = _.keys(
+      INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY
+    ).map((quality) => {
+      return {
+        chordQuality: quality,
+        isRandomOrderBack: isRandomOrderBack,
+      };
+    });
+    return _.flatMap(paramsForAllQualities, cards);
+  }
+
+  throw new Error(`not implemented for chordQuality=${chordQuality}`);
 }
 export { cards };
