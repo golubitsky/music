@@ -20,7 +20,7 @@ export class FlashCards extends React.Component {
     let deck = _.sample(DECKS);
     this.state = {
       nextCardSide: "front",
-      card: randomCard(deck),
+      card: randomCard({ deck: deck }),
       deck: deck,
       side: "front",
     };
@@ -48,7 +48,9 @@ export class FlashCards extends React.Component {
     // UI seems more intuitive if the checkbox to toggle nextCardSide also displays a new card.
     this.setState({
       deck: deck,
-      card: randomCard(deck, this.state.card),
+      // TODO: RandomBack checkbox to set this.state.isRandomOrderBack
+      // TODO: pass isRandomOrderBack param here.
+      card: randomCard({ deck: deck, previousCard: this.state.card }),
       side: side || this.state.nextCardSide,
     });
   }

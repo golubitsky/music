@@ -24,7 +24,7 @@ const DECKS = [
   ["seventhChords", "all"],
 ];
 
-function cards(deck) {
+function cards({ deck, isRandomOrderBack }) {
   switch (deck[0]) {
     case "polychordFractions":
       return pcCards();
@@ -37,8 +37,8 @@ function cards(deck) {
   }
 }
 
-function randomCard(deck, previousCard) {
-  let allCards = cards(deck);
+function randomCard({ deck, previousCard }) {
+  let allCards = cards({ deck: deck });
 
   while (true) {
     let card = _.sample(allCards);

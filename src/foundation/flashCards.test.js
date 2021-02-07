@@ -10,7 +10,7 @@ import {
 
 describe("cards", () => {
   test("cards have front and back sides", () => {
-    let actual = _.sample(cards(["polychordFractions"]));
+    let actual = _.sample(cards({ deck: ["polychordFractions"] }));
 
     expect(actual).toEqual(
       expect.objectContaining({
@@ -23,7 +23,7 @@ describe("cards", () => {
 
 describe("randomCard", () => {
   test("returns a random polychordFractions card", () => {
-    expect(randomCard(["polychordFractions"])).toEqual(
+    expect(randomCard({ deck: ["polychordFractions"] })).toEqual(
       expect.objectContaining({
         front: expect.any(String),
         back: expect.any(String),
@@ -34,7 +34,7 @@ describe("randomCard", () => {
   test.each([MAJOR_SEVEN, SEVEN, MINOR_SEVEN])(
     ".randomCard(%s)",
     (chordType) => {
-      expect(randomCard(["seventhsAndThirds", chordType])).toEqual(
+      expect(randomCard({ deck: ["seventhsAndThirds", chordType] })).toEqual(
         expect.objectContaining({
           front: expect.any(String),
           back: expect.any(String),
@@ -46,7 +46,7 @@ describe("randomCard", () => {
   test.each([MAJOR_SEVEN, SEVEN, MINOR_SEVEN, HALF_DIMINISHED_SEVEN, "all"])(
     ".randomCard(%s)",
     (chordType) => {
-      expect(randomCard(["seventhChords", chordType])).toEqual(
+      expect(randomCard({ deck: ["seventhChords", chordType] })).toEqual(
         expect.objectContaining({
           front: expect.any(String),
           back: expect.any(String),
@@ -57,8 +57,11 @@ describe("randomCard", () => {
 
   test("ensure card is different", () => {
     [1, 2, 3].forEach(function (i) {
-      let firstCard = randomCard(["polychordFractions"]);
-      let secondCard = randomCard(["polychordFractions"], firstCard);
+      let firstCard = randomCard({ deck: ["polychordFractions"] });
+      let secondCard = randomCard({
+        deck: ["polychordFractions"],
+        previousCard: firstCard,
+      });
       expect(firstCard).not.toEqual(secondCard);
     });
   });
