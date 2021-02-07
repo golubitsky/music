@@ -1,5 +1,12 @@
 import { noteAbove } from "../intervals.js";
-import { WHITE_KEYS, SHARPS, FLATS } from "../constants.js";
+import {
+  WHITE_KEYS,
+  SHARPS,
+  FLATS,
+  MINOR_SEVEN,
+  SEVEN,
+  MAJOR_SEVEN,
+} from "../constants.js";
 
 function thirdsAndSevenths(intervals) {
   return WHITE_KEYS.concat(SHARPS)
@@ -18,13 +25,13 @@ function thirdsAndSevenths(intervals) {
 function cards(typeOfChord) {
   let intervals;
   switch (typeOfChord) {
-    case "△":
+    case MAJOR_SEVEN:
       intervals = ["M3", "M7"];
       break;
-    case "7":
+    case SEVEN:
       intervals = ["M3", "m7"];
       break;
-    case "m7":
+    case MINOR_SEVEN:
       intervals = ["m3", "m7"];
       break;
     default:

@@ -1,13 +1,20 @@
 import { cards } from "./seventhChords.js";
 const _ = require("lodash");
-import { SHARP, FLAT, HALF_DIMINISHED, MAJOR_SEVEN } from "../constants.js";
+import {
+  SHARP,
+  FLAT,
+  SEVEN,
+  MINOR_SEVEN,
+  MAJOR_SEVEN,
+  HALF_DIMINISHED_SEVEN,
+} from "../constants.js";
 
 describe("cards", () => {
   test("returns dominant 7ths", () => {
-    expect(cards({ chordQuality: "7" })).toEqual(
+    expect(cards({ chordQuality: SEVEN })).toEqual(
       expect.arrayContaining([
         {
-          front: "A7",
+          front: `A${SEVEN}`,
           back: `A C${SHARP} E G`,
         },
       ])
@@ -26,10 +33,10 @@ describe("cards", () => {
   });
 
   test("returns minor 7ths", () => {
-    expect(cards({ chordQuality: "m7" })).toEqual(
+    expect(cards({ chordQuality: MINOR_SEVEN })).toEqual(
       expect.arrayContaining([
         {
-          front: "Am7",
+          front: `A${MINOR_SEVEN}`,
           back: "A C E G",
         },
       ])
@@ -37,10 +44,10 @@ describe("cards", () => {
   });
 
   test("returns half-diminished 7ths", () => {
-    expect(cards({ chordQuality: "ø7" })).toEqual(
+    expect(cards({ chordQuality: `${HALF_DIMINISHED_SEVEN}` })).toEqual(
       expect.arrayContaining([
         {
-          front: `B${HALF_DIMINISHED}`,
+          front: `B${HALF_DIMINISHED_SEVEN}`,
           back: "B D F A",
         },
       ])
@@ -55,15 +62,15 @@ describe("cards", () => {
           back: "C E G B",
         },
         {
-          front: "F7",
+          front: `F${SEVEN}`,
           back: `F A C E${FLAT}`,
         },
         {
-          front: "Am7",
+          front: `A${MINOR_SEVEN}`,
           back: "A C E G",
         },
         {
-          front: `B${HALF_DIMINISHED}`,
+          front: `B${HALF_DIMINISHED_SEVEN}`,
           back: "B D F A",
         },
       ])
@@ -98,7 +105,10 @@ describe("cards", () => {
     "A F D B",
   ];
   test("back can be shuffled", () => {
-    const results = cards({ chordQuality: "ø7", isRandomOrderBack: true });
+    const results = cards({
+      chordQuality: HALF_DIMINISHED_SEVEN,
+      isRandomOrderBack: true,
+    });
 
     const bHalfDiminished = _.find(results, (result) => result.front === "Bø");
 

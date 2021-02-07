@@ -1,5 +1,13 @@
 import { noteAbove } from "../intervals.js";
-import { WHITE_KEYS, SHARPS, FLATS } from "../constants.js";
+import {
+  WHITE_KEYS,
+  SHARPS,
+  FLATS,
+  SEVEN,
+  MAJOR_SEVEN,
+  HALF_DIMINISHED_SEVEN,
+  MINOR_SEVEN,
+} from "../constants.js";
 const _ = require("lodash");
 
 function notesInOneChord(note, intervals, isRandomOrderBack) {
@@ -25,14 +33,14 @@ function notesInOneChord(note, intervals, isRandomOrderBack) {
 
 function chordName(note, chordQuality) {
   switch (chordQuality) {
-    case "△":
-      return `${note}△`;
-    case "7":
-      return `${note}7`;
-    case "m7":
-      return `${note}m7`;
-    case "ø7":
-      return `${note}ø`;
+    case MAJOR_SEVEN:
+      return `${note}${MAJOR_SEVEN}`;
+    case SEVEN:
+      return `${note}${SEVEN}`;
+    case MINOR_SEVEN:
+      return `${note}${MINOR_SEVEN}`;
+    case HALF_DIMINISHED_SEVEN:
+      return `${note}${HALF_DIMINISHED_SEVEN}`;
     default:
       throw new Error(`not implemented for chordQuality=${chordQuality}`);
   }
@@ -54,20 +62,20 @@ function seventhChords(chordQuality, intervals, isRandomOrderBack) {
 function cards({ chordQuality, isRandomOrderBack }) {
   let intervals;
   switch (chordQuality) {
-    case "△":
+    case MAJOR_SEVEN:
       intervals = ["M3", "P5", "M7"];
       break;
-    case "7":
+    case SEVEN:
       intervals = ["M3", "P5", "m7"];
       break;
-    case "m7":
+    case MINOR_SEVEN:
       intervals = ["m3", "P5", "m7"];
       break;
-    case "ø7":
+    case HALF_DIMINISHED_SEVEN:
       intervals = ["m3", "o5", "m7"];
       break;
     case "all":
-      const paramsForAllQualities = ["△", "7", "m7", "ø7"].map((quality) => {
+      const paramsForAllQualities = [MAJOR_SEVEN, SEVEN, MINOR_SEVEN, HALF_DIMINISHED_SEVEN].map((quality) => {
         return { chordQuality: quality, isRandomOrderBack: isRandomOrderBack };
       });
       return _.flatMap(paramsForAllQualities, cards);

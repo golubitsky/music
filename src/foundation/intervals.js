@@ -159,7 +159,7 @@ const NOTES_DIMINISHED_FIFTH_ABOVE = {
   "G♯": "D",
   // Flats
   "B♭": "F♭",
-  "E♭": "♭♭♭",
+  "E♭": "B♭♭",
   "A♭": "E♭♭",
   "D♭": "A♭♭",
   "G♭": "D♭♭",
