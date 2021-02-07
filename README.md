@@ -83,5 +83,5 @@ App is [live](https://golubitsky.github.io/music/).
   - [ ] Clean up deck selection logic in the UI (abstract more).
 - [ ] Seems like layers is the way to go: foundation, services (TODO), screens.
 - [x] Use consistent flat symbol throughout codebase (polychordFractions seem to have the symbol, others use letter "b").
-- [ ] Constantize flat symbol.
+- [x] Constantize flat, sharp symbols.
 - [ ] Constantize intervals. Possibly chord symbols/intervals should be in separate constants.
