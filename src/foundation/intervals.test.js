@@ -1,24 +1,6 @@
 import { noteAbove } from "./intervals.js";
 import { SHARP, FLAT, DIMINISHED } from "./constants.js";
 
-describe("perfect fifths", () => {
-  test.each([
-    ["A", "E"],
-    ["B", `F${SHARP}`],
-  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "P5")).toBe(expected);
-  });
-});
-
-describe("major thirds", () => {
-  test.each([
-    ["A", `C${SHARP}`],
-    ["B", `D${SHARP}`],
-  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "M3")).toBe(expected);
-  });
-});
-
 describe("minor thirds", () => {
   test.each([
     ["A", "C"],
@@ -28,21 +10,12 @@ describe("minor thirds", () => {
   });
 });
 
-describe("minor sevenths", () => {
+describe("major thirds", () => {
   test.each([
-    ["A", "G"],
-    ["B", "A"],
+    ["A", `C${SHARP}`],
+    ["B", `D${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "m7")).toBe(expected);
-  });
-});
-
-describe("major sevenths", () => {
-  test.each([
-    ["A", `G${SHARP}`],
-    ["B", `A${SHARP}`],
-  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "M7")).toBe(expected);
+    expect(noteAbove(startingNote, "M3")).toBe(expected);
   });
 });
 
@@ -64,6 +37,14 @@ describe("diminished fifths", () => {
   });
 });
 
+describe("perfect fifths", () => {
+  test.each([
+    ["A", "E"],
+    ["B", `F${SHARP}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "P5")).toBe(expected);
+  });
+});
 
 describe("diminished sevenths", () => {
   test.each([
@@ -72,5 +53,23 @@ describe("diminished sevenths", () => {
     [`B${FLAT}`, `A${FLAT}${FLAT}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
     expect(noteAbove(startingNote, `o7`)).toBe(expected);
+  });
+});
+
+describe("minor sevenths", () => {
+  test.each([
+    ["A", "G"],
+    ["B", "A"],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "m7")).toBe(expected);
+  });
+});
+
+describe("major sevenths", () => {
+  test.each([
+    ["A", `G${SHARP}`],
+    ["B", `A${SHARP}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "M7")).toBe(expected);
   });
 });
