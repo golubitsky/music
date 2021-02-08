@@ -5,6 +5,7 @@ describe("cards", () => {
   test("returns progression in all keys", () => {
     expect(
       cards({
+        // TODO: 'ii V⁷/ii iii V⁷/iii' would be more correct/useful.
         abstractChordProgression: ["i", `IV${SEVEN}`, "ii", `V${SEVEN}`],
       })
     ).toEqual(

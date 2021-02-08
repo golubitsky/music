@@ -89,3 +89,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] Refactor chords.js tests to be more data-driven/DRY.
 - [ ] notesInOneChord should be in its own module.
 - [ ] Omitting "M" from Major chords could be DRYer.
+- [ ] (This is a UI feature, but putting here because need to prototype first) Flash Cards really needs to be in separate screens, particularly as more and more different ones are coming.
+  - [ ] Prototype state management from child screen to parent screen (use one of the existing toggles).
+  - [ ] Main menu to list only Flash Cards (as it is now)
+  - [ ] Individual deckType on its own screen; lists its decks + options only.
