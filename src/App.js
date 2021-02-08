@@ -11,7 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       screenNames: ["Notes", "Flash Cards"],
-      currentScreen: "Notes",
+      currentScreen: "Flash Cards",
     };
   }
 
