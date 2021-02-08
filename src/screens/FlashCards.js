@@ -23,12 +23,12 @@ export class FlashCards extends React.Component {
       card: randomCard({ deck: deck }),
       deck: deck,
       side: "front",
-      isRandomOrderBack: false,
+      notesAreShuffled: false,
     };
 
     // This binding is necessary to make `this` work in the callback
     this.toggleNextCardFace = this.toggleNextCardFace.bind(this);
-    this.toggleIsRandomOrderBack = this.toggleIsRandomOrderBack.bind(this);
+    this.toggleNotesAreShuffled = this.toggleNotesAreShuffled.bind(this);
   }
 
   flipCard() {
@@ -53,7 +53,7 @@ export class FlashCards extends React.Component {
       card: randomCard({
         deck: deck,
         previousCard: this.state.card,
-        isRandomOrderBack: this.state.isRandomOrderBack,
+        notesAreShuffled: this.state.notesAreShuffled,
       }),
       side: side || this.state.nextCardSide,
     });
@@ -67,8 +67,8 @@ export class FlashCards extends React.Component {
     this.showRandomCard(this.state.deck, side);
   }
 
-  toggleIsRandomOrderBack() {
-    this.setState({ isRandomOrderBack: !this.state.isRandomOrderBack });
+  toggleNotesAreShuffled() {
+    this.setState({ notesAreShuffled: !this.state.notesAreShuffled });
   }
 
   nameOfDeck(deck) {
@@ -110,12 +110,12 @@ export class FlashCards extends React.Component {
                 {deckType === "seventhChords" && (
                   <div className="card-options">
                     <label>
-                      Random Back
+                      Shuffle Notes
                       <input
-                        name="isRandomOrderBack"
+                        name="notesAreShuffled"
                         type="checkbox"
-                        checked={this.state.isRandomOrderBack}
-                        onChange={this.toggleIsRandomOrderBack}
+                        checked={this.state.notesAreShuffled}
+                        onChange={this.toggleNotesAreShuffled}
                       />
                     </label>
                   </div>

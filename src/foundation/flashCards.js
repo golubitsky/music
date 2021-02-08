@@ -24,7 +24,7 @@ const DECKS = [
   ["seventhChords", "all"],
 ];
 
-function cards({ deck, isRandomOrderBack }) {
+function cards({ deck, notesAreShuffled }) {
   switch (deck[0]) {
     case "polychordFractions":
       return pcCards();
@@ -33,15 +33,15 @@ function cards({ deck, isRandomOrderBack }) {
     case "seventhChords":
       return seventhChordCards({
         chordQuality: deck[1],
-        isRandomOrderBack: isRandomOrderBack,
+        notesAreShuffled: notesAreShuffled,
       });
     default:
       throw new Error(`not implemented for deck=${deck}`);
   }
 }
 
-function randomCard({ deck, previousCard, isRandomOrderBack }) {
-  let allCards = cards({ deck: deck, isRandomOrderBack: isRandomOrderBack });
+function randomCard({ deck, previousCard, notesAreShuffled }) {
+  let allCards = cards({ deck: deck, notesAreShuffled: notesAreShuffled });
 
   while (true) {
     let card = _.sample(allCards);

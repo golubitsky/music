@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
 import { cards, randomCard, AVAILABLE_DECKS } from "./flashCards.js";
-// To aid testing of isRandomOrderBack.
+// To aid testing of notesAreShuffled.
 import { notesInOneChord } from "./flashCards/seventhChords.js";
 
 import {
@@ -27,7 +27,7 @@ describe("cards", () => {
     // Establish randomization of all major 7 chords (stand-in for other qualities)
     const allMaj7Chords = cards({
       deck: ["seventhChords", MAJOR_SEVEN],
-      isRandomOrderBack: true,
+      notesAreShuffled: true,
     });
 
     const cMajor7 = _.find(
@@ -81,7 +81,7 @@ describe("randomCard", () => {
   test("seventh chord can appear in random order", () => {
     const randomMaj7Card = randomCard({
       deck: ["seventhChords", MAJOR_SEVEN],
-      isRandomOrderBack: true,
+      notesAreShuffled: true,
     });
 
     const randomMajor7CardSortedBack = randomMaj7Card.back
@@ -93,7 +93,7 @@ describe("randomCard", () => {
       // Remove the chord symbol to get the note
       note: randomMaj7Card.front.slice(0, -1),
       chordQuality: MAJOR_SEVEN,
-      isRandomOrderBack: false,
+      notesAreShuffled: false,
     })
       .sort()
       .join(" ");

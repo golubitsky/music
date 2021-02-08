@@ -90,7 +90,7 @@ describe("cards", () => {
   });
 
   const permutationsBHalfDiminished = [
-    // isRandomOrderBack will not return the root position chord
+    // notesAreShuffled will not return the root position chord
     // "B D F A",
     "B D A F",
     "B F D A",
@@ -119,7 +119,7 @@ describe("cards", () => {
   test("back can be shuffled", () => {
     const results = cards({
       chordQuality: HALF_DIMINISHED_SEVEN,
-      isRandomOrderBack: true,
+      notesAreShuffled: true,
     });
 
     const bHalfDiminished = _.find(results, (result) => result.front === "Bø");

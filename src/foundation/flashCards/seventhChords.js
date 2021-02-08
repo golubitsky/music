@@ -19,7 +19,7 @@ const INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY = {
   [DIMINISHED_SEVEN]: ["m3", "o5", "o7"],
 };
 
-function notesInOneChord({ note, chordQuality, isRandomOrderBack }) {
+function notesInOneChord({ note, chordQuality, notesAreShuffled }) {
   const intervals = INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality];
 
   const notes = [
@@ -29,7 +29,7 @@ function notesInOneChord({ note, chordQuality, isRandomOrderBack }) {
     noteAbove(note, intervals[2]),
   ];
 
-  if (isRandomOrderBack) {
+  if (notesAreShuffled) {
     while (true) {
       let shuffledNotes = _.shuffle(notes);
 
@@ -42,14 +42,14 @@ function notesInOneChord({ note, chordQuality, isRandomOrderBack }) {
   }
 }
 
-function seventhChords(chordQuality, isRandomOrderBack) {
+function seventhChords(chordQuality, notesAreShuffled) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
     .map(function (note) {
       const notesInChord = notesInOneChord({
         note,
         chordQuality,
-        isRandomOrderBack,
+        notesAreShuffled,
       });
 
       return {
@@ -59,9 +59,9 @@ function seventhChords(chordQuality, isRandomOrderBack) {
     });
 }
 
-function cards({ chordQuality, isRandomOrderBack }) {
+function cards({ chordQuality, notesAreShuffled }) {
   if (chordQuality in INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY) {
-    return seventhChords(chordQuality, isRandomOrderBack);
+    return seventhChords(chordQuality, notesAreShuffled);
   }
 
   if (chordQuality === "all") {
@@ -70,7 +70,7 @@ function cards({ chordQuality, isRandomOrderBack }) {
     ).map((quality) => {
       return {
         chordQuality: quality,
-        isRandomOrderBack: isRandomOrderBack,
+        notesAreShuffled: notesAreShuffled,
       };
     });
     return _.flatMap(paramsForAllQualities, cards);
