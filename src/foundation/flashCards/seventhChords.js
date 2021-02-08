@@ -19,7 +19,9 @@ const INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY = {
   [DIMINISHED_SEVEN]: ["m3", "o5", "o7"],
 };
 
-function notesInOneChord(note, intervals, isRandomOrderBack) {
+function notesInOneChord({ note, chordQuality, isRandomOrderBack }) {
+  const intervals = INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality];
+
   const notes = [
     note,
     noteAbove(note, intervals[0]),
@@ -44,11 +46,11 @@ function seventhChords(chordQuality, isRandomOrderBack) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
     .map(function (note) {
-      const notesInChord = notesInOneChord(
+      const notesInChord = notesInOneChord({
         note,
-        INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality],
-        isRandomOrderBack
-      );
+        chordQuality,
+        isRandomOrderBack,
+      });
 
       return {
         front: `${note}${chordQuality}`,
@@ -76,4 +78,4 @@ function cards({ chordQuality, isRandomOrderBack }) {
 
   throw new Error(`not implemented for chordQuality=${chordQuality}`);
 }
-export { cards };
+export { cards, notesInOneChord };

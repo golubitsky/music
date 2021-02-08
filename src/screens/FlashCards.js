@@ -49,8 +49,7 @@ export class FlashCards extends React.Component {
     this.setState({
       deck: deck,
       // TODO: RandomBack checkbox to set this.state.isRandomOrderBack
-      // TODO: pass isRandomOrderBack param here.
-      card: randomCard({ deck: deck, previousCard: this.state.card }),
+      card: randomCard({ deck: deck, previousCard: this.state.card, isRandomOrderBack: false }),
       side: side || this.state.nextCardSide,
     });
   }

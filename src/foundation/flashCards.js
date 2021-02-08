@@ -31,14 +31,17 @@ function cards({ deck, isRandomOrderBack }) {
     case "seventhsAndThirds":
       return thirdSeventhCards(deck[1]);
     case "seventhChords":
-      return seventhChordCards({ chordQuality: deck[1] });
+      return seventhChordCards({
+        chordQuality: deck[1],
+        isRandomOrderBack: isRandomOrderBack,
+      });
     default:
       throw new Error(`not implemented for deck=${deck}`);
   }
 }
 
-function randomCard({ deck, previousCard }) {
-  let allCards = cards({ deck: deck });
+function randomCard({ deck, previousCard, isRandomOrderBack }) {
+  let allCards = cards({ deck: deck, isRandomOrderBack: isRandomOrderBack });
 
   while (true) {
     let card = _.sample(allCards);
