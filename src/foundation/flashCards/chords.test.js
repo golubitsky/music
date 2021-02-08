@@ -170,7 +170,10 @@ describe("cards", () => {
       notesAreShuffled: true,
     });
 
-    const bHalfDiminished = _.find(results, (result) => result.front === "Bø");
+    const bHalfDiminished = _.find(
+      results,
+      (result) => result.front === `B${HALF_DIMINISHED_SEVEN}`
+    );
 
     expect(permutationsBHalfDiminished).toContain(bHalfDiminished.back);
   });
