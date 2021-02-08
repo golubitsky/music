@@ -42,6 +42,6 @@
   justify-content: center;
 }
 
-input[name="card-reverse"] {
+input[name="card-reverse"], input[name="isRandomOrderBack"]  {
   margin: 5px;
 }
