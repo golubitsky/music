@@ -42,6 +42,7 @@ App is [live](https://golubitsky.github.io/music/).
   - [ ] Natural minor
 - [ ] Flashcards for scale degree -> mode.
 - [ ] Flashcards for [flatted scale degrees](https://spinditty.com/learning/Memorizing-the-Musical-Modes) -> mode.
+- [ ] Flashcards for turnarounds (e.g. C A D G) and/or cool progressions.
 - [ ] Flashcards for intervals
   - [ ] Ascending
   - [ ] Descending
@@ -55,7 +56,7 @@ App is [live](https://golubitsky.github.io/music/).
     - [x] All qualities.
     - [x] Shuffled notes.
   - [ ] Triads (having realized that there are 24 permutations of each 7th chord!)
-    - [ ] Per quality.
+    - [ ] Per quality (M, m, dim, aug).
     - [ ] All qualities.
     - [ ] Shuffled notes.
 - [ ] Flashcards UI enhancements.

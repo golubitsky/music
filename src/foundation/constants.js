@@ -2,10 +2,13 @@ export const FLAT = "♭";
 export const SHARP = "♯";
 
 export const MINOR = "m";
+export const MAJOR = "M";
 export const DIMINISHED = "o";
+export const AUGMENTED = "+";
+
+export const MAJOR_SEVEN = "△";
 export const SEVEN = "⁷";
 export const MINOR_SEVEN = `${MINOR}${SEVEN}`;
-export const MAJOR_SEVEN = "△";
 export const HALF_DIMINISHED_SEVEN = "ø";
 export const DIMINISHED_SEVEN = `${DIMINISHED}${SEVEN}`;
 
