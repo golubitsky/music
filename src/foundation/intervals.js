@@ -11,6 +11,29 @@
 
 import { SHARP, FLAT } from "./constants.js";
 
+const NOTES_MAJOR_SECOND_ABOVE = {
+  // White keys
+  A: "B",
+  B: `C${SHARP}`,
+  C: "D",
+  D: "E",
+  E: `F${SHARP}`,
+  F: "G",
+  G: "A",
+  // Sharps
+  [`A${SHARP}`]: `B${SHARP}`,
+  [`C${SHARP}`]: `D${SHARP}`,
+  [`D${SHARP}`]: `E${SHARP}`,
+  [`F${SHARP}`]: `G${SHARP}`,
+  [`G${SHARP}`]: `A${SHARP}`,
+  // Flats
+  [`B${FLAT}`]: "C",
+  [`E${FLAT}`]: "F",
+  [`A${FLAT}`]: `B${FLAT}`,
+  [`D${FLAT}`]: `E${FLAT}`,
+  [`G${FLAT}`]: `A${FLAT}`,
+};
+
 const NOTES_PERFECT_FIFTH_ABOVE = {
   // White keys
   A: "E",
@@ -149,6 +172,29 @@ const NOTES_MAJOR_SEVENTH_ABOVE = {
   [`G${FLAT}`]: "F",
 };
 
+const NOTES_PERFECT_FOURTH_ABOVE = {
+  // White keys
+  A: "D",
+  B: "E",
+  C: "F",
+  D: "G",
+  E: "A",
+  F: `B${FLAT}`,
+  G: "C",
+  // Sharps
+  [`A${SHARP}`]: `D${SHARP}`,
+  [`C${SHARP}`]: `F${SHARP}`,
+  [`D${SHARP}`]: `G${SHARP}`,
+  [`F${SHARP}`]: "B",
+  [`G${SHARP}`]: `C${SHARP}`,
+  // Flats
+  [`B${FLAT}`]: `E${FLAT}`,
+  [`E${FLAT}`]: `A${FLAT}`,
+  [`A${FLAT}`]: `D${FLAT}`,
+  [`D${FLAT}`]: `G${FLAT}`,
+  [`G${FLAT}`]: `C${FLAT}`,
+};
+
 const NOTES_AUGMENTED_FOURTH_ABOVE = {
   // White keys
   A: `D${SHARP}`,
@@ -219,10 +265,16 @@ const NOTES_DIMINISHED_SEVENTH_ABOVE = {
 };
 function noteAbove(note, interval) {
   switch (interval) {
+    case "P1":
+      return note;
+    case "M2":
+      return NOTES_MAJOR_SECOND_ABOVE[note];
     case "m3":
       return NOTES_MINOR_THIRD_ABOVE[note];
     case "M3":
       return NOTES_MAJOR_THIRD_ABOVE[note];
+    case "P4":
+      return NOTES_PERFECT_FOURTH_ABOVE[note];
     case "+4":
       return NOTES_AUGMENTED_FOURTH_ABOVE[note];
     case "o5":

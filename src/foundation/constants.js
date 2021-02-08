@@ -27,3 +27,5 @@ export const SHARPS = [
   `G${SHARP}`,
   `A${SHARP}`,
 ];
+
+export const ALL_NOTES = WHITE_KEYS.concat(SHARPS).concat(FLATS);

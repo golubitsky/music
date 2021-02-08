@@ -1,8 +1,6 @@
 import { noteAbove } from "../intervals.js";
 import {
-  WHITE_KEYS,
-  SHARPS,
-  FLATS,
+  ALL_NOTES,
   DIMINISHED,
   MINOR,
   MAJOR,
@@ -49,20 +47,18 @@ function notesInOneChord({ note, chordQuality, notesAreShuffled }) {
 }
 
 function chords(chordQuality, notesAreShuffled) {
-  return WHITE_KEYS.concat(SHARPS)
-    .concat(FLATS)
-    .map(function (note) {
-      const notesInChord = notesInOneChord({
-        note,
-        chordQuality,
-        notesAreShuffled,
-      });
-
-      return {
-        front: chordQuality === MAJOR ? note : `${note}${chordQuality}`,
-        back: `${notesInChord.join(" ")}`,
-      };
+  return ALL_NOTES.map(function (note) {
+    const notesInChord = notesInOneChord({
+      note,
+      chordQuality,
+      notesAreShuffled,
     });
+
+    return {
+      front: chordQuality === MAJOR ? note : `${note}${chordQuality}`,
+      back: `${notesInChord.join(" ")}`,
+    };
+  });
 }
 
 function cards({ chordQuality, notesAreShuffled }) {

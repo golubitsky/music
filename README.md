@@ -87,3 +87,5 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Constantize flat, sharp symbols.
 - [ ] Constantize intervals. Possibly chord symbols/intervals should be in separate constants.
 - [ ] Refactor chords.js tests to be more data-driven/DRY.
+- [ ] notesInOneChord should be in its own module.
+- [ ] Omitting "M" from Major chords could be DRYer.

@@ -1,6 +1,24 @@
 import { noteAbove } from "./intervals.js";
 import { SHARP, FLAT, DIMINISHED } from "./constants.js";
 
+describe("perfect unisons", () => {
+  test.each([
+    ["A", "A"],
+    [`C${SHARP}`, `C${SHARP}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "P1")).toBe(expected);
+  });
+});
+
+describe("major seconds", () => {
+  test.each([
+    ["A", "B"],
+    ["B", `C${SHARP}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "M2")).toBe(expected);
+  });
+});
+
 describe("minor thirds", () => {
   test.each([
     ["A", "C"],
@@ -16,6 +34,15 @@ describe("major thirds", () => {
     ["B", `D${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
     expect(noteAbove(startingNote, "M3")).toBe(expected);
+  });
+});
+
+describe("perfect fourths", () => {
+  test.each([
+    ["A", "D"],
+    [`B${FLAT}`, `E${FLAT}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "P4")).toBe(expected);
   });
 });
 
@@ -54,7 +81,6 @@ describe("augmented fifths", () => {
     expect(noteAbove(startingNote, "+5")).toBe(expected);
   });
 });
-
 
 describe("diminished sevenths", () => {
   test.each([

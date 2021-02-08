@@ -1,5 +1,4 @@
 import { cards } from "./chords.js";
-const _ = require("lodash");
 import {
   SHARP,
   FLAT,
@@ -13,6 +12,7 @@ import {
   HALF_DIMINISHED_SEVEN,
   MAJOR_SEVEN,
 } from "../constants.js";
+const _ = require("lodash");
 
 describe("cards", () => {
   test("returns diminished triads", () => {
