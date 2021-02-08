@@ -42,7 +42,7 @@ function notesInOneChord({ note, chordQuality, notesAreShuffled }) {
   }
 }
 
-function seventhChords(chordQuality, notesAreShuffled) {
+function chords(chordQuality, notesAreShuffled) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
     .map(function (note) {
@@ -61,7 +61,7 @@ function seventhChords(chordQuality, notesAreShuffled) {
 
 function cards({ chordQuality, notesAreShuffled }) {
   if (chordQuality in INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY) {
-    return seventhChords(chordQuality, notesAreShuffled);
+    return chords(chordQuality, notesAreShuffled);
   }
 
   if (chordQuality === "all") {

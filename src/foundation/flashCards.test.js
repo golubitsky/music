@@ -2,7 +2,7 @@ const _ = require("lodash");
 
 import { cards, randomCard, AVAILABLE_DECKS } from "./flashCards.js";
 // To aid testing of notesAreShuffled.
-import { notesInOneChord } from "./flashCards/seventhChords.js";
+import { notesInOneChord } from "./flashCards/chords.js";
 
 import {
   MINOR_SEVEN,
@@ -26,7 +26,7 @@ describe("cards", () => {
   test("seventh chords can appear in random order", () => {
     // Establish randomization of all major 7 chords (stand-in for other qualities)
     const allMaj7Chords = cards({
-      deck: ["seventhChords", MAJOR_SEVEN],
+      deck: ["chords", MAJOR_SEVEN],
       notesAreShuffled: true,
     });
 
@@ -69,7 +69,7 @@ describe("randomCard", () => {
   test.each([MAJOR_SEVEN, SEVEN, MINOR_SEVEN, HALF_DIMINISHED_SEVEN, "all"])(
     ".randomCard(%s)",
     (chordType) => {
-      expect(randomCard({ deck: ["seventhChords", chordType] })).toEqual(
+      expect(randomCard({ deck: ["chords", chordType] })).toEqual(
         expect.objectContaining({
           front: expect.any(String),
           back: expect.any(String),
@@ -80,7 +80,7 @@ describe("randomCard", () => {
 
   test("seventh chord can appear in random order", () => {
     const randomMaj7Card = randomCard({
-      deck: ["seventhChords", MAJOR_SEVEN],
+      deck: ["chords", MAJOR_SEVEN],
       notesAreShuffled: true,
     });
 

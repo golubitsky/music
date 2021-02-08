@@ -1,6 +1,6 @@
 import { cards as pcCards } from "./flashCards/polychordFractions.js";
 import { cards as thirdSeventhCards } from "./flashCards/thirdsAndSevenths.js";
-import { cards as seventhChordCards } from "./flashCards/seventhChords.js";
+import { cards as chordChards } from "./flashCards/chords.js";
 import {
   MAJOR_SEVEN,
   SEVEN,
@@ -16,12 +16,12 @@ const DECKS = [
   ["seventhsAndThirds", MAJOR_SEVEN],
   ["seventhsAndThirds", SEVEN],
   ["seventhsAndThirds", MINOR_SEVEN],
-  ["seventhChords", MAJOR_SEVEN],
-  ["seventhChords", SEVEN],
-  ["seventhChords", MINOR_SEVEN],
-  ["seventhChords", HALF_DIMINISHED_SEVEN],
-  ["seventhChords", DIMINISHED_SEVEN],
-  ["seventhChords", "all"],
+  ["chords", MAJOR_SEVEN],
+  ["chords", SEVEN],
+  ["chords", MINOR_SEVEN],
+  ["chords", HALF_DIMINISHED_SEVEN],
+  ["chords", DIMINISHED_SEVEN],
+  ["chords", "all"],
 ];
 
 function cards({ deck, notesAreShuffled }) {
@@ -30,8 +30,8 @@ function cards({ deck, notesAreShuffled }) {
       return pcCards();
     case "seventhsAndThirds":
       return thirdSeventhCards(deck[1]);
-    case "seventhChords":
-      return seventhChordCards({
+    case "chords":
+      return chordChards({
         chordQuality: deck[1],
         notesAreShuffled: notesAreShuffled,
       });

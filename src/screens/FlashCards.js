@@ -107,7 +107,7 @@ export class FlashCards extends React.Component {
                     )
                   )}
                 </div>
-                {deckType === "seventhChords" && (
+                {deckType === "chords" && (
                   <div className="card-options">
                     <label>
                       Shuffle Notes

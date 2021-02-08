@@ -1,4 +1,4 @@
-import { cards } from "./seventhChords.js";
+import { cards } from "./chords.js";
 const _ = require("lodash");
 import {
   SHARP,
