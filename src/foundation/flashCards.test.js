@@ -5,9 +5,14 @@ import { cards, randomCard, AVAILABLE_DECKS } from "./flashCards.js";
 import { notesInOneChord } from "./flashCards/chords.js";
 
 import {
+  DIMINISHED,
+  MINOR,
+  MAJOR,
+  AUGMENTED,
   MINOR_SEVEN,
   SEVEN,
   HALF_DIMINISHED_SEVEN,
+  DIMINISHED_SEVEN,
   MAJOR_SEVEN,
 } from "./constants.js";
 
@@ -66,17 +71,25 @@ describe("randomCard", () => {
     }
   );
 
-  test.each([MAJOR_SEVEN, SEVEN, MINOR_SEVEN, HALF_DIMINISHED_SEVEN, "all"])(
-    ".randomCard(%s)",
-    (chordType) => {
-      expect(randomCard({ deck: ["chords", chordType] })).toEqual(
-        expect.objectContaining({
-          front: expect.any(String),
-          back: expect.any(String),
-        })
-      );
-    }
-  );
+  test.each([
+    DIMINISHED,
+    MINOR,
+    MAJOR,
+    AUGMENTED,
+    MINOR_SEVEN,
+    SEVEN,
+    HALF_DIMINISHED_SEVEN,
+    DIMINISHED_SEVEN,
+    MAJOR_SEVEN,
+    "all",
+  ])(".randomCard(%s)", (chordType) => {
+    expect(randomCard({ deck: ["chords", chordType] })).toEqual(
+      expect.objectContaining({
+        front: expect.any(String),
+        back: expect.any(String),
+      })
+    );
+  });
 
   test("seventh chord can appear in random order", () => {
     const randomMaj7Card = randomCard({

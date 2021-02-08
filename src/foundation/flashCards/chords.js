@@ -3,6 +3,10 @@ import {
   WHITE_KEYS,
   SHARPS,
   FLATS,
+  DIMINISHED,
+  MINOR,
+  MAJOR,
+  AUGMENTED,
   MAJOR_SEVEN,
   SEVEN,
   MINOR_SEVEN,
@@ -17,16 +21,18 @@ const INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY = {
   [MINOR_SEVEN]: ["m3", "P5", "m7"],
   [HALF_DIMINISHED_SEVEN]: ["m3", "o5", "m7"],
   [DIMINISHED_SEVEN]: ["m3", "o5", "o7"],
+  [DIMINISHED]: ["m3", "o5"],
+  [MINOR]: ["m3", "P5"],
+  [MAJOR]: ["M3", "P5"],
+  [AUGMENTED]: ["M3", "+5"],
 };
 
 function notesInOneChord({ note, chordQuality, notesAreShuffled }) {
-  const intervals = INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality];
-
   const notes = [
     note,
-    noteAbove(note, intervals[0]),
-    noteAbove(note, intervals[1]),
-    noteAbove(note, intervals[2]),
+    ...INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality].map((interval) =>
+      noteAbove(note, interval)
+    ),
   ];
 
   if (notesAreShuffled) {
@@ -53,7 +59,7 @@ function chords(chordQuality, notesAreShuffled) {
       });
 
       return {
-        front: `${note}${chordQuality}`,
+        front: chordQuality === MAJOR ? note : `${note}${chordQuality}`,
         back: `${notesInChord.join(" ")}`,
       };
     });

@@ -1,3 +1,8 @@
+// I ended up implementing a very literal interval engine. It's fine, because
+// there are a finite number of intervals and keys.
+// Originally I was trying to make it more programmatic, but that proved too difficult.
+
+// These notes apply to the earlier (more programmatic) version of the code.
 // One of twelve, plus enharmonics. [Note]
 // A note belongs to many chords. [Chord]
 // A note is relative to another note. [Interval]
@@ -6,7 +11,7 @@
 
 import { SHARP, FLAT } from "./constants.js";
 
-const NOTES_FIFTH_ABOVE = {
+const NOTES_PERFECT_FIFTH_ABOVE = {
   // White keys
   A: "E",
   B: `F${SHARP}`,
@@ -27,6 +32,29 @@ const NOTES_FIFTH_ABOVE = {
   [`A${FLAT}`]: `E${FLAT}`,
   [`D${FLAT}`]: `A${FLAT}`,
   [`G${FLAT}`]: `D${FLAT}`,
+};
+
+const NOTES_AUGMENTED_FIFTH_ABOVE = {
+  // White keys
+  A: `E${SHARP}`,
+  B: `F${SHARP}${SHARP}`,
+  C: `G${SHARP}`,
+  D: `A${SHARP}`,
+  E: `B${SHARP}`,
+  F: `C${SHARP}`,
+  G: `D${SHARP}`,
+  // Sharps
+  [`A${SHARP}`]: `E${SHARP}${SHARP}`,
+  [`C${SHARP}`]: `G${SHARP}${SHARP}`,
+  [`D${SHARP}`]: `A${SHARP}${SHARP}`,
+  [`F${SHARP}`]: `C${SHARP}${SHARP}`,
+  [`G${SHARP}`]: `D${SHARP}${SHARP}`,
+  // Flats
+  [`B${FLAT}`]: `F${SHARP}`,
+  [`E${FLAT}`]: `B`,
+  [`A${FLAT}`]: `E`,
+  [`D${FLAT}`]: `A`,
+  [`G${FLAT}`]: `D`,
 };
 
 const NOTES_MAJOR_THIRD_ABOVE = {
@@ -190,22 +218,27 @@ const NOTES_DIMINISHED_SEVENTH_ABOVE = {
   [`G${FLAT}`]: `F${FLAT}${FLAT}`,
 };
 function noteAbove(note, interval) {
-  if (interval === "P5") {
-    return NOTES_FIFTH_ABOVE[note];
-  } else if (interval === "M3") {
-    return NOTES_MAJOR_THIRD_ABOVE[note];
-  } else if (interval === "m3") {
-    return NOTES_MINOR_THIRD_ABOVE[note];
-  } else if (interval === "+4") {
-    return NOTES_AUGMENTED_FOURTH_ABOVE[note];
-  } else if (interval === "o5") {
-    return NOTES_DIMINISHED_FIFTH_ABOVE[note];
-  } else if (interval === "o7") {
-    return NOTES_DIMINISHED_SEVENTH_ABOVE[note];
-  } else if (interval === "m7") {
-    return NOTES_MINOR_SEVENTH_ABOVE[note];
-  } else if (interval === "M7") {
-    return NOTES_MAJOR_SEVENTH_ABOVE[note];
+  switch (interval) {
+    case "m3":
+      return NOTES_MINOR_THIRD_ABOVE[note];
+    case "M3":
+      return NOTES_MAJOR_THIRD_ABOVE[note];
+    case "+4":
+      return NOTES_AUGMENTED_FOURTH_ABOVE[note];
+    case "o5":
+      return NOTES_DIMINISHED_FIFTH_ABOVE[note];
+    case "P5":
+      return NOTES_PERFECT_FIFTH_ABOVE[note];
+    case "+5":
+      return NOTES_AUGMENTED_FIFTH_ABOVE[note];
+    case "o7":
+      return NOTES_DIMINISHED_SEVENTH_ABOVE[note];
+    case "m7":
+      return NOTES_MINOR_SEVENTH_ABOVE[note];
+    case "M7":
+      return NOTES_MAJOR_SEVENTH_ABOVE[note];
+    default:
+      throw new Error(`not implemented for interval=${interval}`);
   }
 }
 export { noteAbove };

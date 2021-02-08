@@ -56,8 +56,8 @@ App is [live](https://golubitsky.github.io/music/).
     - [x] All qualities.
     - [x] Shuffled notes.
   - [ ] Triads (having realized that there are 24 permutations of each 7th chord!)
-    - [ ] Per quality (M, m, dim, aug).
-    - [ ] All qualities.
+    - [x] Per quality (M, m, dim, aug).
+    - [x] All qualities.
     - [ ] Shuffled notes.
 - [ ] Flashcards UI enhancements.
   - [x] Indicate current deck (perhaps on card).
@@ -86,3 +86,4 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Use consistent flat symbol throughout codebase (polychordFractions seem to have the symbol, others use letter "b").
 - [x] Constantize flat, sharp symbols.
 - [ ] Constantize intervals. Possibly chord symbols/intervals should be in separate constants.
+- [ ] Refactor chords.js tests to be more data-driven/DRY.

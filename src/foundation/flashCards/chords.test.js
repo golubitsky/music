@@ -3,14 +3,62 @@ const _ = require("lodash");
 import {
   SHARP,
   FLAT,
+  DIMINISHED,
+  MINOR,
+  MAJOR,
+  AUGMENTED,
+  DIMINISHED_SEVEN,
   SEVEN,
   MINOR_SEVEN,
-  MAJOR_SEVEN,
   HALF_DIMINISHED_SEVEN,
-  DIMINISHED_SEVEN,
+  MAJOR_SEVEN,
 } from "../constants.js";
 
 describe("cards", () => {
+  test("returns diminished triads", () => {
+    expect(cards({ chordQuality: DIMINISHED })).toEqual(
+      expect.arrayContaining([
+        {
+          front: `A${DIMINISHED}`,
+          back: `A C E${FLAT}`,
+        },
+      ])
+    );
+  });
+
+  test("returns minor triads", () => {
+    expect(cards({ chordQuality: MINOR })).toEqual(
+      expect.arrayContaining([
+        {
+          front: `A${MINOR}`,
+          back: `A C E`,
+        },
+      ])
+    );
+  });
+
+  test("returns major triads", () => {
+    expect(cards({ chordQuality: MAJOR })).toEqual(
+      expect.arrayContaining([
+        {
+          front: "A",
+          back: `A C${SHARP} E`,
+        },
+      ])
+    );
+  });
+
+  test("returns augmented triads", () => {
+    expect(cards({ chordQuality: AUGMENTED })).toEqual(
+      expect.arrayContaining([
+        {
+          front: `A${AUGMENTED}`,
+          back: `A C${SHARP} E${SHARP}`,
+        },
+      ])
+    );
+  });
+
   test("returns dominant 7ths", () => {
     expect(cards({ chordQuality: SEVEN })).toEqual(
       expect.arrayContaining([

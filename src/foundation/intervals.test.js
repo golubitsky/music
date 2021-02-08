@@ -46,6 +46,16 @@ describe("perfect fifths", () => {
   });
 });
 
+describe("augmented fifths", () => {
+  test.each([
+    ["A", `E${SHARP}`],
+    ["B", `F${SHARP}${SHARP}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove(startingNote, "+5")).toBe(expected);
+  });
+});
+
+
 describe("diminished sevenths", () => {
   test.each([
     ["A", `G${FLAT}`],
