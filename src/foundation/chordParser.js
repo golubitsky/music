@@ -12,7 +12,8 @@ const INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL = {
 };
 
 function triadQuality(abstractChord) {
-  const quality = abstractChord.toUpperCase() === abstractChord ? MAJOR : MINOR;
+  const chordFunction = abstractChord.split("/")[0];
+  const quality = chordFunction.toUpperCase() === chordFunction ? MAJOR : MINOR;
 
   return quality === MAJOR ? "" : quality;
 }
@@ -34,14 +35,25 @@ function romanNumeral(abstractChord) {
   throw new Error(`not implemented for ${abstractChord}`);
 }
 
+function root({ abstractChord, key }) {
+  const [chordFunction, secondaryKey] = abstractChord.split("/");
+  const root = secondaryKey
+    ? noteAbove({
+        note: key,
+        interval: INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[secondaryKey],
+      })
+    : key;
+
+  return noteAbove({
+    note: root,
+    interval: INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[romanNumeral(chordFunction)],
+  });
+}
+
 function abstractCharacteristics({ abstractChord, key }) {
   return {
     triadQuality: triadQuality(abstractChord),
-    root: noteAbove({
-      note: key,
-      interval:
-        INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[romanNumeral(abstractChord)],
-    }),
+    root: root({ abstractChord, key }),
     seven: abstractChord.includes(SEVEN) ? SEVEN : "",
   };
 }
@@ -49,7 +61,7 @@ function abstractCharacteristics({ abstractChord, key }) {
 function chord({ abstractChord, key }) {
   const aboutThisChord = abstractCharacteristics({ abstractChord, key });
 
-  // filter out empty terms
+  // triadQuality and seven can be empty
   return _.filter(
     [aboutThisChord.root, aboutThisChord.triadQuality, aboutThisChord.seven],
     (item) => item.length > 0
