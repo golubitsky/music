@@ -14,10 +14,13 @@ function thirdsAndSevenths(intervals) {
     .map(function (note) {
       return {
         front: note,
-        back: `${noteAbove(note, intervals[0])} ${noteAbove(
-          note,
-          intervals[1]
-        )}`,
+        back: [
+          noteAbove({ note: note, interval: intervals[0] }),
+          noteAbove({
+            note: note,
+            interval: intervals[1],
+          }),
+        ].join(" "),
       };
     });
 }

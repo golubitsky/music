@@ -29,7 +29,7 @@ function notesInOneChord({ note, chordQuality, notesAreShuffled }) {
   const notes = [
     note,
     ...INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY[chordQuality].map((interval) =>
-      noteAbove(note, interval)
+      noteAbove({ note, interval })
     ),
   ];
 

@@ -263,7 +263,7 @@ const NOTES_DIMINISHED_SEVENTH_ABOVE = {
   [`D${FLAT}`]: `C${FLAT}${FLAT}`,
   [`G${FLAT}`]: `F${FLAT}${FLAT}`,
 };
-function noteAbove(note, interval) {
+function noteAbove({ note, interval }) {
   switch (interval) {
     case "P1":
       return note;

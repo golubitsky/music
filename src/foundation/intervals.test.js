@@ -6,7 +6,7 @@ describe("perfect unisons", () => {
     ["A", "A"],
     [`C${SHARP}`, `C${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "P1")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "P1"})).toBe(expected);
   });
 });
 
@@ -15,7 +15,7 @@ describe("major seconds", () => {
     ["A", "B"],
     ["B", `C${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "M2")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "M2"})).toBe(expected);
   });
 });
 
@@ -24,7 +24,7 @@ describe("minor thirds", () => {
     ["A", "C"],
     ["B", "D"],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "m3")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "m3"})).toBe(expected);
   });
 });
 
@@ -33,7 +33,7 @@ describe("major thirds", () => {
     ["A", `C${SHARP}`],
     ["B", `D${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "M3")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "M3"})).toBe(expected);
   });
 });
 
@@ -42,7 +42,7 @@ describe("perfect fourths", () => {
     ["A", "D"],
     [`B${FLAT}`, `E${FLAT}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "P4")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "P4"})).toBe(expected);
   });
 });
 
@@ -51,7 +51,7 @@ describe("augmented fourths", () => {
     ["A", `D${SHARP}`],
     [`B${FLAT}`, "E"],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "+4")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "+4"})).toBe(expected);
   });
 });
 
@@ -60,7 +60,7 @@ describe("diminished fifths", () => {
     ["A", `E${FLAT}`],
     [`B${FLAT}`, `F${FLAT}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, `o5`)).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "o5"})).toBe(expected);
   });
 });
 
@@ -69,7 +69,7 @@ describe("perfect fifths", () => {
     ["A", "E"],
     ["B", `F${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "P5")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "P5"})).toBe(expected);
   });
 });
 
@@ -78,7 +78,7 @@ describe("augmented fifths", () => {
     ["A", `E${SHARP}`],
     ["B", `F${SHARP}${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "+5")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "+5"})).toBe(expected);
   });
 });
 
@@ -88,7 +88,7 @@ describe("diminished sevenths", () => {
     [`C${SHARP}`, `B${FLAT}`],
     [`B${FLAT}`, `A${FLAT}${FLAT}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, `o7`)).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "o7"})).toBe(expected);
   });
 });
 
@@ -97,7 +97,7 @@ describe("minor sevenths", () => {
     ["A", "G"],
     ["B", "A"],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "m7")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "m7"})).toBe(expected);
   });
 });
 
@@ -106,6 +106,6 @@ describe("major sevenths", () => {
     ["A", `G${SHARP}`],
     ["B", `A${SHARP}`],
   ])(".noteAbove(%s, %s)", (startingNote, expected) => {
-    expect(noteAbove(startingNote, "M7")).toBe(expected);
+    expect(noteAbove({note: startingNote, interval: "M7"})).toBe(expected);
   });
 });
