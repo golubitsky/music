@@ -36,35 +36,66 @@ function romanNumeral(abstractChord) {
 }
 
 function root({ abstractChord, key }) {
-  const [chordFunction, secondaryKey] = abstractChord.split("/");
-  const root = secondaryKey
-    ? noteAbove({
-        note: key,
-        interval: INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[secondaryKey],
-      })
-    : key;
-
   return noteAbove({
-    note: root,
-    interval: INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[romanNumeral(chordFunction)],
+    note: secondaryKey({ abstractChord, key }) || key,
+    interval:
+      INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[
+        romanNumeral(chordFunction(abstractChord))
+      ],
   });
 }
 
+function chordFunction(abstractChord) {
+  return abstractChord.split("/")[0];
+}
+
+function secondaryKey({ abstractChord, key }) {
+  const secondaryKey = abstractChord.split("/")[1];
+
+  if (secondaryKey) {
+    return noteAbove({
+      note: key,
+      interval: INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[secondaryKey],
+    });
+  }
+}
+
+function multipleChordsInSecondaryKey(abstractChord) {
+  var matches = abstractChord.match(/\[(.*?)\]/);
+
+  if (matches) {
+    return matches[1].split(" ");
+  }
+}
 function abstractCharacteristics({ abstractChord, key }) {
-  return {
-    triadQuality: triadQuality(abstractChord),
-    root: root({ abstractChord, key }),
-    seven: abstractChord.includes(SEVEN) ? SEVEN : "",
-  };
+  let chords;
+  const multipleChords = multipleChordsInSecondaryKey(abstractChord);
+
+  if (multipleChords) {
+    chords = multipleChords;
+    key = secondaryKey({ abstractChord, key });
+  } else {
+    chords = [abstractChord];
+  }
+
+  return _.map(chords, (abstractChord) => {
+    return {
+      triadQuality: triadQuality(abstractChord),
+      root: root({ abstractChord, key }),
+      seven: abstractChord.includes(SEVEN) ? SEVEN : "",
+    };
+  });
 }
 
 function chord({ abstractChord, key }) {
-  const aboutThisChord = abstractCharacteristics({ abstractChord, key });
+  const characteristics = abstractCharacteristics({ abstractChord, key });
 
-  // triadQuality and seven can be empty
-  return _.filter(
-    [aboutThisChord.root, aboutThisChord.triadQuality, aboutThisChord.seven],
-    (item) => item.length > 0
-  ).join("");
+  return _.map(characteristics, function (aboutThisChord) {
+    // triadQuality and seven can be empty
+    return _.filter(
+      [aboutThisChord.root, aboutThisChord.triadQuality, aboutThisChord.seven],
+      (item) => item.length > 0
+    ).join("");
+  }).join(" ");
 }
 export { chord };

@@ -10,6 +10,7 @@ describe("chord", () => {
     [`V${SEVEN}`, "A", `E${SEVEN}`],
     [`V/ii`, "A", `F${SHARP}`],
     [`V${SEVEN}/ii`, "A", `F${SHARP}${SEVEN}`],
+    [`[ii V${SEVEN}]/ii`, "A", `C${SHARP}m F${SHARP}${SEVEN}`],
   ])(".chord(%s, %s, %s)", (abstractChord, key, concreteChord) => {
     expect(chord({ abstractChord, key })).toBe(concreteChord);
   });
