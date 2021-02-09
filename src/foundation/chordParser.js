@@ -74,6 +74,8 @@ function abstractCharacteristics({ abstractChord, key }) {
   if (multipleChords) {
     chords = multipleChords;
     key = secondaryKey({ abstractChord, key });
+    console.log(abstractChord)
+    console.log(chords, key);
   } else {
     chords = [abstractChord];
   }
