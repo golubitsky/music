@@ -2,10 +2,10 @@ import { cards } from "./turnarounds.js";
 import { SEVEN, MINOR, FLAT } from "../constants.js";
 
 describe("cards", () => {
-  test("returns progression in all keys", () => {
+  xtest("returns progression in all keys", () => {
     expect(
       cards({
-        // TODO: 'ii V⁷ ii/ii V⁷/ii' would be more correct/useful.
+        // TODO: 'ii V⁷ iii V⁷/ii' would be more correct/useful.
         abstractChordProgression: ["i", `IV${SEVEN}`, "ii", `V${SEVEN}`],
       })
     ).toEqual(
