@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 export const FLAT = "♭";
 export const SHARP = "♯";
 
@@ -29,3 +31,7 @@ export const SHARPS = [
 ];
 
 export const ALL_NOTES = WHITE_KEYS.concat(SHARPS).concat(FLATS);
+// Limitations in the literal notesAbove engine.
+export const ALL_NOTES_FOR_CHORD_PROGRESSIONS = _.reject(ALL_NOTES, (note) => {
+  return [`A${SHARP}`, `D${SHARP}`].includes(note);
+});

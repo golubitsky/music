@@ -2,8 +2,7 @@ import { cards } from "./turnarounds.js";
 import { SEVEN, MINOR, FLAT } from "../constants.js";
 
 describe("cards", () => {
-  // Still broken for sharps.
-  xtest("returns progression in all keys", () => {
+  test("returns progression in all keys", () => {
     expect(
       cards({
         abstractChordProgression: ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`],

@@ -1,5 +1,5 @@
 import { noteAbove } from "./intervals.js";
-import { SEVEN, MINOR, FLAT, SHARP, MAJOR } from "./constants.js";
+import { SEVEN, MINOR, MAJOR } from "./constants.js";
 
 const _ = require("lodash");
 
@@ -74,16 +74,14 @@ function abstractCharacteristics({ abstractChord, key }) {
   if (multipleChords) {
     chords = multipleChords;
     key = secondaryKey({ abstractChord, key });
-    console.log(abstractChord)
-    console.log(chords, key);
   } else {
     chords = [abstractChord];
   }
 
   return _.map(chords, (abstractChord) => {
     return {
-      triadQuality: triadQuality(abstractChord),
       root: root({ abstractChord, key }),
+      triadQuality: triadQuality(abstractChord),
       seven: abstractChord.includes(SEVEN) ? SEVEN : "",
     };
   });

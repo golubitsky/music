@@ -264,6 +264,7 @@ const NOTES_DIMINISHED_SEVENTH_ABOVE = {
   [`G${FLAT}`]: `F${FLAT}${FLAT}`,
 };
 function noteAbove({ note, interval }) {
+  // TODO: add guards here against literal #/b (instead of constant)
   switch (interval) {
     case "P1":
       return note;
