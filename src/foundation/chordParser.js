@@ -17,27 +17,41 @@ function triadQuality(abstractChord) {
   return quality === MAJOR ? "" : quality;
 }
 
+function romanNumeral(abstractChord) {
+  let longestMatch = "";
+  for (const romanNumeral in INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL) {
+    if (abstractChord.includes(romanNumeral)) {
+      if (romanNumeral.length > longestMatch.length) {
+        longestMatch = romanNumeral;
+      }
+    }
+  }
+
+  if (longestMatch) {
+    return longestMatch;
+  }
+
+  throw new Error(`not implemented for ${abstractChord}`);
+}
+
 function abstractCharacteristics({ abstractChord, key }) {
   return {
     triadQuality: triadQuality(abstractChord),
     root: noteAbove({
       note: key,
-      interval: INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[abstractChord],
+      interval:
+        INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL[romanNumeral(abstractChord)],
     }),
+    seven: abstractChord.includes(SEVEN) ? SEVEN : "",
   };
-  // if (abstractChord.toUpperCase() === abstractChord) {
-  //   return abstractChord.includes(SEVEN) ? SEVEN : "";
-  // } else {
-  //   return abstractChord.includes(SEVEN) ? `${MINOR}${SEVEN}` : MINOR;
-  // }
 }
 
 function chord({ abstractChord, key }) {
   const aboutThisChord = abstractCharacteristics({ abstractChord, key });
 
-  // filter out empty Major chord quality
+  // filter out empty terms
   return _.filter(
-    [aboutThisChord.root, aboutThisChord.triadQuality],
+    [aboutThisChord.root, aboutThisChord.triadQuality, aboutThisChord.seven],
     (item) => item.length > 0
   ).join("");
 }
