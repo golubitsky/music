@@ -31,7 +31,7 @@ export default class DeckSelection extends React.Component {
                 )}
               </div>
               {deckType === "chords" && (
-                <div className="card-options">
+                <div className="card-option-container">
                   <label>
                     Shuffle Notes
                     <input

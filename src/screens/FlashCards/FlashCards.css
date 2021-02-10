@@ -36,7 +36,7 @@
   font-size: 4vw;
 }
 
-.card-options {
+.card-option-container {
   display: flex;
   margin: 5px;
   justify-content: center;

@@ -96,7 +96,7 @@ export class FlashCards extends React.Component {
             {this.state.card[this.state.side]}
           </span>
         </div>
-        <div className="card-options">
+        <div className="card-option-container">
           <label>
             Reverse
             <input
