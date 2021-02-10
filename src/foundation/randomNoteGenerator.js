@@ -1,10 +1,4 @@
-// One of twelve, plus enharmonics. [Note]
-// A note belongs to many chords. [Chord]
-// A note is relative to another note. [Interval]
-// Number of chords suggested by 1, 2, 3 (...) notes within the system.
-// [Key]
-
-import { WHITE_KEYS, FLATS, SHARPS } from "./constants.js";
+import { WHITE_KEYS, FLATS, SHARPS } from "foundation/constants";
 
 const _ = require("lodash");
 

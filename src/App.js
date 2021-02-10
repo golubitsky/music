@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 
 import "./App.css";
-import { NotesInRandomOrder } from "./screens/NotesInRandomOrder.js";
-import { FlashCards } from "./screens/FlashCards.js";
+import { NotesInRandomOrder } from "screens/NotesInRandomOrder";
+import { FlashCards } from "screens/FlashCards/FlashCards";
 
 class App extends React.Component {
   constructor(props) {

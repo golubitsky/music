@@ -1,5 +1,5 @@
-import { noteAbove } from "./intervals.js";
-import { SHARP, FLAT, DIMINISHED } from "./constants.js";
+import { noteAbove } from "foundation/intervals";
+import { SHARP, FLAT, DIMINISHED } from "foundation/constants";
 
 describe("perfect unisons", () => {
   test.each([

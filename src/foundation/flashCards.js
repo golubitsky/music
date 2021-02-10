@@ -1,6 +1,6 @@
-import { cards as pcCards } from "./flashCards/polychordFractions.js";
-import { cards as thirdSeventhCards } from "./flashCards/thirdsAndSevenths.js";
-import { cards as chordChards } from "./flashCards/chords.js";
+import { cards as pcCards } from "foundation/flashCards/polychordFractions";
+import { cards as thirdSeventhCards } from "foundation/flashCards/thirdsAndSevenths";
+import { cards as chordChards } from "foundation/flashCards/chords";
 import {
   DIMINISHED,
   MINOR,
@@ -11,7 +11,7 @@ import {
   HALF_DIMINISHED_SEVEN,
   DIMINISHED_SEVEN,
   MAJOR_SEVEN,
-} from "./constants.js";
+} from "foundation/constants";
 
 const _ = require("lodash");
 

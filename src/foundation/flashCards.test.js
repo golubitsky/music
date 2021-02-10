@@ -1,8 +1,8 @@
 const _ = require("lodash");
 
-import { cards, randomCard, AVAILABLE_DECKS } from "./flashCards.js";
+import { cards, randomCard, AVAILABLE_DECKS } from "foundation/flashCards";
 // To aid testing of notesAreShuffled.
-import { notesInOneChord } from "./flashCards/chords.js";
+import { notesInOneChord } from "foundation/flashCards/chords";
 
 import {
   DIMINISHED,

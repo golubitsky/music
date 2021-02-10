@@ -93,3 +93,4 @@ App is [live](https://golubitsky.github.io/music/).
   - [ ] Prototype state management from child screen to parent screen (use one of the existing toggles).
   - [ ] Main menu to list only Flash Cards (as it is now)
   - [ ] Individual deckType on its own screen; lists its decks + options only.
+- [x] Use absolute imports using `jsconfig.json` to make it easier to move files around.

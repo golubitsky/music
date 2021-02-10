@@ -1,5 +1,5 @@
-import { chord } from "./chordParser.js";
-import { SEVEN, MINOR, FLAT, SHARP } from "./constants.js";
+import { chord } from "foundation/chordParser";
+import { SEVEN, MINOR, SHARP } from "foundation/constants";
 
 describe("chord", () => {
   test.each([

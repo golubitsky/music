@@ -9,7 +9,7 @@
 // Number of chords suggested by 1, 2, 3 (...) notes within the system.
 // [Key]
 
-import { SHARP, FLAT } from "./constants.js";
+import { SHARP, FLAT } from "foundation/constants";
 
 const NOTES_MAJOR_SECOND_ABOVE = {
   // White keys

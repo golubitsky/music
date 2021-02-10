@@ -1,11 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import {
-  randomCard,
-  DECKS,
-  AVAILABLE_DECKS,
-} from "../foundation/flashCards.js";
-import "./FlashCards.css";
+import { randomCard, DECKS, AVAILABLE_DECKS } from "foundation/flashCards";
+import "screens/FlashCards/FlashCards.css";
 
 const _ = require("lodash");
 

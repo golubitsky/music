@@ -1,5 +1,5 @@
-import { noteAbove } from "./intervals.js";
-import { SEVEN, MINOR, MAJOR } from "./constants.js";
+import { noteAbove } from "foundation/intervals";
+import { SEVEN, MINOR, MAJOR } from "foundation/constants";
 
 const _ = require("lodash");
 

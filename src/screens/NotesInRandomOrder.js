@@ -1,6 +1,6 @@
 import React from "react";
-import "./NotesInRandomOrder.css";
-import { randomNotes } from "../foundation/randomNoteGenerator.js";
+import "screens/NotesInRandomOrder.css";
+import { randomNotes } from "foundation/randomNoteGenerator";
 
 export class NotesInRandomOrder extends React.Component {
   constructor(props) {
