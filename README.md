@@ -80,7 +80,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Move shuffle logic out of UI
 - [x] Unskip interval tests.
 - [ ] Flashcards
-  - [ ] Extract DeckSelection React Component. Does this require state management?
+  - [x] DeckSelection React Component. Does this require state management? (no)
   - [ ] Export constants, not functions.
   - [x] Move deck definitions out of UI.
   - [ ] Do not export DECKS.
