@@ -94,3 +94,4 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] Omitting "M" from Major chords could be DRYer.
 - [x] Prototype state management from child screen to parent screen (use one of the existing toggles).
 - [x] Use absolute imports using `jsconfig.json` to make it easier to move files around.
+- [ ] Prototype end-to-end testing with [cypress](https://www.cypress.io/).
