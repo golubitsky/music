@@ -1,6 +1,6 @@
 import React from "react";
 import DeckSelection from "screens/FlashCards/DeckSelection";
-import { randomCard, DECKS } from "foundation/flashCards";
+import { randomDeck, randomCard } from "foundation/flashCards";
 import "screens/FlashCards/FlashCards.css";
 
 const _ = require("lodash");
@@ -13,7 +13,7 @@ const CARD_COLORS_BY_SIDE = {
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
-    let deck = _.sample(DECKS);
+    let deck = randomDeck();
     this.state = {
       nextCardSide: "front",
       card: randomCard({ deck: deck }),

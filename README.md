@@ -83,7 +83,7 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] DeckSelection React Component. Does this require state management? (no)
   - [ ] Export constants, not functions.
   - [x] Move deck definitions out of UI.
-  - [x] Do not export DECKS.
+  - [x] Do not export DECKS (solution was to remove DECKS and rename AVAILABLE_DECKS -> DECKS).
   - [ ] Use deck.displayName to make prettier UI.
   - [ ] Clean up deck selection logic in the UI (abstract more).
 - [ ] Seems like layers is the way to go: foundation, services (TODO), screens.

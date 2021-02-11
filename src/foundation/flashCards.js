@@ -42,6 +42,10 @@ function deck({ type, subType }) {
   return DECKS.find((deck) => deck.type === type && deck.subType === subType);
 }
 
+function randomDeck() {
+  return _.sample(DECKS);
+}
+
 function cards({ deck, notesAreShuffled }) {
   switch (deck.type) {
     case "polychordFractions":
@@ -70,4 +74,4 @@ function randomCard({ deck, previousCard, notesAreShuffled }) {
   }
 }
 
-export { cards, randomCard, DECKS, deck };
+export { DECKS, deck, randomDeck, cards, randomCard };

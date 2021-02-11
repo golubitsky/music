@@ -1,6 +1,12 @@
 const _ = require("lodash");
 
-import { cards, randomCard, DECKS, deck } from "foundation/flashCards";
+import {
+  cards,
+  randomCard,
+  DECKS,
+  deck,
+  randomDeck,
+} from "foundation/flashCards";
 // To aid testing of notesAreShuffled.
 import { notesInOneChord } from "foundation/flashCards/chords";
 
@@ -16,8 +22,35 @@ import {
   MAJOR_SEVEN,
 } from "./constants.js";
 
-// Test deck
-// Test randomDeck
+describe("DECKS", () => {
+  test("cards have front and back sides", () => {
+    expect(DECKS).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: expect.any(String),
+          subType: expect.any(String),
+          displayName: expect.any(String),
+        }),
+      ])
+    );
+  });
+});
+
+describe("deck", () => {
+  test("returns a particular deck", () => {
+    expect(deck({ type: "chords", subType: MAJOR_SEVEN })).toEqual({
+      type: "chords",
+      subType: MAJOR_SEVEN,
+      displayName: MAJOR_SEVEN,
+    });
+  });
+});
+
+describe("randomDeck", () => {
+  test("returns a random deck", () => {
+    expect(DECKS).toContain(randomDeck());
+  });
+});
 
 describe("cards", () => {
   test("cards have front and back sides", () => {
@@ -161,19 +194,5 @@ describe("randomCard", () => {
       });
       expect(firstCard).not.toEqual(secondCard);
     });
-  });
-});
-
-describe("DECKS", () => {
-  test("cards have front and back sides", () => {
-    expect(DECKS).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          type: expect.any(String),
-          subType: expect.any(String),
-          displayName: expect.any(String),
-        }),
-      ])
-    );
   });
 });
