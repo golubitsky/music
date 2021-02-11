@@ -83,7 +83,8 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] DeckSelection React Component. Does this require state management? (no)
   - [ ] Export constants, not functions.
   - [x] Move deck definitions out of UI.
-  - [ ] Do not export DECKS.
+  - [x] Do not export DECKS.
+  - [ ] Use deck.displayName to make prettier UI.
   - [ ] Clean up deck selection logic in the UI (abstract more).
 - [ ] Seems like layers is the way to go: foundation, services (TODO), screens.
 - [x] Use consistent flat symbol throughout codebase (polychordFractions seem to have the symbol, others use letter "b").

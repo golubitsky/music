@@ -1,6 +1,11 @@
 const _ = require("lodash");
 
-import { cards, randomCard, AVAILABLE_DECKS } from "foundation/flashCards";
+import {
+  cards,
+  randomCard,
+  AVAILABLE_DECKS,
+  deck,
+} from "foundation/flashCards";
 // To aid testing of notesAreShuffled.
 import { notesInOneChord } from "foundation/flashCards/chords";
 
@@ -16,9 +21,14 @@ import {
   MAJOR_SEVEN,
 } from "./constants.js";
 
+// Test deck
+// Test randomDeck
+
 describe("cards", () => {
   test("cards have front and back sides", () => {
-    let actual = _.sample(cards({ deck: ["polychordFractions"] }));
+    let actual = randomCard({
+      deck: deck({ type: "polychordFractions", subType: "polychordFractions" }),
+    });
 
     expect(actual).toEqual(
       expect.objectContaining({
@@ -31,7 +41,7 @@ describe("cards", () => {
   test("seventh chords can appear in random order", () => {
     // Establish randomization of all major 7 chords (stand-in for other qualities)
     const allMaj7Chords = cards({
-      deck: ["chords", MAJOR_SEVEN],
+      deck: deck({ type: "chords", subType: MAJOR_SEVEN }),
       notesAreShuffled: true,
     });
 
@@ -51,7 +61,14 @@ describe("cards", () => {
 
 describe("randomCard", () => {
   test("returns a random polychordFractions card", () => {
-    expect(randomCard({ deck: ["polychordFractions"] })).toEqual(
+    expect(
+      randomCard({
+        deck: deck({
+          type: "polychordFractions",
+          subType: "polychordFractions",
+        }),
+      })
+    ).toEqual(
       expect.objectContaining({
         front: expect.any(String),
         back: expect.any(String),
@@ -62,7 +79,14 @@ describe("randomCard", () => {
   test.each([MAJOR_SEVEN, SEVEN, MINOR_SEVEN])(
     ".randomCard(%s)",
     (chordType) => {
-      expect(randomCard({ deck: ["seventhsAndThirds", chordType] })).toEqual(
+      expect(
+        randomCard({
+          deck: deck({
+            type: "seventhsAndThirds",
+            subType: chordType,
+          }),
+        })
+      ).toEqual(
         expect.objectContaining({
           front: expect.any(String),
           back: expect.any(String),
@@ -83,7 +107,14 @@ describe("randomCard", () => {
     MAJOR_SEVEN,
     "all",
   ])(".randomCard(%s)", (chordType) => {
-    expect(randomCard({ deck: ["chords", chordType] })).toEqual(
+    expect(
+      randomCard({
+        deck: deck({
+          type: "chords",
+          subType: chordType,
+        }),
+      })
+    ).toEqual(
       expect.objectContaining({
         front: expect.any(String),
         back: expect.any(String),
@@ -93,7 +124,7 @@ describe("randomCard", () => {
 
   test("seventh chord can appear in random order", () => {
     const randomMaj7Card = randomCard({
-      deck: ["chords", MAJOR_SEVEN],
+      deck: deck({ type: "chords", subType: MAJOR_SEVEN }),
       notesAreShuffled: true,
     });
 
@@ -120,9 +151,17 @@ describe("randomCard", () => {
 
   test("ensure card is different", () => {
     [1, 2, 3].forEach(function (i) {
-      let firstCard = randomCard({ deck: ["polychordFractions"] });
+      let firstCard = randomCard({
+        deck: deck({
+          type: "polychordFractions",
+          subType: "polychordFractions",
+        }),
+      });
       let secondCard = randomCard({
-        deck: ["polychordFractions"],
+        deck: deck({
+          type: "polychordFractions",
+          subType: "polychordFractions",
+        }),
         previousCard: firstCard,
       });
       expect(firstCard).not.toEqual(secondCard);

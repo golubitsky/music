@@ -21,7 +21,7 @@ export default class DeckSelection extends React.Component {
                     <Button
                       variant="dark"
                       onClick={() => {
-                        this.props.showRandomCard([deck.type, deck.subType]);
+                        this.props.showRandomCard(deck);
                       }}
                       key={innerIndex}
                     >

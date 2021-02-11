@@ -1,6 +1,6 @@
 import React from "react";
 import DeckSelection from "screens/FlashCards/DeckSelection";
-import { randomCard, DECKS } from "foundation/flashCards";
+import { randomCard, DECKS, AVAILABLE_DECKS } from "foundation/flashCards";
 import "screens/FlashCards/FlashCards.css";
 
 const _ = require("lodash");
@@ -13,7 +13,7 @@ const CARD_COLORS_BY_SIDE = {
 export class FlashCards extends React.Component {
   constructor(props) {
     super(props);
-    let deck = _.sample(DECKS);
+    let deck = _.sample(AVAILABLE_DECKS);
     this.state = {
       nextCardSide: "front",
       card: randomCard({ deck: deck }),
@@ -68,10 +68,6 @@ export class FlashCards extends React.Component {
     this.setState({ notesAreShuffled: !this.state.notesAreShuffled });
   }
 
-  nameOfDeck(deck) {
-    return _.last(deck);
-  }
-
   render() {
     if (this.props.isHidden) {
       return null;
@@ -91,7 +87,7 @@ export class FlashCards extends React.Component {
             backgroundColor: CARD_COLORS_BY_SIDE[this.state.side],
           }}
         >
-          <span className="card-deck">{this.nameOfDeck(this.state.deck)}</span>
+          <span className="card-deck">{this.state.deck.displayName}</span>
           <span className="card-content">
             {this.state.card[this.state.side]}
           </span>

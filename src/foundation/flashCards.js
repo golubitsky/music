@@ -15,7 +15,7 @@ import {
 
 const _ = require("lodash");
 
-const DECKS = [
+const AVAILABLE_DECKS = [
   ["polychordFractions", "polychordFractions"],
   ["seventhsAndThirds", MAJOR_SEVEN],
   ["seventhsAndThirds", SEVEN],
@@ -30,17 +30,29 @@ const DECKS = [
   ["chords", MINOR],
   ["chords", DIMINISHED],
   ["chords", "all"],
-];
+].map((deck) => {
+  return {
+    type: deck[0],
+    subType: deck[1],
+    displayName: deck[1],
+  };
+});
+
+function deck({ type, subType }) {
+  return AVAILABLE_DECKS.find(
+    (deck) => deck.type === type && deck.subType === subType
+  );
+}
 
 function cards({ deck, notesAreShuffled }) {
-  switch (deck[0]) {
+  switch (deck.type) {
     case "polychordFractions":
       return pcCards();
     case "seventhsAndThirds":
-      return thirdSeventhCards(deck[1]);
+      return thirdSeventhCards(deck.subType);
     case "chords":
       return chordChards({
-        chordQuality: deck[1],
+        chordQuality: deck.subType,
         notesAreShuffled: notesAreShuffled,
       });
     default:
@@ -60,16 +72,4 @@ function randomCard({ deck, previousCard, notesAreShuffled }) {
   }
 }
 
-function availableDecks() {
-  return DECKS.map((deck) => {
-    return {
-      type: deck[0],
-      subType: deck[1],
-      displayName: deck[1],
-    };
-  });
-}
-
-const AVAILABLE_DECKS = availableDecks();
-
-export { cards, randomCard, AVAILABLE_DECKS, DECKS };
+export { cards, randomCard, AVAILABLE_DECKS, deck };
