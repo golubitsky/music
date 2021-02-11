@@ -1,11 +1,6 @@
 const _ = require("lodash");
 
-import {
-  cards,
-  randomCard,
-  AVAILABLE_DECKS,
-  deck,
-} from "foundation/flashCards";
+import { cards, randomCard, DECKS, deck } from "foundation/flashCards";
 // To aid testing of notesAreShuffled.
 import { notesInOneChord } from "foundation/flashCards/chords";
 
@@ -169,9 +164,9 @@ describe("randomCard", () => {
   });
 });
 
-describe("AVAILABLE_DECKS", () => {
+describe("DECKS", () => {
   test("cards have front and back sides", () => {
-    expect(AVAILABLE_DECKS).toEqual(
+    expect(DECKS).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
           type: expect.any(String),

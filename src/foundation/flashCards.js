@@ -15,7 +15,7 @@ import {
 
 const _ = require("lodash");
 
-const AVAILABLE_DECKS = [
+const DECKS = [
   ["polychordFractions", "polychordFractions"],
   ["seventhsAndThirds", MAJOR_SEVEN],
   ["seventhsAndThirds", SEVEN],
@@ -39,9 +39,7 @@ const AVAILABLE_DECKS = [
 });
 
 function deck({ type, subType }) {
-  return AVAILABLE_DECKS.find(
-    (deck) => deck.type === type && deck.subType === subType
-  );
+  return DECKS.find((deck) => deck.type === type && deck.subType === subType);
 }
 
 function cards({ deck, notesAreShuffled }) {
@@ -72,4 +70,4 @@ function randomCard({ deck, previousCard, notesAreShuffled }) {
   }
 }
 
-export { cards, randomCard, AVAILABLE_DECKS, deck };
+export { cards, randomCard, DECKS, deck };
