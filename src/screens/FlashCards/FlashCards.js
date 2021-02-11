@@ -3,8 +3,6 @@ import DeckSelection from "screens/FlashCards/DeckSelection";
 import { randomDeck, randomCard } from "foundation/flashCards";
 import "screens/FlashCards/FlashCards.css";
 
-const _ = require("lodash");
-
 const CARD_COLORS_BY_SIDE = {
   front: "blue",
   back: "green",
