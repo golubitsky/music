@@ -8,20 +8,8 @@
   align-items: center;
 }
 
-.deck-selection {
+.DeckSelection {
   display: flex;
-  flex-direction: column;
-}
-
-.deck-selection-row {
-  display: flex;
-}
-
-.deck-selection-row-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 5px;
 }
 
 .FlashCard > * {
@@ -37,11 +25,14 @@
 
 .card-deck {
   font-size: 4vw;
+  /* Hack to remove horizontal scrollbar; don't understand root issue. */
+  width: 100%;
 }
 
-.card-option-container {
+.AllDecksOptions > *,
+.SingleDeckTypeOptions > * {
   display: flex;
-  margin: 5px;
+  margin: 10px;
   justify-content: center;
 }
 

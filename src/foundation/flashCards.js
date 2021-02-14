@@ -39,7 +39,18 @@ const DECKS = [
 });
 
 function deck({ type, subType }) {
-  return DECKS.find((deck) => deck.type === type && deck.subType === subType);
+  return decks({ type }).find((deck) => deck.subType === subType);
+}
+
+function decks({ type }) {
+  if (type !== "onePerType") {
+    return DECKS.filter((deck) => deck.type === type);
+  }
+
+  return _.map(
+    _.groupBy(DECKS, (deck) => deck.type),
+    _.sample
+  );
 }
 
 function randomDeck() {
@@ -74,4 +85,4 @@ function randomCard({ deck, previousCard, notesAreShuffled }) {
   }
 }
 
-export { DECKS, deck, randomDeck, cards, randomCard };
+export { DECKS, deck, decks, randomDeck, cards, randomCard };

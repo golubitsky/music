@@ -67,9 +67,9 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] Rows of buttons.
   - [ ] Implement DisplayNames.
 - [ ] Random rhythms.
-- [ ] Flash Cards: separate sub-screens per deckType.
-  - [ ] Main menu (i.e. existing FlashCards screen) to list only deckTypes.
-  - [ ] Each deckType has its own screen and has buttons for its decks + options.
+- [x] Flash Cards: separate sub-screens per deckType.
+  - [x] Main menu (i.e. existing FlashCards screen) to list only deckTypes.
+  - [x] Each deckType has its own screen and has buttons for its decks + options.
 
 ### Technical
 

@@ -5,6 +5,7 @@ import {
   randomCard,
   DECKS,
   deck,
+  decks,
   randomDeck,
 } from "foundation/flashCards";
 // To aid testing of notesAreShuffled.
@@ -43,6 +44,43 @@ describe("deck", () => {
       subType: MAJOR_SEVEN,
       displayName: MAJOR_SEVEN,
     });
+  });
+});
+
+describe("decks", () => {
+  test("returns one of each type of deck", () => {
+    const result = decks({ type: "onePerType" });
+
+    expect(result).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: "polychordFractions",
+        }),
+        expect.objectContaining({
+          type: "chords",
+        }),
+      ])
+    );
+
+    const unique = _.uniq(result.map((deck) => deck.type));
+    expect(unique.length).toEqual(result.length);
+  });
+
+  test("returns all decks of a given deckType", () => {
+    expect(decks({ type: "chords" })).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: "chords",
+          subType: MAJOR_SEVEN,
+          displayName: MAJOR_SEVEN,
+        }),
+        expect.objectContaining({
+          type: "chords",
+          subType: DIMINISHED_SEVEN,
+          displayName: DIMINISHED_SEVEN,
+        }),
+      ])
+    );
   });
 });
 

@@ -76,16 +76,15 @@ export class FlashCards extends React.Component {
 
     return (
       <div className="FlashCards">
-        <DeckTypeSelection
-          showRandomCard={this.showRandomCard}
-          toggleNotesAreShuffled={this.toggleNotesAreShuffled}
-          notesAreShuffled={this.state.notesAreShuffled}
-        />
+        <DeckTypeSelection showRandomCard={this.showRandomCard} />
         <SingleDeckType
           onCardClick={this.handleCardClick}
           cardBackgroundColor={CARD_COLORS_BY_SIDE[this.state.side]}
-          deckName={this.state.deck.displayName}
+          deck={this.state.deck}
           card={this.state.card[this.state.side]}
+          showRandomCard={this.showRandomCard}
+          notesAreShuffled={this.state.notesAreShuffled}
+          toggleNotesAreShuffled={this.toggleNotesAreShuffled}
         />
         <AllDecksOptions
           nextCardSide={this.state.nextCardSide}

@@ -4,7 +4,7 @@ import "screens/FlashCards/FlashCards.css";
 export default class AllDecksOptions extends React.Component {
   render() {
     return (
-      <div className="card-option-container">
+      <div className="AllDecksOptions">
         <label>
           Reverse
           <input
