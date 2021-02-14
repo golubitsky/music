@@ -1,8 +1,6 @@
 import { chord } from "../chordParser.js";
 import { ALL_NOTES_FOR_CHORD_PROGRESSIONS } from "../constants.js";
 
-const _ = require("lodash");
-
 function progressionInKey({ key, abstractChordProgression }) {
   return abstractChordProgression.map((abstractChord) => {
     return chord({ abstractChord, key });

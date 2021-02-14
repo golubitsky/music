@@ -43,6 +43,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] Flashcards for scale degree -> mode.
 - [ ] Flashcards for [flatted scale degrees](https://spinditty.com/learning/Memorizing-the-Musical-Modes) -> mode.
 - [ ] Flashcards for turnarounds (e.g. C A D G) and/or cool progressions.
+  - [x] ii V⁷ [ii V⁷]/ii (d G⁷ e A⁷)
 - [ ] Flashcards for intervals
   - [ ] Ascending
   - [ ] Descending
