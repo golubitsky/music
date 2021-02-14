@@ -126,61 +126,25 @@ describe("cards", () => {
 });
 
 describe("randomCard", () => {
-  test("returns a random polychordFractions card", () => {
-    expect(
-      randomCard({
-        deck: deck({
-          type: "polychordFractions",
-          subType: "polychordFractions",
-        }),
-      })
-    ).toEqual(
-      expect.objectContaining({
-        front: expect.any(String),
-        back: expect.any(String),
-      })
-    );
-  });
-
-  test.each([MAJOR_SEVEN, SEVEN, MINOR_SEVEN])(
-    ".randomCard(%s)",
-    (chordType) => {
-      expect(
-        randomCard({
-          deck: deck({
-            type: "seventhsAndThirds",
-            subType: chordType,
-          }),
-        })
-      ).toEqual(
-        expect.objectContaining({
-          front: expect.any(String),
-          back: expect.any(String),
-        })
-      );
-    }
-  );
-
   test.each([
-    DIMINISHED,
-    MINOR,
-    MAJOR,
-    AUGMENTED,
-    MINOR_SEVEN,
-    SEVEN,
-    HALF_DIMINISHED_SEVEN,
-    DIMINISHED_SEVEN,
-    MAJOR_SEVEN,
-    "all",
-  ])(".randomCard(%s)", (chordType) => {
-    expect(
-      randomCard({
-        deck: deck({
-          type: "chords",
-          subType: chordType,
-        }),
-      })
-    ).toEqual(
+    ["seventhsAndThirds", MAJOR_SEVEN],
+    ["seventhsAndThirds", SEVEN],
+    ["seventhsAndThirds", MINOR_SEVEN],
+    ["chords", DIMINISHED],
+    ["chords", MINOR],
+    ["chords", MAJOR],
+    ["chords", AUGMENTED],
+    ["chords", MINOR_SEVEN],
+    ["chords", SEVEN],
+    ["chords", HALF_DIMINISHED_SEVEN],
+    ["chords", DIMINISHED_SEVEN],
+    ["chords", MAJOR_SEVEN],
+    ["chords", "all"],
+    ["polychordFractions", "polychordFractions"],
+  ])(".randomCard(%s, %s)", (type, subType) => {
+    const cardFromThisDeck = randomCard({ deck: deck({ type, subType }) });
+
+    expect(cardFromThisDeck).toEqual(
       expect.objectContaining({
         front: expect.any(String),
         back: expect.any(String),

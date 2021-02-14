@@ -43,14 +43,14 @@ function deck({ type, subType }) {
 }
 
 function decks({ type }) {
-  if (type !== "onePerType") {
-    return DECKS.filter((deck) => deck.type === type);
+  if (type === "onePerType") {
+    return _.map(
+      _.groupBy(DECKS, (deck) => deck.type),
+      _.sample
+    );
   }
 
-  return _.map(
-    _.groupBy(DECKS, (deck) => deck.type),
-    _.sample
-  );
+  return DECKS.filter((deck) => deck.type === type);
 }
 
 function randomDeck() {
