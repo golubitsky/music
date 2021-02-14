@@ -1,5 +1,7 @@
 import React from "react";
-import DeckSelection from "screens/FlashCards/DeckSelection";
+import DeckTypeSelection from "screens/FlashCards/DeckTypeSelection";
+import SingleDeckType from "screens/FlashCards/SingleDeckType";
+import AllDecksOptions from "screens/FlashCards/AllDecksOptions";
 import { randomDeck, randomCard } from "foundation/flashCards";
 import "screens/FlashCards/FlashCards.css";
 
@@ -24,6 +26,7 @@ export class FlashCards extends React.Component {
     this.toggleNextCardFace = this.toggleNextCardFace.bind(this);
     this.toggleNotesAreShuffled = this.toggleNotesAreShuffled.bind(this);
     this.showRandomCard = this.showRandomCard.bind(this);
+    this.handleCardClick = this.handleCardClick.bind(this);
   }
 
   flipCard() {
@@ -73,34 +76,21 @@ export class FlashCards extends React.Component {
 
     return (
       <div className="FlashCards">
-        <DeckSelection
+        <DeckTypeSelection
           showRandomCard={this.showRandomCard}
           toggleNotesAreShuffled={this.toggleNotesAreShuffled}
           notesAreShuffled={this.state.notesAreShuffled}
         />
-        <div
-          className="card"
-          onClick={() => this.handleCardClick()}
-          style={{
-            backgroundColor: CARD_COLORS_BY_SIDE[this.state.side],
-          }}
-        >
-          <span className="card-deck">{this.state.deck.displayName}</span>
-          <span className="card-content">
-            {this.state.card[this.state.side]}
-          </span>
-        </div>
-        <div className="card-option-container">
-          <label>
-            Reverse
-            <input
-              name="card-reverse"
-              type="checkbox"
-              checked={this.state.nextCardSide === "back"}
-              onChange={this.toggleNextCardFace}
-            />
-          </label>
-        </div>
+        <SingleDeckType
+          onCardClick={this.handleCardClick}
+          cardBackgroundColor={CARD_COLORS_BY_SIDE[this.state.side]}
+          deckName={this.state.deck.displayName}
+          card={this.state.card[this.state.side]}
+        />
+        <AllDecksOptions
+          nextCardSide={this.state.nextCardSide}
+          toggleNextCardFace={this.toggleNextCardFace}
+        />
       </div>
     );
   }

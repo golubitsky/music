@@ -2,10 +2,11 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { DECKS } from "foundation/flashCards";
 import "screens/FlashCards/FlashCards.css";
+import SingleDeckOptions from "screens/FlashCards/SingleDeckTypeOptions";
 
 const _ = require("lodash");
 
-export default class DeckSelection extends React.Component {
+export default class DeckTypeSelection extends React.Component {
   render() {
     return (
       <div className="deck-selection">
@@ -29,19 +30,7 @@ export default class DeckSelection extends React.Component {
                 )
               )}
             </div>
-            {deckType === "chords" && (
-              <div className="card-option-container">
-                <label>
-                  Shuffle Notes
-                  <input
-                    name="notesAreShuffled"
-                    type="checkbox"
-                    checked={this.props.notesAreShuffled}
-                    onChange={this.props.toggleNotesAreShuffled}
-                  />
-                </label>
-              </div>
-            )}
+            <SingleDeckOptions deckType={deckType} />
           </div>
         ))}
       </div>

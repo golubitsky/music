@@ -24,8 +24,11 @@
   margin-right: 5px;
 }
 
-.card > * {
+.FlashCard > * {
   background-color: inherit;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .card-content {
