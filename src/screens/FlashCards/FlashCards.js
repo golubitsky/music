@@ -69,6 +69,19 @@ export class FlashCards extends React.Component {
     this.setState({ notesAreShuffled: !this.state.notesAreShuffled });
   }
 
+  cardContent() {
+    if (this.state.side === "back") {
+      return {
+        main: this.state.card[this.state.side],
+        additional: this.state.card.backAdditional,
+      };
+    } else {
+      return {
+        main: this.state.card[this.state.side],
+      };
+    }
+  }
+
   render() {
     if (this.props.isHidden) {
       return null;
@@ -81,7 +94,7 @@ export class FlashCards extends React.Component {
           onCardClick={this.handleCardClick}
           cardBackgroundColor={CARD_COLORS_BY_SIDE[this.state.side]}
           deck={this.state.deck}
-          card={this.state.card[this.state.side]}
+          cardContent={this.cardContent()}
           showRandomCard={this.showRandomCard}
           notesAreShuffled={this.state.notesAreShuffled}
           toggleNotesAreShuffled={this.toggleNotesAreShuffled}

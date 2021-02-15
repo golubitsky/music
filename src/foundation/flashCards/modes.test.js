@@ -10,8 +10,9 @@ describe("cards", () => {
     ).toEqual(
       expect.arrayContaining([
         {
-          front: `I${MAJOR_SEVEN}`,
-          back: `Ionian`,
+          front: `ii`,
+          back: `Dorian`,
+          backAdditional: `(${FLAT}3, ${FLAT}7)`,
         },
       ])
     );

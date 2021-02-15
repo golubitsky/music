@@ -20,7 +20,19 @@
 }
 
 .card-content {
-  font-size: 9vw;
+  flex: 1;
+  flex-direction: column;
+}
+
+.main-card-content {
+  font-size: 12vw;
+  background-color: inherit;
+  margin-bottom: 0;
+}
+
+.additional-card-content {
+  font-size: 4vw;
+  background-color: inherit;
 }
 
 .card-deck {
