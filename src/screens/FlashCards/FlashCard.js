@@ -14,9 +14,14 @@ export default class FlashCard extends React.Component {
         <span className="card-deck">{this.props.deck.displayName}</span>
         <div className="card-content">
           <span className="main-card-content">{this.props.cardContent.main}</span>
-          <span className="additional-card-content">
-            {this.props.cardContent.additional}
-          </span>
+
+          {this.props.cardContent.additionalLines.map((line, index) => {
+            return (
+              <span className="additional-card-content" key={index}>
+                {line}
+              </span>
+            );
+          })}
         </div>
       </div>
     );
