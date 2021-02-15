@@ -73,7 +73,7 @@ export class FlashCards extends React.Component {
     if (this.state.side === "back") {
       return {
         main: this.state.card[this.state.side],
-        additionalLines: this.state.card.backAdditional,
+        additionalLines: this.state.card.backAdditional || [],
       };
     } else {
       return {
