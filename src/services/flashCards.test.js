@@ -21,6 +21,7 @@ import {
   HALF_DIMINISHED_SEVEN,
   DIMINISHED_SEVEN,
   MAJOR_SEVEN,
+  INTERVALS,
 } from "foundation/constants";
 
 describe("DECKS", () => {
@@ -143,6 +144,8 @@ describe("randomCard", () => {
     ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
     ["modes", MAJOR],
     ["modes", `mel. ${MINOR}`],
+    ...INTERVALS.map((interval) => ["intervals", interval]),
+    ["intervals", "all"],
   ])(".randomCard(%s, %s)", (type, subType) => {
     const targetDeck = deck({ type, subType });
     expect(targetDeck).toEqual(expect.anything());

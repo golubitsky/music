@@ -3,6 +3,7 @@ import { cards as thirdSeventhCards } from "services/flashCards/thirdsAndSeventh
 import { cards as chordChards } from "services/flashCards/chords";
 import { cards as turnaroundChards } from "services/flashCards/turnarounds";
 import { cards as modesChards } from "services/flashCards/modes";
+import { cards as intervalsCards } from "services/flashCards/intervals";
 import {
   DIMINISHED,
   MINOR,
@@ -13,6 +14,7 @@ import {
   HALF_DIMINISHED_SEVEN,
   DIMINISHED_SEVEN,
   MAJOR_SEVEN,
+  INTERVALS,
 } from "foundation/constants";
 
 const _ = require("lodash");
@@ -35,6 +37,8 @@ const DECKS = [
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
   ["modes", MAJOR],
   ["modes", `mel. ${MINOR}`],
+  ...INTERVALS.map((interval) => ["intervals", interval]),
+  ["intervals", "all"],
 ].map((deckData) => {
   const [type, subType] = deckData;
   return {
@@ -65,8 +69,8 @@ function randomDeck() {
 
 function cards({ deck, notesAreShuffled }) {
   switch (deck.type) {
-    case "polychordFractions":
-      return pcCards();
+    case "intervals":
+      return intervalsCards({ interval: deck.subType });
     case "seventhsAndThirds":
       return thirdSeventhCards(deck.subType);
     case "chords":
@@ -74,13 +78,15 @@ function cards({ deck, notesAreShuffled }) {
         chordQuality: deck.subType,
         notesAreShuffled: notesAreShuffled,
       });
-    case "turnarounds":
-      return turnaroundChards({
-        abstractChordProgression: deck.subType,
-      });
     case "modes":
       return modesChards({
         subType: deck.subType,
+      });
+    case "polychordFractions":
+      return pcCards();
+    case "turnarounds":
+      return turnaroundChards({
+        abstractChordProgression: deck.subType,
       });
     default:
       throw new Error(`not implemented for deck=${deck}`);

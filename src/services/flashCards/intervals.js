@@ -1,5 +1,6 @@
-import { noteAbove, INTERVALS } from "foundation/intervals";
-import { ALL_NOTES } from "../../foundation/constants.js";
+import { noteAbove } from "foundation/intervals";
+import { ALL_NOTES, INTERVALS } from "foundation/constants";
+
 const _ = require("lodash");
 
 function cards({ interval }) {

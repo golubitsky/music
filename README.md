@@ -45,8 +45,8 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] Flashcards for turnarounds (e.g. C A D G) and/or cool progressions.
   - [x] ii V⁷ [ii V⁷]/ii (d G⁷ e A⁷)
 - [ ] Flashcards for intervals
-  - [ ] Ascending
-  - [ ] Descending
+  - [x] Ascending
+  - [x] Descending (implemented via "Reverse")
   - [ ] Ear training. Tones. Use [this](https://github.com/nbrosowsky/tonejs-instruments)?
   - [ ] Thirds and Sevenths
     - [x] △, m7, 7

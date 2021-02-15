@@ -11,22 +11,6 @@
 
 import { SHARP, FLAT } from "foundation/constants";
 
-const INTERVALS = [
-  "m2",
-  "M2",
-  "m3",
-  "M3",
-  "P4",
-  "+4",
-  "P5",
-  "o5",
-  "+5",
-  "m6",
-  "M6",
-  "m7",
-  "M7",
-];
-
 const NOTES_MINOR_SECOND_ABOVE = {
   // White keys
   A: `B${FLAT}`,
@@ -388,4 +372,4 @@ function noteAbove({ note, interval }) {
       throw new Error(`not implemented for interval=${interval}`);
   }
 }
-export { noteAbove, INTERVALS };
+export { noteAbove };

@@ -35,3 +35,19 @@ export const ALL_NOTES = WHITE_KEYS.concat(SHARPS).concat(FLATS);
 export const ALL_NOTES_FOR_CHORD_PROGRESSIONS = _.reject(ALL_NOTES, (note) => {
   return [`A${SHARP}`, `D${SHARP}`].includes(note);
 });
+
+export const INTERVALS = [
+  "m2",
+  "M2",
+  "m3",
+  "M3",
+  "P4",
+  "+4",
+  "P5",
+  "o5",
+  "+5",
+  "m6",
+  "M6",
+  "m7",
+  "M7",
+];
