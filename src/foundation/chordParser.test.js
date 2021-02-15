@@ -11,7 +11,7 @@ describe("chord", () => {
     [`V/ii`, "A", `F${SHARP}`],
     [`V${SEVEN}/ii`, "A", `F${SHARP}${SEVEN}`],
     [`[ii V${SEVEN}]/ii`, "A", `C${SHARP}m F${SHARP}${SEVEN}`],
-    ["I", "C#", "C#"],
+    ["I", `C${SHARP}`, `C${SHARP}`],
     ["ii", `C${SHARP}`, `D${SHARP}${MINOR}`],
     ["V", `C${SHARP}`, `G${SHARP}`],
   ])(".chord(%s, %s, %s)", (abstractChord, key, concreteChord) => {

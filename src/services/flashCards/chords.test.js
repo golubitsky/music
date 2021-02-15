@@ -21,10 +21,19 @@ describe("cards", () => {
     [MAJOR, { front: ["A"], back: [`A C${SHARP} E`] }],
     [AUGMENTED, { front: [`A${AUGMENTED}`], back: [`A C${SHARP} E${SHARP}`] }],
     [SEVEN, { front: [`A${SEVEN}`], back: [`A C${SHARP} E G`] }],
-    [MAJOR_SEVEN, { front: [`A${MAJOR_SEVEN}`], back: [`A C${SHARP} E G${SHARP}`] }],
+    [
+      MAJOR_SEVEN,
+      { front: [`A${MAJOR_SEVEN}`], back: [`A C${SHARP} E G${SHARP}`] },
+    ],
     [MINOR_SEVEN, { front: [`A${MINOR_SEVEN}`], back: ["A C E G"] }],
-    [HALF_DIMINISHED_SEVEN, { front: [`B${HALF_DIMINISHED_SEVEN}`], back: ["B D F A"] }],
-    [DIMINISHED_SEVEN, { front: [`B${DIMINISHED_SEVEN}`], back: [`B D F A${FLAT}`] }],
+    [
+      HALF_DIMINISHED_SEVEN,
+      { front: [`B${HALF_DIMINISHED_SEVEN}`], back: ["B D F A"] },
+    ],
+    [
+      DIMINISHED_SEVEN,
+      { front: [`B${DIMINISHED_SEVEN}`], back: [`B D F A${FLAT}`] },
+    ],
   ])(".chord(%s, %o)", (chordQuality, expectedCard) => {
     expect(cards({ chordQuality: chordQuality })).toEqual(
       expect.arrayContaining([expectedCard])
@@ -91,6 +100,8 @@ describe("cards", () => {
       _.isEqual(result.front, [`B${HALF_DIMINISHED_SEVEN}`])
     );
 
-    expect(permutationsBHalfDiminished).toContain(_.first(bHalfDiminished.back));
+    expect(permutationsBHalfDiminished).toContain(
+      _.first(bHalfDiminished.back)
+    );
   });
 });

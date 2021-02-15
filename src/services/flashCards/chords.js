@@ -1,4 +1,4 @@
-import { noteAbove } from "../../foundation/intervals.js";
+import { noteAbove } from "foundation/intervals";
 import {
   ALL_NOTES,
   DIMINISHED,
@@ -67,14 +67,14 @@ function cards({ chordQuality, notesAreShuffled }) {
   }
 
   if (chordQuality === "all") {
-    const paramsForAllQualities = _.keys(INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY).map(
-      (quality) => {
-        return {
-          chordQuality: quality,
-          notesAreShuffled: notesAreShuffled,
-        };
-      }
-    );
+    const paramsForAllQualities = _.keys(
+      INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY
+    ).map((quality) => {
+      return {
+        chordQuality: quality,
+        notesAreShuffled: notesAreShuffled,
+      };
+    });
     return _.flatMap(paramsForAllQualities, cards);
   }
 

@@ -11,6 +11,45 @@
 
 import { SHARP, FLAT } from "foundation/constants";
 
+const INTERVALS = [
+  "m2",
+  "M2",
+  "m3",
+  "M3",
+  "P4",
+  "+4",
+  "P5",
+  "o5",
+  "+5",
+  "m6",
+  "M6",
+  "m7",
+  "M7",
+];
+
+const NOTES_MINOR_SECOND_ABOVE = {
+  // White keys
+  A: `B${FLAT}`,
+  B: "C",
+  C: `D${FLAT}`,
+  D: `E${FLAT}`,
+  E: "F",
+  F: `G${FLAT}`,
+  G: `A${FLAT}`,
+  // Sharps
+  [`A${SHARP}`]: "B",
+  [`C${SHARP}`]: "D",
+  [`D${SHARP}`]: "E",
+  [`F${SHARP}`]: "G",
+  [`G${SHARP}`]: "A",
+  // Flats
+  [`B${FLAT}`]: `C${FLAT}`,
+  [`E${FLAT}`]: `F${FLAT}`,
+  [`A${FLAT}`]: `B${FLAT}${FLAT}`,
+  [`D${FLAT}`]: `E${FLAT}${FLAT}`,
+  [`G${FLAT}`]: `A${FLAT}${FLAT}`,
+};
+
 const NOTES_MAJOR_SECOND_ABOVE = {
   // White keys
   A: "B",
@@ -241,6 +280,52 @@ const NOTES_DIMINISHED_FIFTH_ABOVE = {
   [`G${FLAT}`]: `D${FLAT}${FLAT}`,
 };
 
+const NOTES_MINOR_SIXTH_ABOVE = {
+  // White keys
+  A: "F",
+  B: "G",
+  C: `A${FLAT}`,
+  D: `B${FLAT}`,
+  E: "C",
+  F: `D${FLAT}`,
+  G: `E${FLAT}`,
+  // Sharps
+  [`A${SHARP}`]: `F${SHARP}`,
+  [`C${SHARP}`]: "A",
+  [`D${SHARP}`]: "B",
+  [`F${SHARP}`]: "D",
+  [`G${SHARP}`]: "E",
+  // Flats
+  [`B${FLAT}`]: `G${FLAT}`,
+  [`E${FLAT}`]: `C${FLAT}`,
+  [`A${FLAT}`]: `F${FLAT}`,
+  [`D${FLAT}`]: `B${FLAT}${FLAT}`,
+  [`G${FLAT}`]: `E${FLAT}${FLAT}`,
+};
+
+const NOTES_MAJOR_SIXTH_ABOVE = {
+  // White keys
+  A: `F${SHARP}`,
+  B: `G${SHARP}`,
+  C: "A",
+  D: "B",
+  E: `C${SHARP}`,
+  F: "D",
+  G: "E",
+  // Sharps
+  [`A${SHARP}`]: `F${SHARP}${SHARP}`,
+  [`C${SHARP}`]: `A${SHARP}`,
+  [`D${SHARP}`]: `B${SHARP}`,
+  [`F${SHARP}`]: `D${SHARP}`,
+  [`G${SHARP}`]: `E${SHARP}`,
+  // Flats
+  [`B${FLAT}`]: "G",
+  [`E${FLAT}`]: "C",
+  [`A${FLAT}`]: "F",
+  [`D${FLAT}`]: `B${FLAT}`,
+  [`G${FLAT}`]: `E${FLAT}`,
+};
+
 const NOTES_DIMINISHED_SEVENTH_ABOVE = {
   // White keys
   A: `G${FLAT}`,
@@ -264,10 +349,15 @@ const NOTES_DIMINISHED_SEVENTH_ABOVE = {
   [`G${FLAT}`]: `F${FLAT}${FLAT}`,
 };
 function noteAbove({ note, interval }) {
-  // TODO: add guards here against literal #/b (instead of constant)
+  if (note.includes("b") || note.includes("#")) {
+    throw new Error(`Did you forget to use flat/sharp constants?`);
+  }
+
   switch (interval) {
     case "P1":
       return note;
+    case "m2":
+      return NOTES_MINOR_SECOND_ABOVE[note];
     case "M2":
       return NOTES_MAJOR_SECOND_ABOVE[note];
     case "m3":
@@ -282,6 +372,10 @@ function noteAbove({ note, interval }) {
       return NOTES_DIMINISHED_FIFTH_ABOVE[note];
     case "P5":
       return NOTES_PERFECT_FIFTH_ABOVE[note];
+    case "m6":
+      return NOTES_MINOR_SIXTH_ABOVE[note];
+    case "M6":
+      return NOTES_MAJOR_SIXTH_ABOVE[note];
     case "+5":
       return NOTES_AUGMENTED_FIFTH_ABOVE[note];
     case "o7":
@@ -294,4 +388,4 @@ function noteAbove({ note, interval }) {
       throw new Error(`not implemented for interval=${interval}`);
   }
 }
-export { noteAbove };
+export { noteAbove, INTERVALS };

@@ -10,6 +10,16 @@ describe("perfect unisons", () => {
   });
 });
 
+describe("minor seconds", () => {
+  test.each([
+    ["A", `B${FLAT}`],
+    ["B", "C"],
+    [`C${SHARP}`, "D"],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove({ note: startingNote, interval: "m2" })).toBe(expected);
+  });
+});
+
 describe("major seconds", () => {
   test.each([
     ["A", "B"],
@@ -83,6 +93,16 @@ describe("augmented fifths", () => {
   });
 });
 
+describe("minor sixths", () => {
+  test.each([
+    ["A", "F"],
+    [`C${SHARP}`, "A"],
+    [`B${FLAT}`, `G${FLAT}`],
+  ])(".noteAbove(%s, %s)", (startingNote, expected) => {
+    expect(noteAbove({ note: startingNote, interval: "m6" })).toBe(expected);
+  });
+});
+
 describe("diminished sevenths", () => {
   test.each([
     ["A", `G${FLAT}`],
@@ -110,3 +130,15 @@ describe("major sevenths", () => {
     expect(noteAbove({ note: startingNote, interval: "M7" })).toBe(expected);
   });
 });
+
+test.each([["A#", "Bb"]])(
+  ".noteAbove(%s)",
+  (startingNoteWithoutSpecialChar) => {
+    expect(() => {
+      noteAbove({
+        note: startingNoteWithoutSpecialChar,
+        interval: "M7",
+      });
+    }).toThrow(/constants/);
+  }
+);

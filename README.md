@@ -89,7 +89,7 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] Do not export DECKS (solution was to remove DECKS and rename AVAILABLE_DECKS -> DECKS).
   - [ ] Use deck.displayName to make prettier UI.
   - [ ] Clean up deck selection logic in the UI (abstract more).
-- [ ] Seems like layers is the way to go: foundation, services (TODO), screens.
+- [x] Seems like layers is the way to go: foundation, services, screens.
 - [x] Use consistent flat symbol throughout codebase (polychordFractions seem to have the symbol, others use letter "b").
 - [x] Constantize flat, sharp symbols.
 - [ ] Constantize intervals. Possibly chord symbols/intervals should be in separate constants.
