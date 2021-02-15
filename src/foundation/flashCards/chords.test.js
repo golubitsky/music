@@ -15,102 +15,19 @@ import {
 const _ = require("lodash");
 
 describe("cards", () => {
-  test("returns diminished triads", () => {
-    expect(cards({ chordQuality: DIMINISHED })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `A${DIMINISHED}`,
-          back: `A C E${FLAT}`,
-        },
-      ])
-    );
-  });
-
-  test("returns minor triads", () => {
-    expect(cards({ chordQuality: MINOR })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `A${MINOR}`,
-          back: `A C E`,
-        },
-      ])
-    );
-  });
-
-  test("returns major triads", () => {
-    expect(cards({ chordQuality: MAJOR })).toEqual(
-      expect.arrayContaining([
-        {
-          front: "A",
-          back: `A C${SHARP} E`,
-        },
-      ])
-    );
-  });
-
-  test("returns augmented triads", () => {
-    expect(cards({ chordQuality: AUGMENTED })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `A${AUGMENTED}`,
-          back: `A C${SHARP} E${SHARP}`,
-        },
-      ])
-    );
-  });
-
-  test("returns dominant 7ths", () => {
-    expect(cards({ chordQuality: SEVEN })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `A${SEVEN}`,
-          back: `A C${SHARP} E G`,
-        },
-      ])
-    );
-  });
-
-  test("returns major 7ths", () => {
-    expect(cards({ chordQuality: "△" })).toEqual(
-      expect.arrayContaining([
-        {
-          front: "A△",
-          back: `A C${SHARP} E G${SHARP}`,
-        },
-      ])
-    );
-  });
-
-  test("returns minor 7ths", () => {
-    expect(cards({ chordQuality: MINOR_SEVEN })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `A${MINOR_SEVEN}`,
-          back: "A C E G",
-        },
-      ])
-    );
-  });
-
-  test("returns half-diminished 7ths", () => {
-    expect(cards({ chordQuality: `${HALF_DIMINISHED_SEVEN}` })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `B${HALF_DIMINISHED_SEVEN}`,
-          back: "B D F A",
-        },
-      ])
-    );
-  });
-
-  test("returns diminished 7ths", () => {
-    expect(cards({ chordQuality: `${DIMINISHED_SEVEN}` })).toEqual(
-      expect.arrayContaining([
-        {
-          front: `B${DIMINISHED_SEVEN}`,
-          back: `B D F A${FLAT}`,
-        },
-      ])
+  test.each([
+    [DIMINISHED, { front: `A${DIMINISHED}`, back: `A C E${FLAT}` }],
+    [MINOR, { front: `A${MINOR}`, back: `A C E` }],
+    [MAJOR, { front: "A", back: `A C${SHARP} E` }],
+    [AUGMENTED, { front: `A${AUGMENTED}`, back: `A C${SHARP} E${SHARP}` }],
+    [SEVEN, { front: `A${SEVEN}`, back: `A C${SHARP} E G` }],
+    [MAJOR_SEVEN, { front: `A${MAJOR_SEVEN}`, back: `A C${SHARP} E G${SHARP}` }],
+    [MINOR_SEVEN, { front: `A${MINOR_SEVEN}`, back: "A C E G" }],
+    [HALF_DIMINISHED_SEVEN, { front: `B${HALF_DIMINISHED_SEVEN}`, back: "B D F A" }],
+    [DIMINISHED_SEVEN, { front: `B${DIMINISHED_SEVEN}`, back: `B D F A${FLAT}` }],
+  ])(".chord(%s, %o, %s)", (chordQuality, expectedCard) => {
+    expect(cards({ chordQuality: chordQuality })).toEqual(
+      expect.arrayContaining([expectedCard])
     );
   });
 

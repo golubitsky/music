@@ -92,7 +92,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Use consistent flat symbol throughout codebase (polychordFractions seem to have the symbol, others use letter "b").
 - [x] Constantize flat, sharp symbols.
 - [ ] Constantize intervals. Possibly chord symbols/intervals should be in separate constants.
-- [ ] Refactor chords.js tests to be more data-driven/DRY.
+- [x] Refactor chords.js tests to be more data-driven/DRY.
 - [ ] notesInOneChord should be in its own module.
 - [ ] Omitting "M" from Major chords could be DRYer.
 - [x] Prototype state management from child screen to parent screen (use one of the existing toggles).
