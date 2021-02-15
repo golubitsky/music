@@ -38,7 +38,7 @@
 .card-deck {
   font-size: 4vw;
   /* Hack to remove horizontal scrollbar; don't understand root issue. */
-  width: 100%;
+  margin: 0;
 }
 
 .AllDecksOptions > *,
