@@ -3,12 +3,17 @@ import { ALL_NOTES, INTERVALS } from "foundation/constants";
 
 const _ = require("lodash");
 
-function cards({ interval }) {
+function cardFace(note, interval, specifyIntervalOnCard) {
+  return specifyIntervalOnCard ? [note, interval] : [note];
+}
+
+function cards({ interval, specifyIntervalOnCard = false }) {
   if (interval === "all") {
     return _.flatMap(
       INTERVALS.map((interval) => {
         return {
           interval: interval,
+          specifyIntervalOnCard: true,
         };
       }),
       cards
@@ -16,9 +21,11 @@ function cards({ interval }) {
   }
 
   return ALL_NOTES.map((note) => {
+    const targetNote = noteAbove({ note, interval });
+
     return {
-      front: [note],
-      back: [noteAbove({ note, interval })],
+      front: cardFace(note, interval, specifyIntervalOnCard),
+      back: cardFace(targetNote, interval, specifyIntervalOnCard),
     };
   });
 }

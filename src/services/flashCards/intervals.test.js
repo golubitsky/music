@@ -18,7 +18,7 @@ describe("cards", () => {
     ["o7", { front: ["A"], back: [`G${FLAT}`] }],
     ["m7", { front: ["A"], back: ["G"] }],
     ["M7", { front: ["A"], back: [`G${SHARP}`] }],
-    ["all", { front: ["D"], back: [`G${SHARP}`] }],
+    ["all", { front: ["D", "P4"], back: ["G", "P4"] }],
   ])(".chord(%s, %o)", (interval, expectedCard) => {
     expect(cards({ interval: interval })).toEqual(
       expect.arrayContaining([expectedCard])
