@@ -34,6 +34,7 @@ const DECKS = [
   ["chords", "all"],
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
   ["modes", MAJOR],
+  ["modes", `mel. ${MINOR}`],
 ].map((deck) => {
   return {
     type: deck[0],

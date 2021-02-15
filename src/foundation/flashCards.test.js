@@ -1,13 +1,6 @@
 const _ = require("lodash");
 
-import {
-  cards,
-  randomCard,
-  DECKS,
-  deck,
-  decks,
-  randomDeck,
-} from "foundation/flashCards";
+import { cards, randomCard, DECKS, deck, decks, randomDeck } from "foundation/flashCards";
 // To aid testing of notesAreShuffled.
 import { notesInOneChord } from "foundation/flashCards/chords";
 
@@ -111,10 +104,7 @@ describe("cards", () => {
       notesAreShuffled: true,
     });
 
-    const cMajor7 = _.find(
-      allMaj7Chords,
-      (card) => card.front === `C${MAJOR_SEVEN}`
-    );
+    const cMajor7 = _.find(allMaj7Chords, (card) => card.front === `C${MAJOR_SEVEN}`);
 
     // Do not return root position chord stacked in thirds.
     expect(cMajor7.back).not.toEqual("C E G B");
@@ -143,6 +133,7 @@ describe("randomCard", () => {
     ["polychordFractions", "polychordFractions"],
     ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
     ["modes", MAJOR],
+    ["modes", `mel. ${MINOR}`],
   ])(".randomCard(%s, %s)", (type, subType) => {
     const targetDeck = deck({ type, subType });
     expect(targetDeck).toEqual(expect.anything());
@@ -162,10 +153,7 @@ describe("randomCard", () => {
       notesAreShuffled: true,
     });
 
-    const randomMajor7CardSortedBack = randomMaj7Card.back
-      .split(" ")
-      .sort()
-      .join(" ");
+    const randomMajor7CardSortedBack = randomMaj7Card.back.split(" ").sort().join(" ");
 
     const notesInSameChord = notesInOneChord({
       // Remove the chord symbol to get the note

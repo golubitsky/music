@@ -25,7 +25,7 @@ describe("cards", () => {
     [MINOR_SEVEN, { front: `A${MINOR_SEVEN}`, back: "A C E G" }],
     [HALF_DIMINISHED_SEVEN, { front: `B${HALF_DIMINISHED_SEVEN}`, back: "B D F A" }],
     [DIMINISHED_SEVEN, { front: `B${DIMINISHED_SEVEN}`, back: `B D F A${FLAT}` }],
-  ])(".chord(%s, %o, %s)", (chordQuality, expectedCard) => {
+  ])(".chord(%s, %o)", (chordQuality, expectedCard) => {
     expect(cards({ chordQuality: chordQuality })).toEqual(
       expect.arrayContaining([expectedCard])
     );
