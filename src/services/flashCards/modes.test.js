@@ -6,17 +6,15 @@ describe("cards", () => {
     [
       MAJOR,
       {
-        front: "II",
-        back: `ii${SEVEN}`,
-        backAdditional: ["Dorian", `${FLAT}3, ${FLAT}7`],
+        front: ["II"],
+        back: [`ii${SEVEN}`, "Dorian", `${FLAT}3, ${FLAT}7`],
       },
     ],
     [
       `mel. ${MINOR}`,
       {
-        front: "III",
-        back: `${MAJOR_SEVEN}${SHARP}5`,
-        backAdditional: ["Lydian augmented", `${SHARP}4, ${SHARP}5`],
+        front: ["III"],
+        back: [`${MAJOR_SEVEN}${SHARP}5`, "Lydian augmented", `${SHARP}4, ${SHARP}5`],
       },
     ],
   ])(".chord(%s, %o)", (chordQuality, expectedCard) => {

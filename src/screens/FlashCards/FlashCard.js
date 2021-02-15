@@ -1,5 +1,5 @@
 import React from "react";
-import "screens/FlashCards/FlashCards.css";
+import "screens/FlashCards.css";
 
 export default class FlashCard extends React.Component {
   render() {
@@ -15,7 +15,7 @@ export default class FlashCard extends React.Component {
         <div className="card-content">
           <span className="main-card-content">{this.props.cardContent.main}</span>
 
-          {this.props.cardContent.additionalLines.map((line, index) => {
+          {this.props.cardContent.additional.map((line, index) => {
             return (
               <span className="additional-card-content" key={index}>
                 {line}

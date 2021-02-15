@@ -11,8 +11,8 @@ const CARDS = [
 function cards() {
   return CARDS.map(function (cardValues) {
     return {
-      front: cardValues[0],
-      back: cardValues[1],
+      front: [cardValues[0]],
+      back: [cardValues[1]],
     };
   });
 }

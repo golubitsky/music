@@ -16,15 +16,15 @@ const _ = require("lodash");
 
 describe("cards", () => {
   test.each([
-    [DIMINISHED, { front: `A${DIMINISHED}`, back: `A C E${FLAT}` }],
-    [MINOR, { front: `A${MINOR}`, back: `A C E` }],
-    [MAJOR, { front: "A", back: `A C${SHARP} E` }],
-    [AUGMENTED, { front: `A${AUGMENTED}`, back: `A C${SHARP} E${SHARP}` }],
-    [SEVEN, { front: `A${SEVEN}`, back: `A C${SHARP} E G` }],
-    [MAJOR_SEVEN, { front: `A${MAJOR_SEVEN}`, back: `A C${SHARP} E G${SHARP}` }],
-    [MINOR_SEVEN, { front: `A${MINOR_SEVEN}`, back: "A C E G" }],
-    [HALF_DIMINISHED_SEVEN, { front: `B${HALF_DIMINISHED_SEVEN}`, back: "B D F A" }],
-    [DIMINISHED_SEVEN, { front: `B${DIMINISHED_SEVEN}`, back: `B D F A${FLAT}` }],
+    [DIMINISHED, { front: [`A${DIMINISHED}`], back: [`A C E${FLAT}`] }],
+    [MINOR, { front: [`A${MINOR}`], back: [`A C E`] }],
+    [MAJOR, { front: ["A"], back: [`A C${SHARP} E`] }],
+    [AUGMENTED, { front: [`A${AUGMENTED}`], back: [`A C${SHARP} E${SHARP}`] }],
+    [SEVEN, { front: [`A${SEVEN}`], back: [`A C${SHARP} E G`] }],
+    [MAJOR_SEVEN, { front: [`A${MAJOR_SEVEN}`], back: [`A C${SHARP} E G${SHARP}`] }],
+    [MINOR_SEVEN, { front: [`A${MINOR_SEVEN}`], back: ["A C E G"] }],
+    [HALF_DIMINISHED_SEVEN, { front: [`B${HALF_DIMINISHED_SEVEN}`], back: ["B D F A"] }],
+    [DIMINISHED_SEVEN, { front: [`B${DIMINISHED_SEVEN}`], back: [`B D F A${FLAT}`] }],
   ])(".chord(%s, %o)", (chordQuality, expectedCard) => {
     expect(cards({ chordQuality: chordQuality })).toEqual(
       expect.arrayContaining([expectedCard])
@@ -35,20 +35,20 @@ describe("cards", () => {
     expect(cards({ chordQuality: "all" })).toEqual(
       expect.arrayContaining([
         {
-          front: `C${MAJOR_SEVEN}`,
-          back: "C E G B",
+          front: [`C${MAJOR_SEVEN}`],
+          back: ["C E G B"],
         },
         {
-          front: `F${SEVEN}`,
-          back: `F A C E${FLAT}`,
+          front: [`F${SEVEN}`],
+          back: [`F A C E${FLAT}`],
         },
         {
-          front: `A${MINOR_SEVEN}`,
-          back: "A C E G",
+          front: [`A${MINOR_SEVEN}`],
+          back: ["A C E G"],
         },
         {
-          front: `B${HALF_DIMINISHED_SEVEN}`,
-          back: "B D F A",
+          front: [`B${HALF_DIMINISHED_SEVEN}`],
+          back: ["B D F A"],
         },
       ])
     );
@@ -87,11 +87,10 @@ describe("cards", () => {
       notesAreShuffled: true,
     });
 
-    const bHalfDiminished = _.find(
-      results,
-      (result) => result.front === `B${HALF_DIMINISHED_SEVEN}`
+    const bHalfDiminished = _.find(results, (result) =>
+      _.isEqual(result.front, [`B${HALF_DIMINISHED_SEVEN}`])
     );
 
-    expect(permutationsBHalfDiminished).toContain(bHalfDiminished.back);
+    expect(permutationsBHalfDiminished).toContain(_.first(bHalfDiminished.back));
   });
 });

@@ -1,6 +1,13 @@
 const _ = require("lodash");
 
-import { cards, randomCard, DECKS, deck, decks, randomDeck } from "services/flashCards";
+import {
+  cards,
+  randomCard,
+  DECKS,
+  deck,
+  decks,
+  randomDeck,
+} from "services/flashCards";
 // To aid testing of notesAreShuffled.
 import { notesInOneChord } from "services/flashCards/chords";
 
@@ -91,8 +98,8 @@ describe("cards", () => {
 
     expect(actual).toEqual(
       expect.objectContaining({
-        front: expect.any(String),
-        back: expect.any(String),
+        front: expect.any(Array),
+        back: expect.any(Array),
       })
     );
   });
@@ -104,13 +111,15 @@ describe("cards", () => {
       notesAreShuffled: true,
     });
 
-    const cMajor7 = _.find(allMaj7Chords, (card) => card.front === `C${MAJOR_SEVEN}`);
+    const cMajor7 = _.find(allMaj7Chords, (card) =>
+      _.isEqual(card.front, [`C${MAJOR_SEVEN}`])
+    );
 
     // Do not return root position chord stacked in thirds.
     expect(cMajor7.back).not.toEqual("C E G B");
 
     // Return the same chord in some order.
-    const cMajor7Sorted = cMajor7.back.split(" ").sort().join(" ");
+    const cMajor7Sorted = _.first(cMajor7.back).split(" ").sort().join(" ");
     expect(cMajor7Sorted).toEqual("B C E G");
   });
 });
@@ -141,8 +150,8 @@ describe("randomCard", () => {
 
     expect(cardFromThisDeck).toEqual(
       expect.objectContaining({
-        front: expect.any(String),
-        back: expect.any(String),
+        front: expect.any(Array),
+        back: expect.any(Array),
       })
     );
   });
@@ -153,11 +162,14 @@ describe("randomCard", () => {
       notesAreShuffled: true,
     });
 
-    const randomMajor7CardSortedBack = randomMaj7Card.back.split(" ").sort().join(" ");
+    const randomMajor7CardSortedBack = _.first(randomMaj7Card.back)
+      .split(" ")
+      .sort()
+      .join(" ");
 
     const notesInSameChord = notesInOneChord({
       // Remove the chord symbol to get the note
-      note: randomMaj7Card.front.slice(0, -1),
+      note: _.first(randomMaj7Card.front).slice(0, -1),
       chordQuality: MAJOR_SEVEN,
       notesAreShuffled: false,
     })
@@ -165,7 +177,9 @@ describe("randomCard", () => {
       .join(" ");
 
     // Do not return root position chord stacked in thirds.
-    expect(randomMajor7CardSortedBack.back).not.toEqual(notesInSameChord);
+    expect(_.first(randomMajor7CardSortedBack.back)).not.toEqual(
+      notesInSameChord
+    );
 
     // But return the same notes.
     expect(randomMajor7CardSortedBack).toEqual(notesInSameChord);

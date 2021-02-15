@@ -82,7 +82,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Unskip interval tests.
 - [ ] Flashcards
   - [x] 2 lines of text on each back side (to support different formatting/smaller for second line).
-  - [ ] 3 lines of text on each side. Simplify to single array to hold all lines per side.
+  - [x] 3 lines of text on each side. Simplify to single array to hold all lines per side.
   - [x] DeckSelection React Component. Does this require state management? (no)
   - [ ] Export constants, not functions.
   - [x] Move deck definitions out of UI.

@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 import "./App.css";
 import { NotesInRandomOrder } from "screens/NotesInRandomOrder";
-import { FlashCards } from "screens/FlashCards/FlashCards";
+import { FlashCards } from "screens/FlashCards";
 
 class App extends React.Component {
   constructor(props) {

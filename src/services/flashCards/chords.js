@@ -55,8 +55,8 @@ function chords(chordQuality, notesAreShuffled) {
     });
 
     return {
-      front: chordQuality === MAJOR ? note : `${note}${chordQuality}`,
-      back: `${notesInChord.join(" ")}`,
+      front: [chordQuality === MAJOR ? note : `${note}${chordQuality}`],
+      back: [`${notesInChord.join(" ")}`],
     };
   });
 }
@@ -67,14 +67,14 @@ function cards({ chordQuality, notesAreShuffled }) {
   }
 
   if (chordQuality === "all") {
-    const paramsForAllQualities = _.keys(
-      INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY
-    ).map((quality) => {
-      return {
-        chordQuality: quality,
-        notesAreShuffled: notesAreShuffled,
-      };
-    });
+    const paramsForAllQualities = _.keys(INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY).map(
+      (quality) => {
+        return {
+          chordQuality: quality,
+          notesAreShuffled: notesAreShuffled,
+        };
+      }
+    );
     return _.flatMap(paramsForAllQualities, cards);
   }
 

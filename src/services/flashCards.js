@@ -35,11 +35,12 @@ const DECKS = [
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
   ["modes", MAJOR],
   ["modes", `mel. ${MINOR}`],
-].map((deck) => {
+].map((deckData) => {
+  const [type, subType] = deckData;
   return {
-    type: deck[0],
-    subType: deck[1],
-    displayName: _.isArray(deck[1]) ? deck[1].join(" ") : deck[1],
+    type: type,
+    subType: subType,
+    displayName: _.isArray(subType) ? subType.join(" ") : subType,
   };
 });
 

@@ -10,8 +10,8 @@ function progressionInKey({ key, abstractChordProgression }) {
 function cards({ abstractChordProgression }) {
   return ALL_NOTES_FOR_CHORD_PROGRESSIONS.map((key) => {
     return {
-      front: key,
-      back: progressionInKey({ key, abstractChordProgression }).join(" "),
+      front: [key],
+      back: [progressionInKey({ key, abstractChordProgression }).join(" ")],
     };
   });
 }

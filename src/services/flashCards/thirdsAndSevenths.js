@@ -8,19 +8,24 @@ import {
   MAJOR_SEVEN,
 } from "../../foundation/constants.js";
 
+function backSide(note, intervals) {
+  return [
+    [
+      noteAbove({ note: note, interval: intervals[0] }),
+      noteAbove({
+        note: note,
+        interval: intervals[1],
+      }),
+    ].join(" "),
+  ];
+}
 function thirdsAndSevenths(intervals) {
   return WHITE_KEYS.concat(SHARPS)
     .concat(FLATS)
     .map(function (note) {
       return {
-        front: note,
-        back: [
-          noteAbove({ note: note, interval: intervals[0] }),
-          noteAbove({
-            note: note,
-            interval: intervals[1],
-          }),
-        ].join(" "),
+        front: [note],
+        back: backSide(note, intervals),
       };
     });
 }

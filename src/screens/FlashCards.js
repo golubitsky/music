@@ -3,7 +3,7 @@ import DeckTypeSelection from "screens/FlashCards/DeckTypeSelection";
 import SingleDeckType from "screens/FlashCards/SingleDeckType";
 import AllDecksOptions from "screens/FlashCards/AllDecksOptions";
 import { randomDeck, randomCard } from "services/flashCards";
-import "screens/FlashCards/FlashCards.css";
+import "screens/FlashCards.css";
 
 const CARD_COLORS_BY_SIDE = {
   front: "blue",
@@ -70,17 +70,11 @@ export class FlashCards extends React.Component {
   }
 
   cardContent() {
-    if (this.state.side === "back") {
-      return {
-        main: this.state.card[this.state.side],
-        additionalLines: this.state.card.backAdditional || [],
-      };
-    } else {
-      return {
-        main: this.state.card[this.state.side],
-        additionalLines: [],
-      };
-    }
+    const [main, ...additional] = this.state.card[this.state.side];
+    return {
+      main: main,
+      additional: additional,
+    };
   }
 
   render() {

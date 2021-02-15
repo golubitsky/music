@@ -10,12 +10,14 @@ describe("cards", () => {
     ).toEqual(
       expect.arrayContaining([
         {
-          front: `B${FLAT}`,
-          back: `C${MINOR} F${SEVEN} D${MINOR} G${SEVEN}`,
+          front: [`B${FLAT}`],
+          back: [`C${MINOR} F${SEVEN} D${MINOR} G${SEVEN}`],
         },
         {
-          front: `D${FLAT}`,
-          back: `E${FLAT}${MINOR} A${FLAT}${SEVEN} F${MINOR} B${FLAT}${SEVEN}`,
+          front: [`D${FLAT}`],
+          back: [
+            `E${FLAT}${MINOR} A${FLAT}${SEVEN} F${MINOR} B${FLAT}${SEVEN}`,
+          ],
         },
       ])
     );

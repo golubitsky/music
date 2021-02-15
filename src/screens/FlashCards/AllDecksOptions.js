@@ -1,5 +1,5 @@
 import React from "react";
-import "screens/FlashCards/FlashCards.css";
+import "screens/FlashCards.css";
 
 export default class AllDecksOptions extends React.Component {
   render() {

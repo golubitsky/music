@@ -1,5 +1,5 @@
 import React from "react";
-import "screens/FlashCards/FlashCards.css";
+import "screens/FlashCards.css";
 import FlashCard from "screens/FlashCards/FlashCard";
 import SingleDeckTypeOptions from "screens/FlashCards/SingleDeckTypeOptions";
 export default class SingleDeckType extends React.Component {

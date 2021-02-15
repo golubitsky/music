@@ -60,7 +60,7 @@ function cards({ subType }) {
 
   return _.map(data, (item) => {
     const [scaleDegree, chord, mode, accidentals] = item;
-    return { front: scaleDegree, back: chord, backAdditional: [mode, accidentals] };
+    return { front: [scaleDegree], back: [chord, mode, accidentals] };
   });
 }
 

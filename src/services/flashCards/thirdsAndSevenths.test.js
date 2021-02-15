@@ -1,10 +1,6 @@
 import { cards } from "./thirdsAndSevenths.js";
 import {
   SHARP,
-  FLAT,
-  WHITE_KEYS,
-  SHARPS,
-  FLATS,
   MINOR_SEVEN,
   SEVEN,
   MAJOR_SEVEN,
@@ -15,8 +11,8 @@ describe("cards", () => {
     expect(cards(SEVEN)).toEqual(
       expect.arrayContaining([
         {
-          front: "A",
-          back: `C${SHARP} G`,
+          front: ["A"],
+          back: [`C${SHARP} G`],
         },
       ])
     );
@@ -26,8 +22,8 @@ describe("cards", () => {
     expect(cards(MAJOR_SEVEN)).toEqual(
       expect.arrayContaining([
         {
-          front: "A",
-          back: `C${SHARP} G${SHARP}`,
+          front: ["A"],
+          back: [`C${SHARP} G${SHARP}`],
         },
       ])
     );
@@ -37,8 +33,8 @@ describe("cards", () => {
     expect(cards(MINOR_SEVEN)).toEqual(
       expect.arrayContaining([
         {
-          front: "A",
-          back: "C G",
+          front: ["A"],
+          back: ["C G"],
         },
       ])
     );
