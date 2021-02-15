@@ -2,6 +2,7 @@ import { cards as pcCards } from "foundation/flashCards/polychordFractions";
 import { cards as thirdSeventhCards } from "foundation/flashCards/thirdsAndSevenths";
 import { cards as chordChards } from "foundation/flashCards/chords";
 import { cards as turnaroundChards } from "foundation/flashCards/turnarounds";
+import { cards as modesChards } from "foundation/flashCards/modes";
 import {
   DIMINISHED,
   MINOR,
@@ -32,6 +33,7 @@ const DECKS = [
   ["chords", DIMINISHED],
   ["chords", "all"],
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
+  ["modes", MAJOR],
 ].map((deck) => {
   return {
     type: deck[0],
@@ -73,6 +75,10 @@ function cards({ deck, notesAreShuffled }) {
     case "turnarounds":
       return turnaroundChards({
         abstractChordProgression: deck.subType,
+      });
+    case "modes":
+      return modesChards({
+        subType: deck.subType,
       });
     default:
       throw new Error(`not implemented for deck=${deck}`);

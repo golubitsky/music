@@ -36,7 +36,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Flashcards for polychord fractions.
   - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
 - [ ] Flashcards for chord -> mode
-  - [ ] Major
+  - [x] Major
   - [ ] Melodic minor
   - [ ] Harmonic minor
   - [ ] Natural minor
@@ -81,6 +81,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [x] Move shuffle logic out of UI
 - [x] Unskip interval tests.
 - [ ] Flashcards
+  - [ ] 2 lines of text each (to support different formatting/smaller for second line).
   - [x] DeckSelection React Component. Does this require state management? (no)
   - [ ] Export constants, not functions.
   - [x] Move deck definitions out of UI.

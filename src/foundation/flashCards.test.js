@@ -142,8 +142,10 @@ describe("randomCard", () => {
     ["chords", "all"],
     ["polychordFractions", "polychordFractions"],
     ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
+    ["modes", MAJOR],
   ])(".randomCard(%s, %s)", (type, subType) => {
     const targetDeck = deck({ type, subType });
+    expect(targetDeck).toEqual(expect.anything());
     const cardFromThisDeck = randomCard({ deck: targetDeck });
 
     expect(cardFromThisDeck).toEqual(
