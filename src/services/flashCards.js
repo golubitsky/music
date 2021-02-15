@@ -1,8 +1,8 @@
-import { cards as pcCards } from "foundation/flashCards/polychordFractions";
-import { cards as thirdSeventhCards } from "foundation/flashCards/thirdsAndSevenths";
-import { cards as chordChards } from "foundation/flashCards/chords";
-import { cards as turnaroundChards } from "foundation/flashCards/turnarounds";
-import { cards as modesChards } from "foundation/flashCards/modes";
+import { cards as pcCards } from "services/flashCards/polychordFractions";
+import { cards as thirdSeventhCards } from "services/flashCards/thirdsAndSevenths";
+import { cards as chordChards } from "services/flashCards/chords";
+import { cards as turnaroundChards } from "services/flashCards/turnarounds";
+import { cards as modesChards } from "services/flashCards/modes";
 import {
   DIMINISHED,
   MINOR,

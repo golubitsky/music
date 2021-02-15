@@ -1,4 +1,4 @@
-import { noteAbove } from "../intervals.js";
+import { noteAbove } from "../../foundation/intervals.js";
 import {
   ALL_NOTES,
   DIMINISHED,
@@ -10,7 +10,7 @@ import {
   MINOR_SEVEN,
   HALF_DIMINISHED_SEVEN,
   DIMINISHED_SEVEN,
-} from "../constants.js";
+} from "../../foundation/constants.js";
 const _ = require("lodash");
 
 const INTERVALS_ABOVE_ROOT_BY_CHORD_QUALITY = {

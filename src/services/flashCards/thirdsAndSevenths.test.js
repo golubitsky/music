@@ -8,7 +8,7 @@ import {
   MINOR_SEVEN,
   SEVEN,
   MAJOR_SEVEN,
-} from "../constants.js";
+} from "../../foundation/constants.js";
 
 describe("cards", () => {
   test("returns dominant 7ths", () => {

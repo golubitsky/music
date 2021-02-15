@@ -1,5 +1,5 @@
 import { cards } from "./turnarounds.js";
-import { SEVEN, MINOR, FLAT } from "../constants.js";
+import { SEVEN, MINOR, FLAT } from "../../foundation/constants.js";
 
 describe("cards", () => {
   test("returns progression in all keys", () => {

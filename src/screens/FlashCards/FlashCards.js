@@ -2,7 +2,7 @@ import React from "react";
 import DeckTypeSelection from "screens/FlashCards/DeckTypeSelection";
 import SingleDeckType from "screens/FlashCards/SingleDeckType";
 import AllDecksOptions from "screens/FlashCards/AllDecksOptions";
-import { randomDeck, randomCard } from "foundation/flashCards";
+import { randomDeck, randomCard } from "services/flashCards";
 import "screens/FlashCards/FlashCards.css";
 
 const CARD_COLORS_BY_SIDE = {

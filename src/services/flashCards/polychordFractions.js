@@ -1,4 +1,4 @@
-import { SHARP, FLAT, SEVEN } from "../constants.js";
+import { SHARP, FLAT, SEVEN } from "../../foundation/constants.js";
 
 const CARDS = [
   [`13${SHARP}11`, `II/I${SEVEN}`],

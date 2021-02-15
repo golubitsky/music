@@ -1,4 +1,4 @@
-import { noteAbove } from "../intervals.js";
+import { noteAbove } from "../../foundation/intervals.js";
 import {
   WHITE_KEYS,
   SHARPS,
@@ -6,7 +6,7 @@ import {
   MINOR_SEVEN,
   SEVEN,
   MAJOR_SEVEN,
-} from "../constants.js";
+} from "../../foundation/constants.js";
 
 function thirdsAndSevenths(intervals) {
   return WHITE_KEYS.concat(SHARPS)

@@ -1,8 +1,8 @@
 const _ = require("lodash");
 
-import { cards, randomCard, DECKS, deck, decks, randomDeck } from "foundation/flashCards";
+import { cards, randomCard, DECKS, deck, decks, randomDeck } from "services/flashCards";
 // To aid testing of notesAreShuffled.
-import { notesInOneChord } from "foundation/flashCards/chords";
+import { notesInOneChord } from "services/flashCards/chords";
 
 import {
   DIMINISHED,
@@ -14,7 +14,7 @@ import {
   HALF_DIMINISHED_SEVEN,
   DIMINISHED_SEVEN,
   MAJOR_SEVEN,
-} from "./constants.js";
+} from "foundation/constants";
 
 describe("DECKS", () => {
   test("cards have front and back sides", () => {

@@ -1,5 +1,5 @@
-import { chord } from "../chordParser.js";
-import { ALL_NOTES_FOR_CHORD_PROGRESSIONS } from "../constants.js";
+import { chord } from "../../foundation/chordParser.js";
+import { ALL_NOTES_FOR_CHORD_PROGRESSIONS } from "../../foundation/constants.js";
 
 function progressionInKey({ key, abstractChordProgression }) {
   return abstractChordProgression.map((abstractChord) => {

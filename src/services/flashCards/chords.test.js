@@ -11,7 +11,7 @@ import {
   MINOR_SEVEN,
   HALF_DIMINISHED_SEVEN,
   MAJOR_SEVEN,
-} from "../constants.js";
+} from "../../foundation/constants.js";
 const _ = require("lodash");
 
 describe("cards", () => {

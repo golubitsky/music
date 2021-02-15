@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { decks } from "foundation/flashCards";
+import { decks } from "services/flashCards";
 import "screens/FlashCards/FlashCards.css";
 
 export default class DeckTypeSelection extends React.Component {
