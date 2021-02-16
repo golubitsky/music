@@ -14,9 +14,14 @@ const _ = require("lodash");
 const MAJOR_DATA = [
   ["I", `I${MAJOR_SEVEN}`, "Ionian", ""],
   ["II", `ii${SEVEN}`, "Dorian", `${FLAT}3, ${FLAT}7`],
-  ["III", `iii${FLAT}9`, "Phrygian", `${FLAT}2, ${FLAT}3, ${FLAT}6, ${FLAT}7`],
-  ["IV", `IV${MAJOR_SEVEN}${SHARP}11`, "Lydian", `${SHARP}4`],
-  ["V", `V${SEVEN} Vsus`, "Mixolydian", `${FLAT}7`],
+  [
+    "III",
+    `ii${SEVEN}${FLAT}9`,
+    "Phrygian",
+    `${FLAT}2, ${FLAT}3, ${FLAT}6, ${FLAT}7`,
+  ],
+  ["IV", `I${MAJOR_SEVEN}${SHARP}11`, "Lydian", `${SHARP}4`],
+  ["V", `V${SEVEN}, Vsus`, "Mixolydian", `${FLAT}7`],
   ["VI", `vi`, "Aeolian", `${FLAT}3, ${FLAT}6, ${FLAT}7`],
   [
     "VII",
@@ -61,7 +66,12 @@ const HARMONIC_MINOR_DATA = [
   ],
   ["III", `I${MAJOR_SEVEN}${SHARP}5`, `Ionian ${SHARP}5`, `${SHARP}5`],
   ["IV", `ii${SEVEN}`, `Dorian ${SHARP}4`, `${FLAT}3, ${SHARP}4, ${FLAT}7`],
-  ["V", `V${SEVEN}`, `Phrygian Dominant`, `${FLAT}2, ${FLAT}6, ${FLAT}7`],
+  [
+    "V",
+    `V${SEVEN}${FLAT}9`,
+    `Phrygian Dominant`,
+    `${FLAT}2, ${FLAT}6, ${FLAT}7`,
+  ],
   [
     "VI",
     `I${MAJOR_SEVEN}`,
