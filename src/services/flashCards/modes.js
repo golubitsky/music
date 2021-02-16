@@ -28,7 +28,12 @@ const MAJOR_DATA = [
 const MELODIC_MINOR_DATA = [
   ["I", `i${MAJOR_SEVEN}`, "minor-major", `${FLAT}3`],
   ["II", `Vsus${FLAT}9`, `Dorian ${FLAT}2`, `${FLAT}2, ${FLAT}3, ${FLAT}7`],
-  ["III", `${MAJOR_SEVEN}${SHARP}5`, "Lydian augmented", `${SHARP}4, ${SHARP}5`],
+  [
+    "III",
+    `I${MAJOR_SEVEN}${SHARP}5`,
+    "Lydian augmented",
+    `${SHARP}4, ${SHARP}5`,
+  ],
   ["IV", `V${SEVEN}${SHARP}11`, "Lydian dominant", `${SHARP}4, ${FLAT}7`],
   ["V", `i${MAJOR_SEVEN}/V`, `Mixolydian ${FLAT}6`, `${FLAT}6, ${FLAT}7`],
   [

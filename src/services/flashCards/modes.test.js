@@ -14,7 +14,7 @@ describe("cards", () => {
       `mel. ${MINOR}`,
       {
         front: ["III"],
-        back: [`${MAJOR_SEVEN}${SHARP}5`, "Lydian augmented", `${SHARP}4, ${SHARP}5`],
+        back: [`I${MAJOR_SEVEN}${SHARP}5`, "Lydian augmented", `${SHARP}4, ${SHARP}5`],
       },
     ],
   ])(".chord(%s, %o)", (chordQuality, expectedCard) => {
