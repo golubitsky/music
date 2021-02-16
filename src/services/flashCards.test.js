@@ -144,6 +144,7 @@ describe("randomCard", () => {
     ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
     ["modes", MAJOR],
     ["modes", `melodic ${MINOR}`],
+    ["modes", `harmonic ${MINOR}`],
     ...INTERVALS.map((interval) => ["intervals", interval]),
     ["intervals", "all"],
   ])(".randomCard(%s, %s)", (type, subType) => {

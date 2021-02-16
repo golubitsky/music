@@ -35,13 +35,14 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] Sometimes with sharps.
 - [x] Flashcards for polychord fractions.
   - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
-- [ ] Flashcards for chord -> mode
+- [x] Flashcards for chord -> mode
   - [x] Major
-  - [ ] Melodic minor
-  - [ ] Harmonic minor
-  - [ ] Natural minor
-- [ ] Flashcards for scale degree -> mode.
-- [ ] Flashcards for [flatted scale degrees](https://spinditty.com/learning/Memorizing-the-Musical-Modes) -> mode.
+  - [x] Melodic minor
+  - [x] Harmonic minor
+  - [x] Natural minor (same as major)
+  - [ ] A single page to display all data.
+- [x] Flashcards for scale degree -> mode.
+- [x] Flashcards for [flatted scale degrees](https://spinditty.com/learning/Memorizing-the-Musical-Modes) -> mode.
 - [ ] Flashcards for turnarounds (e.g. C A D G) and/or cool progressions.
   - [x] ii V⁷ [ii V⁷]/ii (d G⁷ e A⁷)
 - [ ] Flashcards for intervals
