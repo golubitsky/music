@@ -332,44 +332,36 @@ const NOTES_DIMINISHED_SEVENTH_ABOVE = {
   [`D${FLAT}`]: `C${FLAT}${FLAT}`,
   [`G${FLAT}`]: `F${FLAT}${FLAT}`,
 };
+
+const DATA_BY_INVERVAL = {
+  m2: NOTES_MINOR_SECOND_ABOVE,
+  M2: NOTES_MAJOR_SECOND_ABOVE,
+  m3: NOTES_MINOR_THIRD_ABOVE,
+  M3: NOTES_MAJOR_THIRD_ABOVE,
+  P4: NOTES_PERFECT_FOURTH_ABOVE,
+  "+4": NOTES_AUGMENTED_FOURTH_ABOVE,
+  o5: NOTES_DIMINISHED_FIFTH_ABOVE,
+  P5: NOTES_PERFECT_FIFTH_ABOVE,
+  "+5": NOTES_AUGMENTED_FIFTH_ABOVE,
+  m6: NOTES_MINOR_SIXTH_ABOVE,
+  M6: NOTES_MAJOR_SIXTH_ABOVE,
+  o7: NOTES_DIMINISHED_SEVENTH_ABOVE,
+  m7: NOTES_MINOR_SEVENTH_ABOVE,
+  M7: NOTES_MAJOR_SEVENTH_ABOVE,
+};
 function noteAbove({ note, interval }) {
   if (note.includes("b") || note.includes("#")) {
     throw new Error(`Did you forget to use flat/sharp constants?`);
   }
 
-  switch (interval) {
-    case "P1":
-      return note;
-    case "m2":
-      return NOTES_MINOR_SECOND_ABOVE[note];
-    case "M2":
-      return NOTES_MAJOR_SECOND_ABOVE[note];
-    case "m3":
-      return NOTES_MINOR_THIRD_ABOVE[note];
-    case "M3":
-      return NOTES_MAJOR_THIRD_ABOVE[note];
-    case "P4":
-      return NOTES_PERFECT_FOURTH_ABOVE[note];
-    case "+4":
-      return NOTES_AUGMENTED_FOURTH_ABOVE[note];
-    case "o5":
-      return NOTES_DIMINISHED_FIFTH_ABOVE[note];
-    case "P5":
-      return NOTES_PERFECT_FIFTH_ABOVE[note];
-    case "m6":
-      return NOTES_MINOR_SIXTH_ABOVE[note];
-    case "M6":
-      return NOTES_MAJOR_SIXTH_ABOVE[note];
-    case "+5":
-      return NOTES_AUGMENTED_FIFTH_ABOVE[note];
-    case "o7":
-      return NOTES_DIMINISHED_SEVENTH_ABOVE[note];
-    case "m7":
-      return NOTES_MINOR_SEVENTH_ABOVE[note];
-    case "M7":
-      return NOTES_MAJOR_SEVENTH_ABOVE[note];
-    default:
-      throw new Error(`not implemented for interval=${interval}`);
+  if (interval === "P1") {
+    return note;
   }
+
+  if (DATA_BY_INVERVAL[interval]) {
+    return DATA_BY_INVERVAL[interval][note];
+  }
+  throw new Error(`not implemented for interval=${interval}`);
 }
+
 export { noteAbove };

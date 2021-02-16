@@ -31,21 +31,16 @@ function thirdsAndSevenths(intervals) {
 }
 
 function cards(typeOfChord) {
-  let intervals;
-  switch (typeOfChord) {
-    case MAJOR_SEVEN:
-      intervals = ["M3", "M7"];
-      break;
-    case SEVEN:
-      intervals = ["M3", "m7"];
-      break;
-    case MINOR_SEVEN:
-      intervals = ["m3", "m7"];
-      break;
-    default:
-      throw new Error(`not implemented for typeOfChord=${typeOfChord}`);
+  const intervals = {
+    [MAJOR_SEVEN]: ["M3", "M7"],
+    [SEVEN]: ["M3", "m7"],
+    [MINOR_SEVEN]: ["m3", "m7"],
+  }[typeOfChord];
+
+  if (intervals) {
+    return thirdsAndSevenths(intervals);
   }
 
-  return thirdsAndSevenths(intervals);
+  throw new Error(`not implemented for typeOfChord=${typeOfChord}`);
 }
 export { cards };
