@@ -20,7 +20,8 @@ import {
 const _ = require("lodash");
 
 const DECKS = [
-  ["polychordFractions", "polychordFractions"],
+  ...INTERVALS.map((interval) => ["intervals", interval]),
+  ["intervals", "all"],
   ["seventhsAndThirds", MAJOR_SEVEN],
   ["seventhsAndThirds", SEVEN],
   ["seventhsAndThirds", MINOR_SEVEN],
@@ -33,12 +34,11 @@ const DECKS = [
   ["chords", MAJOR],
   ["chords", MINOR],
   ["chords", DIMINISHED],
-  ["chords", "all"],
-  ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
   ["modes", MAJOR],
   ["modes", `mel. ${MINOR}`],
-  ...INTERVALS.map((interval) => ["intervals", interval]),
-  ["intervals", "all"],
+  ["chords", "all"],
+  ["polychordFractions", "polychordFractions"],
+  ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
 ].map((deckData) => {
   const [type, subType] = deckData;
   return {
