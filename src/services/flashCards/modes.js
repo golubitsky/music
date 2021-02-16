@@ -6,6 +6,7 @@ import {
   SHARP,
   FLAT,
   HALF_DIMINISHED_SEVEN,
+  DIMINISHED_SEVEN,
 } from "foundation/constants.js";
 
 const _ = require("lodash");
@@ -50,23 +51,46 @@ const MELODIC_MINOR_DATA = [
   ],
 ];
 
+const HARMONIC_MINOR_DATA = [
+  ["I", `i${MAJOR_SEVEN}`, "harmonic minor", `${FLAT}3, ${FLAT}6`],
+  [
+    "II",
+    `ii${HALF_DIMINISHED_SEVEN}`,
+    `Locrian ${SHARP}6`,
+    `${FLAT}2, ${FLAT}3, ${FLAT}5 ${FLAT}7`,
+  ],
+  ["III", `I${MAJOR_SEVEN}${SHARP}5`, `Ionian ${SHARP}5`, `${SHARP}5`],
+  ["IV", `ii${SEVEN}`, `Dorian ${SHARP}4`, `${FLAT}3, ${SHARP}4, ${FLAT}7`],
+  ["V", `V${SEVEN}`, `Phrygian Dominant`, `${FLAT}2, ${FLAT}6, ${FLAT}7`],
+  [
+    "VI",
+    `I${MAJOR_SEVEN}`,
+    `Lydian ${SHARP}2`,
+    `${SHARP}2, ${SHARP}4, ${FLAT}6, ${FLAT}7`,
+  ],
+  [
+    "VII",
+    DIMINISHED_SEVEN,
+    `Superlocrian`,
+    `(${FLAT}2, ${FLAT}3, ${FLAT}4, ${FLAT}5, ${FLAT}6, ${FLAT}${FLAT}7)`,
+  ],
+];
+
 function cards({ subType }) {
-  let data;
-  switch (subType) {
-    case MAJOR:
-      data = MAJOR_DATA;
-      break;
-    case `melodic ${MINOR}`:
-      data = MELODIC_MINOR_DATA;
-      break;
-    default:
-      throw new Error(`not implemented for subType=${subType}`);
+  const data = {
+    [MAJOR]: MAJOR_DATA,
+    [`melodic ${MINOR}`]: MELODIC_MINOR_DATA,
+    [`harmonic ${MINOR}`]: HARMONIC_MINOR_DATA,
+  }[subType];
+
+  if (data) {
+    return _.map(data, (item) => {
+      const [scaleDegree, chord, mode, accidentals] = item;
+      return { front: [scaleDegree], back: [chord, mode, accidentals] };
+    });
   }
 
-  return _.map(data, (item) => {
-    const [scaleDegree, chord, mode, accidentals] = item;
-    return { front: [scaleDegree], back: [chord, mode, accidentals] };
-  });
+  throw new Error(`not implemented for subType=${subType}`);
 }
 
 export { cards };

@@ -1,5 +1,12 @@
 import { cards } from "./modes.js";
-import { MAJOR, MINOR, SHARP, FLAT, SEVEN, MAJOR_SEVEN } from "foundation/constants.js";
+import {
+  MAJOR,
+  MINOR,
+  SHARP,
+  FLAT,
+  SEVEN,
+  MAJOR_SEVEN,
+} from "foundation/constants.js";
 
 describe("cards", () => {
   test.each([
@@ -14,7 +21,18 @@ describe("cards", () => {
       `melodic ${MINOR}`,
       {
         front: ["III"],
-        back: [`I${MAJOR_SEVEN}${SHARP}5`, "Lydian augmented", `${SHARP}4, ${SHARP}5`],
+        back: [
+          `I${MAJOR_SEVEN}${SHARP}5`,
+          "Lydian augmented",
+          `${SHARP}4, ${SHARP}5`,
+        ],
+      },
+    ],
+    [
+      `harmonic ${MINOR}`,
+      {
+        front: ["III"],
+        back: [`I${MAJOR_SEVEN}${SHARP}5`, `Ionian ${SHARP}5`, `${SHARP}5`],
       },
     ],
   ])(".chord(%s, %o)", (chordQuality, expectedCard) => {
