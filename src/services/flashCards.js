@@ -35,7 +35,7 @@ const DECKS = [
   ["chords", MINOR],
   ["chords", DIMINISHED],
   ["modes", MAJOR],
-  ["modes", `mel. ${MINOR}`],
+  ["modes", `melodic ${MINOR}`],
   ["chords", "all"],
   ["polychordFractions", "polychordFractions"],
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],

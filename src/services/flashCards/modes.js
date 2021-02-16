@@ -56,7 +56,7 @@ function cards({ subType }) {
     case MAJOR:
       data = MAJOR_DATA;
       break;
-    case `mel. ${MINOR}`:
+    case `melodic ${MINOR}`:
       data = MELODIC_MINOR_DATA;
       break;
     default:

@@ -11,7 +11,7 @@ describe("cards", () => {
       },
     ],
     [
-      `mel. ${MINOR}`,
+      `melodic ${MINOR}`,
       {
         front: ["III"],
         back: [`I${MAJOR_SEVEN}${SHARP}5`, "Lydian augmented", `${SHARP}4, ${SHARP}5`],
