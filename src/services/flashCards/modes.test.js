@@ -35,7 +35,7 @@ describe("cards", () => {
         back: [`I${MAJOR_SEVEN}${SHARP}5`, `Ionian ${SHARP}5`, `${SHARP}5`],
       },
     ],
-  ])(".chord(%s, %o)", (chordQuality, expectedCard) => {
+  ])(".cards(%s, %o)", (chordQuality, expectedCard) => {
     expect(cards({ subType: chordQuality })).toEqual(
       expect.arrayContaining([expectedCard])
     );

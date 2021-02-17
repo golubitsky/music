@@ -1,5 +1,5 @@
 import { noteAbove } from "foundation/intervals";
-import { SEVEN, MINOR, MAJOR } from "foundation/constants";
+import { SEVEN, MAJOR_SEVEN, MINOR, MAJOR } from "foundation/constants";
 
 const _ = require("lodash");
 
@@ -67,6 +67,17 @@ function multipleChordsInSecondaryKey(abstractChord) {
     return matches[1].split(" ");
   }
 }
+
+function seven(abstractChord) {
+  if (abstractChord.includes(SEVEN)) {
+    return SEVEN;
+  }
+  if (abstractChord.includes(MAJOR_SEVEN)) {
+    return MAJOR_SEVEN;
+  }
+
+  return "";
+}
 function abstractCharacteristics({ abstractChord, key }) {
   let chords;
   const multipleChords = multipleChordsInSecondaryKey(abstractChord);
@@ -82,7 +93,7 @@ function abstractCharacteristics({ abstractChord, key }) {
     return {
       root: root({ abstractChord, key }),
       triadQuality: triadQuality(abstractChord),
-      seven: abstractChord.includes(SEVEN) ? SEVEN : "",
+      seven: seven(abstractChord),
     };
   });
 }

@@ -40,6 +40,7 @@ const DECKS = [
   ["chords", "all"],
   ["polychordFractions", "polychordFractions"],
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
+  ["turnarounds", [`ii`, `V${SEVEN}`, `I${MAJOR_SEVEN}`, `V${SEVEN}/ii`]],
 ].map((deckData) => {
   const [type, subType] = deckData;
   return {

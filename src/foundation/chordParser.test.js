@@ -1,9 +1,10 @@
 import { chord } from "foundation/chordParser";
-import { SEVEN, MINOR, SHARP } from "foundation/constants";
+import { SEVEN, MINOR, SHARP, MAJOR_SEVEN } from "foundation/constants";
 
 describe("chord", () => {
   test.each([
     ["I", "A", "A"],
+    [`I${MAJOR_SEVEN}`, "A", `A${MAJOR_SEVEN}`],
     ["i", "A", `A${MINOR}`],
     ["ii", "A", `B${MINOR}`],
     ["V", "A", "E"],
