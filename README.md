@@ -43,6 +43,7 @@ App is [live](https://golubitsky.github.io/music/).
   - [ ] A single page to display all data.
 - [x] Flashcards for scale degree -> mode.
 - [x] Flashcards for [flatted scale degrees](https://spinditty.com/learning/Memorizing-the-Musical-Modes) -> mode.
+- [ ] Flashcards for half-dim7 == minor 6 chords.
 - [ ] Flashcards for turnarounds (e.g. C A D G) and/or cool progressions.
   - [x] ii V⁷ [ii V⁷]/ii (d G⁷ e A⁷)
   - [x] ii V⁷ I△ V⁷/ii (d G⁷ C△ A⁷)
@@ -77,6 +78,7 @@ App is [live](https://golubitsky.github.io/music/).
 
 ### Technical
 
+- [ ] Refactor chordParser. Seek recursive implementation.
 - [x] I wouldn’t write anything serious in JavaScript without https://lodash.com/, which includes such niceties as _.shuffle, _.sum, and \_.cloneDeep. Alternative libraries such as https://ramdajs.com/ can serve this purpose too.
 - [x] For your prototype, CSS Grid looks more appropriate than Flexbox. It has been safe to use in production for at least a year: https://caniuse.com/css-grid It has more properties to keep track of than Flexbox, but https://grid.layoutit.com/ makes them trivial to keep straight. After you learn what terms like “gap” and fr mean, I think there’s no need to hand-write the CSS for your grids; that tool can do it more easily.
 - [x] CSS: how to use CSS Grid (like 4 columns by 3 rows) to fill parent container horizontally and vertically?
