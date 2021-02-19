@@ -35,6 +35,9 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] Sometimes with sharps.
 - [x] Flashcards for polychord fractions.
   - [x] Cards probably shouldn't be duplicated for front/back. Consumer should flip them.
+- [ ] Flashcards for six and seven chord equality.
+  - [x] Half diminished 7 == minor 6
+  - [ ] minor 7 == major 6
 - [x] Flashcards for chord -> mode
   - [x] Major
   - [x] Melodic minor

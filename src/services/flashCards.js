@@ -4,6 +4,8 @@ import { cards as chordChards } from "services/flashCards/chords";
 import { cards as turnaroundChards } from "services/flashCards/turnarounds";
 import { cards as modesChards } from "services/flashCards/modes";
 import { cards as intervalsCards } from "services/flashCards/intervals";
+import { cards as sixToSevenCards } from "services/flashCards/sixToSeven";
+
 import {
   DIMINISHED,
   MINOR,
@@ -36,6 +38,7 @@ const DECKS = [
   ["chords", MAJOR],
   ["chords", MINOR],
   ["chords", DIMINISHED],
+  ["7 == 6", [HALF_DIMINISHED_SEVEN, `${MINOR}6`]],
   ["modes", MAJOR],
   ["modes", `melodic ${MINOR}`],
   ["modes", `harmonic ${MINOR}`],
@@ -92,6 +95,11 @@ function cards({ deck, notesAreShuffled }) {
     case "turnarounds":
       return turnaroundChards({
         abstractChordProgression: deck.subType,
+      });
+    case "7 == 6":
+      return sixToSevenCards({
+        abstractSevenChord: deck.subType[0],
+        abstractSixChord: deck.subType[1],
       });
     default:
       throw new Error(`not implemented for deck=${deck}`);

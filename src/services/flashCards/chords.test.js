@@ -1,4 +1,5 @@
-import { cards } from "./chords.js";
+import { cards } from "services/flashCards/chords";
+
 import {
   SHARP,
   FLAT,

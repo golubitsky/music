@@ -142,6 +142,7 @@ describe("randomCard", () => {
     ["chords", DIMINISHED_SEVEN],
     ["chords", MAJOR_SEVEN],
     ["chords", "all"],
+    ["7 == 6", [HALF_DIMINISHED_SEVEN, `${MINOR}6`]],
     ["polychordFractions", "polychordFractions"],
     ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
     ["turnarounds", [`ii`, `V${SEVEN}`, `I${MAJOR_SEVEN}`, `V${SEVEN}/ii`]],

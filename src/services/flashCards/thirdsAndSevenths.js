@@ -1,12 +1,10 @@
-import { noteAbove } from "../../foundation/intervals.js";
+import { noteAbove } from "foundation/intervals";
 import {
-  WHITE_KEYS,
-  SHARPS,
-  FLATS,
+  ALL_NOTES,
   MINOR_SEVEN,
   SEVEN,
   MAJOR_SEVEN,
-} from "../../foundation/constants.js";
+} from "foundation/constants";
 
 function backSide(note, intervals) {
   return [
@@ -20,14 +18,12 @@ function backSide(note, intervals) {
   ];
 }
 function thirdsAndSevenths(intervals) {
-  return WHITE_KEYS.concat(SHARPS)
-    .concat(FLATS)
-    .map(function (note) {
-      return {
-        front: [note],
-        back: backSide(note, intervals),
-      };
-    });
+  return ALL_NOTES.map(function (note) {
+    return {
+      front: [note],
+      back: backSide(note, intervals),
+    };
+  });
 }
 
 function cards(typeOfChord) {
