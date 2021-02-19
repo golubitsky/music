@@ -1,5 +1,12 @@
 import { chord } from "foundation/chordParser";
-import { SEVEN, MINOR, SHARP, MAJOR_SEVEN } from "foundation/constants";
+import {
+  SEVEN,
+  FLAT,
+  SHARP,
+  MINOR,
+  MAJOR_SEVEN,
+  HALF_DIMINISHED_SEVEN,
+} from "foundation/constants";
 
 describe("chord", () => {
   test.each([
@@ -15,6 +22,16 @@ describe("chord", () => {
     ["I", `C${SHARP}`, `C${SHARP}`],
     ["ii", `C${SHARP}`, `D${SHARP}${MINOR}`],
     ["V", `C${SHARP}`, `G${SHARP}`],
+    [
+      `[ii${HALF_DIMINISHED_SEVEN} V${SEVEN}]/iii`,
+      `E${FLAT}`,
+      `A${HALF_DIMINISHED_SEVEN} D${SEVEN}`,
+    ],
+    [
+      `[ii${HALF_DIMINISHED_SEVEN} V${SEVEN}]/iii`,
+      `C`,
+      `F${SHARP}${HALF_DIMINISHED_SEVEN} B${SEVEN}`,
+    ],
   ])(".chord(%s, %s, %s)", (abstractChord, key, concreteChord) => {
     expect(chord({ abstractChord, key })).toBe(concreteChord);
   });

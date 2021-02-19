@@ -16,7 +16,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentScreen);
     return (
       <div className="wrapper">
         <header className="page-header">Music</header>

@@ -47,6 +47,7 @@ App is [live](https://golubitsky.github.io/music/).
 - [ ] Flashcards for turnarounds (e.g. C A D G) and/or cool progressions.
   - [x] ii V⁷ [ii V⁷]/ii (d G⁷ e A⁷)
   - [x] ii V⁷ I△ V⁷/ii (d G⁷ C△ A⁷)
+  - [x] [ii V⁷]/iii [ii V⁷]/ii ii V⁷ I△ (f# B⁷ e A⁷ d G⁷ C△)
 - [ ] Flashcards for intervals
   - [x] Ascending
   - [x] Descending (implemented via "Reverse" but this isn't a good solution for all sensible notes)
@@ -65,6 +66,7 @@ App is [live](https://golubitsky.github.io/music/).
     - [x] All qualities.
     - [ ] Shuffled notes.
 - [ ] Flashcards UI enhancements.
+  - [ ] Customization of how the lines on a flashcard will be displayed (i.e. 'main' + 'supporting'; or all same size); see Stella progression.
   - [x] Indicate current deck (perhaps on card).
   - [x] Front/Back is a toggle (relevant after multiple types of flashcards).
   - [ ] Optimize button placement for mobile.

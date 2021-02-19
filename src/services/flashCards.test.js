@@ -24,6 +24,8 @@ import {
   INTERVALS,
 } from "foundation/constants";
 
+import { NAMED_TURNAROUNDS } from "services/flashCards/turnarounds";
+
 describe("DECKS", () => {
   test("cards have front and back sides", () => {
     expect(DECKS).toEqual(
@@ -143,6 +145,7 @@ describe("randomCard", () => {
     ["polychordFractions", "polychordFractions"],
     ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
     ["turnarounds", [`ii`, `V${SEVEN}`, `I${MAJOR_SEVEN}`, `V${SEVEN}/ii`]],
+    ["turnarounds", NAMED_TURNAROUNDS["Stella"]],
     ["modes", MAJOR],
     ["modes", `melodic ${MINOR}`],
     ["modes", `harmonic ${MINOR}`],

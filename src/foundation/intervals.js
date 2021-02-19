@@ -55,6 +55,9 @@ const NOTES_MAJOR_SECOND_ABOVE = {
   [`A${FLAT}`]: `B${FLAT}`,
   [`D${FLAT}`]: `E${FLAT}`,
   [`G${FLAT}`]: `A${FLAT}`,
+  // Additional enharmonics
+  [`B${SHARP}`]: `C${SHARP}`,
+  [`E${SHARP}`]: `F${SHARP}${SHARP}`,
 };
 
 const NOTES_PERFECT_FIFTH_ABOVE = {
@@ -78,6 +81,9 @@ const NOTES_PERFECT_FIFTH_ABOVE = {
   [`A${FLAT}`]: `E${FLAT}`,
   [`D${FLAT}`]: `A${FLAT}`,
   [`G${FLAT}`]: `D${FLAT}`,
+  // Additional enharmonics
+  [`B${SHARP}`]: `F${SHARP}${SHARP}`,
+  [`E${SHARP}`]: `B${SHARP}`,
 };
 
 const NOTES_AUGMENTED_FIFTH_ABOVE = {
@@ -359,7 +365,11 @@ function noteAbove({ note, interval }) {
   }
 
   if (DATA_BY_INVERVAL[interval]) {
-    return DATA_BY_INVERVAL[interval][note];
+    const result = DATA_BY_INVERVAL[interval][note];
+    if (result) {
+      return result;
+    }
+    throw new Error(`not implemented for ${interval} above ${note}`);
   }
   throw new Error(`not implemented for interval=${interval}`);
 }

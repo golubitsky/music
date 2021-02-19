@@ -1,5 +1,11 @@
 import { noteAbove } from "foundation/intervals";
-import { SEVEN, MAJOR_SEVEN, MINOR, MAJOR } from "foundation/constants";
+import {
+  SEVEN,
+  MAJOR_SEVEN,
+  MINOR,
+  MAJOR,
+  HALF_DIMINISHED_SEVEN,
+} from "foundation/constants";
 
 const _ = require("lodash");
 
@@ -15,7 +21,15 @@ function triadQuality(abstractChord) {
   const chordFunction = abstractChord.split("/")[0];
   const quality = chordFunction.toUpperCase() === chordFunction ? MAJOR : MINOR;
 
-  return quality === MAJOR ? "" : quality;
+  if (quality === MINOR) {
+    if (seven(abstractChord) === HALF_DIMINISHED_SEVEN) {
+      return "";
+    } else {
+      return MINOR;
+    }
+  }
+
+  return "";
 }
 
 function romanNumeral(abstractChord) {
@@ -51,7 +65,6 @@ function chordFunction(abstractChord) {
 
 function secondaryKey({ abstractChord, key }) {
   const secondaryKey = abstractChord.split("/")[1];
-
   if (secondaryKey) {
     return noteAbove({
       note: key,
@@ -69,11 +82,14 @@ function multipleChordsInSecondaryKey(abstractChord) {
 }
 
 function seven(abstractChord) {
-  if (abstractChord.includes(SEVEN)) {
-    return SEVEN;
+  if (abstractChord.includes(HALF_DIMINISHED_SEVEN)) {
+    return HALF_DIMINISHED_SEVEN;
   }
   if (abstractChord.includes(MAJOR_SEVEN)) {
     return MAJOR_SEVEN;
+  }
+  if (abstractChord.includes(SEVEN)) {
+    return SEVEN;
   }
 
   return "";
