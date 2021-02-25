@@ -2,7 +2,9 @@ import { chord } from "../../foundation/chordParser.js";
 import {
   ALL_NOTES_FOR_CHORD_PROGRESSIONS,
   SEVEN,
+  FLAT,
   MAJOR_SEVEN,
+  MINOR_SEVEN,
   HALF_DIMINISHED_SEVEN,
 } from "../../foundation/constants.js";
 
@@ -15,6 +17,12 @@ const NAMED_TURNAROUNDS = {
     `ii${HALF_DIMINISHED_SEVEN}`,
     `V${SEVEN}`,
     `I${MAJOR_SEVEN}`,
+  ],
+  "Bésame/My Favorite": [
+    `i${MINOR_SEVEN}`,
+    `${FLAT}VI${MAJOR_SEVEN}`,
+    `ii${HALF_DIMINISHED_SEVEN}`,
+    `V${SEVEN}`,
   ],
 };
 

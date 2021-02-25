@@ -5,6 +5,7 @@ import {
   MINOR,
   MAJOR,
   HALF_DIMINISHED_SEVEN,
+  FLAT,
 } from "foundation/constants";
 
 const _ = require("lodash");
@@ -15,6 +16,7 @@ const INTERVAL_ABOVE_ROOT_BY_ROMAN_NUMERAL = {
   ii: "M2",
   iii: "M3",
   V: "P5",
+  [`${FLAT}VI`]: "m6",
 };
 
 function triadQuality(abstractChord) {

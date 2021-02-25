@@ -47,6 +47,7 @@ const DECKS = [
   ["turnarounds", ["ii", `V${SEVEN}`, `[ii V${SEVEN}]/ii`]],
   ["turnarounds", [`ii`, `V${SEVEN}`, `I${MAJOR_SEVEN}`, `V${SEVEN}/ii`]],
   ["turnarounds", NAMED_TURNAROUNDS["Stella"]],
+  ["turnarounds", NAMED_TURNAROUNDS["Bésame/My Favorite"]],
 ].map((deckData) => {
   const [type, subType] = deckData;
   return {

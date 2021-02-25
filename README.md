@@ -51,6 +51,7 @@ App is [live](https://golubitsky.github.io/music/).
   - [x] ii V⁷ [ii V⁷]/ii (d G⁷ e A⁷)
   - [x] ii V⁷ I△ V⁷/ii (d G⁷ C△ A⁷)
   - [x] [ii V⁷]/iii [ii V⁷]/ii ii V⁷ I△ (f# B⁷ e A⁷ d G⁷ C△)
+  - [x] Minor 1 6 2 5 (i.e Bésame/My Favorite)
 - [ ] Flashcards for intervals
   - [x] Ascending
   - [x] Descending (implemented via "Reverse" but this isn't a good solution for all sensible notes)
