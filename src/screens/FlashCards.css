@@ -10,6 +10,7 @@
 
 .DeckSelection {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .FlashCard > * {
@@ -44,6 +45,7 @@
 .AllDecksOptions > *,
 .SingleDeckTypeOptions > * {
   display: flex;
+  flex-wrap: wrap;
   margin: 10px;
   justify-content: center;
 }
